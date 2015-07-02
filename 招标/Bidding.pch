@@ -14,6 +14,7 @@
 #import <Mantle.h>
 #import <BlocksKit+UIKit.h>
 #import <Accelerate/Accelerate.h>
-#import "UIImageView+LBBlurredImage.h"
+#import "UIImage+LBBlurredImage.h"
 #import <PureLayout.h>
+#import "config.h"
 #endif

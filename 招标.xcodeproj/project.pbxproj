@@ -14,8 +14,11 @@
 		AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FA31B44D19000E11040 /* HomeViewController.m */; };
 		AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FA41B44D19000E11040 /* HomeViewController.xib */; };
 		AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FA81B44D7BF00E11040 /* TTPerson.m */; };
-		AFC61FAF1B44EBFD00E11040 /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FAE1B44EBFD00E11040 /* UIImageView+LBBlurredImage.m */; };
 		AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FB21B4500CA00E11040 /* Launch Screen.xib */; };
+		AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FB51B45303600E11040 /* UIImage+LBBlurredImage.m */; };
+		AFC61FBB1B45392A00E11040 /* MMUserDefaultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */; };
+		AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FBD1B454D3F00E11040 /* RegistViewController.m */; };
+		AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */; };
 		EC079653000D351C3100628B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B86DD9ACF283721F4EB233 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +51,15 @@
 		AFC61FA71B44D7BF00E11040 /* TTPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPerson.h; sourceTree = "<group>"; };
 		AFC61FA81B44D7BF00E11040 /* TTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPerson.m; sourceTree = "<group>"; };
 		AFC61FAA1B44D82700E11040 /* Bidding.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bidding.pch; sourceTree = "<group>"; };
-		AFC61FAD1B44EBFD00E11040 /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
-		AFC61FAE1B44EBFD00E11040 /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
 		AFC61FB21B4500CA00E11040 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		AFC61FB41B45303600E11040 /* UIImage+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LBBlurredImage.h"; sourceTree = "<group>"; };
+		AFC61FB51B45303600E11040 /* UIImage+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LBBlurredImage.m"; sourceTree = "<group>"; };
+		AFC61FB81B4537A600E11040 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		AFC61FB91B45392A00E11040 /* MMUserDefaultTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUserDefaultTool.h; sourceTree = "<group>"; };
+		AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMUserDefaultTool.m; sourceTree = "<group>"; };
+		AFC61FBC1B454D3F00E11040 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		AFC61FBD1B454D3F00E11040 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				AFC61F741B44CF9C00E11040 /* 招标 */,
+				AFC61FB71B45379200E11040 /* Util */,
 				AFC61FAB1B44EBA300E11040 /* category */,
 				AFC61F9B1B44D03000E11040 /* LoginAndRegist */,
 				AFC61F8E1B44CF9C00E11040 /* 招标Tests */,
@@ -147,6 +157,7 @@
 		AFC61F9C1B44D04800E11040 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */,
 				AFC61FA41B44D19000E11040 /* HomeViewController.xib */,
 			);
 			name = view;
@@ -166,6 +177,8 @@
 			children = (
 				AFC61FA21B44D19000E11040 /* HomeViewController.h */,
 				AFC61FA31B44D19000E11040 /* HomeViewController.m */,
+				AFC61FBC1B454D3F00E11040 /* RegistViewController.h */,
+				AFC61FBD1B454D3F00E11040 /* RegistViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -181,10 +194,20 @@
 		AFC61FAC1B44EBE300E11040 /* UIimageview */ = {
 			isa = PBXGroup;
 			children = (
-				AFC61FAD1B44EBFD00E11040 /* UIImageView+LBBlurredImage.h */,
-				AFC61FAE1B44EBFD00E11040 /* UIImageView+LBBlurredImage.m */,
+				AFC61FB41B45303600E11040 /* UIImage+LBBlurredImage.h */,
+				AFC61FB51B45303600E11040 /* UIImage+LBBlurredImage.m */,
 			);
 			name = UIimageview;
+			sourceTree = "<group>";
+		};
+		AFC61FB71B45379200E11040 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				AFC61FB91B45392A00E11040 /* MMUserDefaultTool.h */,
+				AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */,
+				AFC61FB81B4537A600E11040 /* config.h */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		F3B8F4B161103105AFE6C3F6 /* Pods */ = {
@@ -288,6 +311,7 @@
 			files = (
 				AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */,
 				AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */,
+				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
 				AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,8 +364,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */,
+				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
 				AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */,
-				AFC61FAF1B44EBFD00E11040 /* UIImageView+LBBlurredImage.m in Sources */,
+				AFC61FBB1B45392A00E11040 /* MMUserDefaultTool.m in Sources */,
+				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 			);
