@@ -8,12 +8,13 @@
 
 #import "HomeViewController.h"
 #import "RegistViewController.h"
+#import "BiddingListViewController.h"
 
 @interface HomeViewController ()
 {
     UIImageView *backgroundImage;//背景图片
-    UITextField *namefield;
-    UITextField *pwfield;
+    CustomField *namefield;
+    CustomField *pwfield;
     UIButton    *loginbtn;
     UIButton    *registbtn;
     UIImageView *accIcon;
@@ -45,25 +46,27 @@
     [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [backgroundImage  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     
-    namefield=[UITextField newAutoLayoutView];
+    namefield=[CustomField newAutoLayoutView];
     namefield.placeholder=@"username";
     namefield.textColor=[UIColor whiteColor];
     namefield.textAlignment=NSTextAlignmentCenter;
+    accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"account"]];
+    //textfield左侧添加图片
+    namefield.leftView=accIcon;
+    namefield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:namefield];
-    accIcon=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    accIcon.image=[UIImage imageNamed:@"account"];
-    [namefield addSubview:accIcon];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:300];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
     
-    pwfield=[UITextField newAutoLayoutView];
+    pwfield=[CustomField newAutoLayoutView];
     pwfield.placeholder=@"password";
     pwfield.textColor=[UIColor whiteColor];
     pwfield.textAlignment=NSTextAlignmentCenter;
+    pwIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
+    pwfield.leftView=pwIcon;
+    pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];
-    pwIcon=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    pwIcon.image=[UIImage imageNamed:@"password"];
     [pwfield addSubview:pwIcon];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:350];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
@@ -93,7 +96,11 @@
 
 -(void)pushloginVC{
  
-
+    BiddingListViewController *registVC;
+    if (!registVC) {
+        registVC=[[BiddingListViewController alloc]init];
+    }
+    [self presentViewController:registVC animated:YES completion:nil];
 }
 
 -(void)pushregistVC{
