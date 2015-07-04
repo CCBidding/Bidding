@@ -96,11 +96,12 @@
 
 -(void)pushloginVC{
  
-    BiddingListViewController *registVC;
-    if (!registVC) {
-        registVC=[[BiddingListViewController alloc]init];
+    BiddingListViewController *loginVC;
+    if (!loginVC) {
+        loginVC=[[BiddingListViewController alloc]init];
     }
-    [self presentViewController:registVC animated:YES completion:nil];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:loginVC];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)pushregistVC{

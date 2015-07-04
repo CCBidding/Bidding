@@ -16,4 +16,5 @@
 #import "CustomField.h"
 #import "MBProgressHUD+Add.h"
 #import "MBProgressHUD.h"
+#import "CDRTranslucentSideBar.h"
 #endif
