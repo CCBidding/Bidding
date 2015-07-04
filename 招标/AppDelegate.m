@@ -22,7 +22,7 @@
     [self.window makeKeyAndVisible];
     HomeViewController *home=[[HomeViewController alloc]init];
     self.window.rootViewController=home;
-
+    NSLog(@"+++");
     return YES;
 }
 
