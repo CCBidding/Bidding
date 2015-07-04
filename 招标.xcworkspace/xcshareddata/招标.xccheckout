@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1036CF99-849D-40E2-AFDF-F45492D978A2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>招标</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D4B0F5888C5ACF9A20DF86F96B7C3AA592DA2AF4</key>
+		<string>github.com:CCBidding/Bidding.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>招标.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D4B0F5888C5ACF9A20DF86F96B7C3AA592DA2AF4</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:CCBidding/Bidding.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D4B0F5888C5ACF9A20DF86F96B7C3AA592DA2AF4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D4B0F5888C5ACF9A20DF86F96B7C3AA592DA2AF4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E6%8B%9B%E6%A0%87</string>
+		</dict>
+	</array>
+</dict>
+</plist>
