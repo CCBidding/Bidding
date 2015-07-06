@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BiddingListViewController : UIViewController
+@interface BiddingListViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+
 
 @end

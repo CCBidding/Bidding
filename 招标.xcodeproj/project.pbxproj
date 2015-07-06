@@ -25,6 +25,8 @@
 		AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD21B464C7E00E11040 /* MBProgressHUD+Add.m */; };
 		AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */; };
 		AFC6200C1B46664F00E11040 /* CDRTranslucentSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */; };
+		AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */; };
+		AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */; };
 		EC079653000D351C3100628B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B86DD9ACF283721F4EB233 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,9 @@
 		AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AFC6200A1B46664F00E11040 /* CDRTranslucentSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDRTranslucentSideBar.h; sourceTree = "<group>"; };
 		AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDRTranslucentSideBar.m; sourceTree = "<group>"; };
+		AFE3B04B1B4A188C002ACA1F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +106,13 @@
 		AFC61F691B44CF9C00E11040 = {
 			isa = PBXGroup;
 			children = (
-				AFC61FCF1B464C6D00E11040 /* Library */,
 				AFC61F741B44CF9C00E11040 /* 招标 */,
 				AFC61FC61B4627CF00E11040 /* Main */,
+				AFC61F9B1B44D03000E11040 /* LoginAndRegist */,
+				AFE3B0471B4A180F002ACA1F /* Menu */,
+				AFC61FCF1B464C6D00E11040 /* Library */,
 				AFC61FB71B45379200E11040 /* Util */,
 				AFC61FAB1B44EBA300E11040 /* category */,
-				AFC61F9B1B44D03000E11040 /* LoginAndRegist */,
 				AFC61F8E1B44CF9C00E11040 /* 招标Tests */,
 				AFC61F731B44CF9C00E11040 /* Products */,
 				F3B8F4B161103105AFE6C3F6 /* Pods */,
@@ -310,6 +316,40 @@
 			path = CDRTranslucentSideBar;
 			sourceTree = "<group>";
 		};
+		AFE3B0471B4A180F002ACA1F /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3B04A1B4A1829002ACA1F /* Controller */,
+				AFE3B0491B4A1822002ACA1F /* View */,
+				AFE3B0481B4A1817002ACA1F /* Model */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		AFE3B0481B4A1817002ACA1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AFE3B0491B4A1822002ACA1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AFE3B04A1B4A1829002ACA1F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3B04B1B4A188C002ACA1F /* MenuViewController.h */,
+				AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F3B8F4B161103105AFE6C3F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */,
+				AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */,
 				AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */,
 				AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */,
 				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
@@ -468,6 +509,7 @@
 				AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
 				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
+				AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */,
 				AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */,
 				AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */,
 				AFC61FBB1B45392A00E11040 /* MMUserDefaultTool.m in Sources */,
