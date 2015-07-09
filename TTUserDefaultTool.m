@@ -1,15 +1,14 @@
 //
-//  MMUserDefaultTool.m
-//  Manito
+//  TTUserDefaultTool.m
+//  招标
 //
-//  Created by Johnny on 15/4/27.
-//  Copyright (c) 2015年 com.Manito.apps. All rights reserved.
+//  Created by mac chen on 15/7/6.
+//  Copyright (c) 2015年 陈齐涛. All rights reserved.
 //
 
-#import "MMUserDefaultTool.h"
+#import "TTUserDefaultTool.h"
 
-@implementation MMUserDefaultTool
-
+@implementation TTUserDefaultTool
 + (void)setObject:(id)objct forKey:(NSString *)key
 {
     [[NSUserDefaults standardUserDefaults] setObject:objct forKey:key];
@@ -33,11 +32,9 @@
 {
     BOOL isEmpty = YES;
     id a = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-    if (a && [a length] && ![[NSString stringWithFormat:@"%@",[MMUserDefaultTool objectForKey:key]] isEqual:@"(null)"]) {
+    if (a && [a length] && ![[NSString stringWithFormat:@"%@",[TTUserDefaultTool objectForKey:key]] isEqual:@"(null)"]) {
         isEmpty = NO;
     }
     return isEmpty;
 }
-
-
 @end

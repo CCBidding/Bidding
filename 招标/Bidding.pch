@@ -15,6 +15,7 @@
 #import <BlocksKit+UIKit.h>
 #import <Accelerate/Accelerate.h>
 #import "UIImage+LBBlurredImage.h"
+#import <AFNetworking.h>
 #import <PureLayout.h>
 #import "config.h"
 #endif

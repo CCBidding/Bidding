@@ -62,6 +62,7 @@
     
     namefield=[CustomField newAutoLayoutView];
     namefield.placeholder=@"username";
+    namefield.autocapitalizationType=UITextAutocapitalizationTypeSentences;
     namefield.textColor=[UIColor whiteColor];
     namefield.textAlignment=NSTextAlignmentCenter;
     accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"account"]];
@@ -167,8 +168,21 @@
 }
 
 -(void)registuser{
-
-
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    AFHTTPRequestOperation *op = [manager POST:TTRegistUrl parameters:@{@"username":namefield.text,@"password":pwfield.text} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
+            [TTUserDefaultTool setObject:responseObject[@"datas"][0][@"sessionid"] forKey:TTsessinid];
+            [self dismiss];
+        }
+    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    [op start];
 
 
 

@@ -16,7 +16,6 @@
 		AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FA81B44D7BF00E11040 /* TTPerson.m */; };
 		AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FB21B4500CA00E11040 /* Launch Screen.xib */; };
 		AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FB51B45303600E11040 /* UIImage+LBBlurredImage.m */; };
-		AFC61FBB1B45392A00E11040 /* MMUserDefaultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */; };
 		AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FBD1B454D3F00E11040 /* RegistViewController.m */; };
 		AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */; };
 		AFC61FC51B46239D00E11040 /* CustomField.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FC41B46239D00E11040 /* CustomField.m */; };
@@ -27,6 +26,12 @@
 		AFC6200C1B46664F00E11040 /* CDRTranslucentSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */; };
 		AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */; };
 		AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */; };
+		AFE3B0521B4A24BC002ACA1F /* TTUserDefaultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */; };
+		AFE3B0561B4A2F92002ACA1F /* MBProgressHUD+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0551B4A2F92002ACA1F /* MBProgressHUD+Simple.m */; };
+		AFE3B0681B4B6A12002ACA1F /* BiddinglistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0671B4B6A12002ACA1F /* BiddinglistTableViewCell.m */; };
+		AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */; };
+		AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */; };
+		AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */; };
 		EC079653000D351C3100628B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B86DD9ACF283721F4EB233 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +68,6 @@
 		AFC61FB41B45303600E11040 /* UIImage+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LBBlurredImage.h"; sourceTree = "<group>"; };
 		AFC61FB51B45303600E11040 /* UIImage+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LBBlurredImage.m"; sourceTree = "<group>"; };
 		AFC61FB81B4537A600E11040 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		AFC61FB91B45392A00E11040 /* MMUserDefaultTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUserDefaultTool.h; sourceTree = "<group>"; };
-		AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMUserDefaultTool.m; sourceTree = "<group>"; };
 		AFC61FBC1B454D3F00E11040 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		AFC61FBD1B454D3F00E11040 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
@@ -82,6 +85,18 @@
 		AFE3B04B1B4A188C002ACA1F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		AFE3B0501B4A24BC002ACA1F /* TTUserDefaultTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserDefaultTool.h; sourceTree = "<group>"; };
+		AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserDefaultTool.m; sourceTree = "<group>"; };
+		AFE3B0541B4A2F92002ACA1F /* MBProgressHUD+Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Simple.h"; sourceTree = "<group>"; };
+		AFE3B0551B4A2F92002ACA1F /* MBProgressHUD+Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Simple.m"; sourceTree = "<group>"; };
+		AFE3B0661B4B6A12002ACA1F /* BiddinglistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiddinglistTableViewCell.h; sourceTree = "<group>"; };
+		AFE3B0671B4B6A12002ACA1F /* BiddinglistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiddinglistTableViewCell.m; sourceTree = "<group>"; };
+		AFE3B0691B4B6FBC002ACA1F /* DetialBiddingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetialBiddingViewController.h; sourceTree = "<group>"; };
+		AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetialBiddingViewController.m; sourceTree = "<group>"; };
+		AFE3B06C1B4B75A1002ACA1F /* DetailBiddingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBiddingTableViewCell.h; sourceTree = "<group>"; };
+		AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBiddingTableViewCell.m; sourceTree = "<group>"; };
+		AFE3B06F1B4B75F9002ACA1F /* TTBiddingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBiddingModel.h; sourceTree = "<group>"; };
+		AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBiddingModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +226,7 @@
 		AFC61FAB1B44EBA300E11040 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */,
 				AFC61FAC1B44EBE300E11040 /* UIimageview */,
 			);
 			name = category;
@@ -237,9 +253,9 @@
 		AFC61FC11B46234000E11040 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				AFC61FB91B45392A00E11040 /* MMUserDefaultTool.h */,
-				AFC61FBA1B45392A00E11040 /* MMUserDefaultTool.m */,
 				AFC61FB81B4537A600E11040 /* config.h */,
+				AFE3B0501B4A24BC002ACA1F /* TTUserDefaultTool.h */,
+				AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -268,6 +284,10 @@
 			isa = PBXGroup;
 			children = (
 				AFC61FCC1B46288E00E11040 /* BiddingListViewController.xib */,
+				AFE3B0661B4B6A12002ACA1F /* BiddinglistTableViewCell.h */,
+				AFE3B0671B4B6A12002ACA1F /* BiddinglistTableViewCell.m */,
+				AFE3B06C1B4B75A1002ACA1F /* DetailBiddingTableViewCell.h */,
+				AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -275,6 +295,8 @@
 		AFC61FC81B4627F400E11040 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFE3B06F1B4B75F9002ACA1F /* TTBiddingModel.h */,
+				AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +306,8 @@
 			children = (
 				AFC61FCA1B46288E00E11040 /* BiddingListViewController.h */,
 				AFC61FCB1B46288E00E11040 /* BiddingListViewController.m */,
+				AFE3B0691B4B6FBC002ACA1F /* DetialBiddingViewController.h */,
+				AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -348,6 +372,15 @@
 				AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3B0541B4A2F92002ACA1F /* MBProgressHUD+Simple.h */,
+				AFE3B0551B4A2F92002ACA1F /* MBProgressHUD+Simple.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		F3B8F4B161103105AFE6C3F6 /* Pods */ = {
@@ -505,19 +538,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE3B0521B4A24BC002ACA1F /* TTUserDefaultTool.m in Sources */,
+				AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */,
 				AFC6200C1B46664F00E11040 /* CDRTranslucentSideBar.m in Sources */,
 				AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */,
+				AFE3B0561B4A2F92002ACA1F /* MBProgressHUD+Simple.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
 				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
 				AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */,
 				AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */,
 				AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */,
-				AFC61FBB1B45392A00E11040 /* MMUserDefaultTool.m in Sources */,
 				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
+				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
+				AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */,
+				AFE3B0681B4B6A12002ACA1F /* BiddinglistTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

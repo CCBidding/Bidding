@@ -15,6 +15,7 @@
     UIImageView *backgroundImage;//背景图片
     CustomField *namefield;
     CustomField *pwfield;
+    UIImageView *Icon;      //开始界面头像
     UIButton    *loginbtn;
     UIButton    *registbtn;
     UIImageView *accIcon;
@@ -45,6 +46,18 @@
     [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [backgroundImage  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    
+    Icon=[UIImageView newAutoLayoutView];
+    Icon.image=[UIImage imageNamed:@"Icon"];
+     Icon.layer.cornerRadius=50;
+    [Icon.layer setMasksToBounds:YES];
+    [self.view addSubview:Icon];
+    [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:150];
+    [Icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-50];
+    [Icon autoSetDimension:ALDimensionHeight toSize:100];
+    [Icon autoSetDimension:ALDimensionWidth toSize:100];
+    
+    
     
     namefield=[CustomField newAutoLayoutView];
     namefield.placeholder=@"username";
@@ -95,13 +108,35 @@
 }
 
 -(void)pushloginVC{
+     [self.view endEditing:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    AFHTTPRequestOperation *op = [manager POST:TTLoginUrl parameters:@{@"username":namefield.text,@"password":pwfield.text} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
+            [TTUserDefaultTool setObject:responseObject[@"datas"][0][@"sessionid"] forKey:TTsessinid];
+            [TTUserDefaultTool setObject:namefield.text forKey:TTusername];
+            [TTUserDefaultTool setObject:pwfield.text   forKey:TTpassword];
+            [MBProgressHUD showMessageThenHide:@"已成功登录" toView:self.view];
+            BiddingListViewController *biddingVC;
+            if (!biddingVC) {
+                biddingVC=[[BiddingListViewController alloc]init];
+                    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:biddingVC];
+                    [self presentViewController:nav animated:YES completion:nil];
+            }
+        }
+        else{
+           [MBProgressHUD showMessageThenHide:@"用户名或密码错误，请重试" toView:self.view];
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    [op start];
  
-    BiddingListViewController *loginVC;
-    if (!loginVC) {
-        loginVC=[[BiddingListViewController alloc]init];
-    }
-    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:loginVC];
-    [self presentViewController:nav animated:YES completion:nil];
+
 }
 
 -(void)pushregistVC{
@@ -129,7 +164,7 @@
 
 }
 - (void) keyboardWasHidden:(NSNotification *) notif {
-     self.view.frame=CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
+    self.view.frame=CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
  
 }
 

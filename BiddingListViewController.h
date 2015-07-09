@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BiddingListViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) UITableView *Mytableview;
 
 
 @end
