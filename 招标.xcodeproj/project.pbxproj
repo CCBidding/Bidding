@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF01B4E7256004C1249 /* PPBaseViewController.m */; };
+		68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
 		AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F7A1B44CF9C00E11040 /* AppDelegate.m */; };
 		AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC61F821B44CF9C00E11040 /* Images.xcassets */; };
@@ -49,6 +51,10 @@
 		25B86DD9ACF283721F4EB233 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		29829C2FDBBE7C1C5691DCB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		556F51A9F0429DE857E4B8D6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		68634EEF1B4E7256004C1249 /* PPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBaseViewController.h; sourceTree = "<group>"; };
+		68634EF01B4E7256004C1249 /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
+		68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PPUser.h"; sourceTree = "<group>"; };
+		68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PPUser.m"; sourceTree = "<group>"; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC61F761B44CF9C00E11040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC61F771B44CF9C00E11040 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68634EEE1B4E720F004C1249 /* PPBaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				68634EEF1B4E7256004C1249 /* PPBaseViewController.h */,
+				68634EF01B4E7256004C1249 /* PPBaseViewController.m */,
+			);
+			name = PPBaseViewController;
+			sourceTree = "<group>";
+		};
 		AFC61F691B44CF9C00E11040 = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +241,11 @@
 		AFC61FAB1B44EBA300E11040 /* category */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */,
+=======
+				68634EEE1B4E720F004C1249 /* PPBaseViewController */,
+>>>>>>> Stashed changes
 				AFC61FAC1B44EBE300E11040 /* UIimageview */,
 			);
 			name = category;
@@ -254,8 +273,13 @@
 			isa = PBXGroup;
 			children = (
 				AFC61FB81B4537A600E11040 /* config.h */,
+<<<<<<< Updated upstream
 				AFE3B0501B4A24BC002ACA1F /* TTUserDefaultTool.h */,
 				AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */,
+=======
+				68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */,
+				68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */,
+>>>>>>> Stashed changes
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -549,8 +573,13 @@
 				AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */,
 				AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */,
 				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
+				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
+<<<<<<< Updated upstream
 				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
+=======
+				68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */,
+>>>>>>> Stashed changes
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
