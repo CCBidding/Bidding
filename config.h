@@ -17,7 +17,6 @@
 #import "MBProgressHUD+Add.h"
 #import "MBProgressHUD.h"
 #import "CDRTranslucentSideBar.h"
-<<<<<<< Updated upstream
 #import "MBProgressHUD+Simple.h"
 
 #define TTBaseurl    @"http://123.57.48.206:8080/GyBid"
@@ -29,7 +28,6 @@
 #define TTsessinid   @"session_id"
 #define TTpassword   @"password"
 #define TTusername   @"username"
-=======
 #import "UIViewController+PPUser.h"
->>>>>>> Stashed changes
+
 #endif

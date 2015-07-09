@@ -241,11 +241,11 @@
 		AFC61FAB1B44EBA300E11040 /* category */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
+
 				AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */,
-=======
+
 				68634EEE1B4E720F004C1249 /* PPBaseViewController */,
->>>>>>> Stashed changes
+
 				AFC61FAC1B44EBE300E11040 /* UIimageview */,
 			);
 			name = category;
@@ -273,13 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				AFC61FB81B4537A600E11040 /* config.h */,
-<<<<<<< Updated upstream
+
 				AFE3B0501B4A24BC002ACA1F /* TTUserDefaultTool.h */,
 				AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */,
-=======
+
 				68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */,
 				68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */,
->>>>>>> Stashed changes
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -575,11 +574,11 @@
 				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
 				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
-<<<<<<< Updated upstream
+
 				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
-=======
+
 				68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */,
->>>>>>> Stashed changes
+
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
