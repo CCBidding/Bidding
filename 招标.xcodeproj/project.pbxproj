@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF01B4E7256004C1249 /* PPBaseViewController.m */; };
 		68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */; };
+		68634EF71B4F5760004C1249 /* colorTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF61B4F5760004C1249 /* colorTurn.m */; };
+		68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68634EF81B4F6B21004C1249 /* QuartzCore.framework */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
 		AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F7A1B44CF9C00E11040 /* AppDelegate.m */; };
 		AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC61F821B44CF9C00E11040 /* Images.xcassets */; };
@@ -55,6 +57,9 @@
 		68634EF01B4E7256004C1249 /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
 		68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PPUser.h"; sourceTree = "<group>"; };
 		68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PPUser.m"; sourceTree = "<group>"; };
+		68634EF51B4F5760004C1249 /* colorTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorTurn.h; sourceTree = "<group>"; };
+		68634EF61B4F5760004C1249 /* colorTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorTurn.m; sourceTree = "<group>"; };
+		68634EF81B4F6B21004C1249 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC61F761B44CF9C00E11040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC61F771B44CF9C00E11040 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */,
 				EC079653000D351C3100628B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,11 +247,8 @@
 		AFC61FAB1B44EBA300E11040 /* category */ = {
 			isa = PBXGroup;
 			children = (
-
 				AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */,
-
 				68634EEE1B4E720F004C1249 /* PPBaseViewController */,
-
 				AFC61FAC1B44EBE300E11040 /* UIimageview */,
 			);
 			name = category;
@@ -273,12 +276,12 @@
 			isa = PBXGroup;
 			children = (
 				AFC61FB81B4537A600E11040 /* config.h */,
-
 				AFE3B0501B4A24BC002ACA1F /* TTUserDefaultTool.h */,
 				AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */,
-
 				68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */,
 				68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */,
+				68634EF51B4F5760004C1249 /* colorTurn.h */,
+				68634EF61B4F5760004C1249 /* colorTurn.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 		FAC7C2C6DA0AFC7B45B6C139 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68634EF81B4F6B21004C1249 /* QuartzCore.framework */,
 				25B86DD9ACF283721F4EB233 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -574,11 +578,9 @@
 				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
 				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
-
 				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
-
 				68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */,
-
+				68634EF71B4F5760004C1249 /* colorTurn.m in Sources */,
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,

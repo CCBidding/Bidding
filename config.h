@@ -28,6 +28,8 @@
 #define TTsessinid   @"session_id"
 #define TTpassword   @"password"
 #define TTusername   @"username"
-#import "UIViewController+PPUser.h"
 
+#import "UIViewController+PPUser.h"
+#import "colorTurn.h"
+#import <QuartzCore/QuartzCore.h>
 #endif

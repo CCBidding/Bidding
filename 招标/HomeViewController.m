@@ -13,6 +13,7 @@
 @interface HomeViewController ()
 {
     UIImageView *backgroundImage;//背景图片
+    UIView      *bgIconView; //icon的背景
     CustomField *namefield;
     CustomField *pwfield;
     UIImageView *Icon;      //开始界面头像
@@ -20,6 +21,13 @@
     UIButton    *registbtn;
     UIImageView *accIcon;
     UIImageView *pwIcon;
+    UILabel     *centerLabel;
+    UIView      *centerView;
+    UIView      *bottomView;
+    UILabel     *bottomLable;
+    UIButton    *remenberBtn; //记住密码
+    UIButton    *forgetBtn;   //忘记密码
+    
 
 }
 @end
@@ -34,25 +42,35 @@
 
 
 -(void)creatUI{
-    backgroundImage=[UIImageView newAutoLayoutView];
-    UIImage *img=[[UIImage alloc]init];
-   backgroundImage.image= [img getBlurImage:[UIImage imageNamed:@"backImage2"]];
-    backgroundImage.userInteractionEnabled=YES;
-    [backgroundImage bk_whenTapped:^{
-        [self.view endEditing:YES];
-    }];
-      [self.view addSubview:backgroundImage];
-    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [backgroundImage  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+//    backgroundImage=[UIImageView newAutoLayoutView];
+//    UIImage *img=[[UIImage alloc]init];
+//   //backgroundImage.image= [img getBlurImage:[UIImage imageNamed:@"backImage2"]];
+//    backgroundImage.userInteractionEnabled=YES;
+//    [backgroundImage bk_whenTapped:^{
+//        [self.view endEditing:YES];
+//    }];
+//      [self.view addSubview:backgroundImage];
+//    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+//    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+//    [backgroundImage autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+//    [backgroundImage  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    
+    bgIconView = [UIView newAutoLayoutView];
+    bgIconView.backgroundColor = [UIColor redColor];
+    [bgIconView.layer setMasksToBounds:YES];
+    [self.view addSubview:bgIconView];
+    [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [bgIconView autoSetDimension:ALDimensionHeight toSize:270];
+    
     
     Icon=[UIImageView newAutoLayoutView];
     Icon.image=[UIImage imageNamed:@"Icon"];
      Icon.layer.cornerRadius=50;
     [Icon.layer setMasksToBounds:YES];
     [self.view addSubview:Icon];
-    [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:150];
+    [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100];
     [Icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-50];
     [Icon autoSetDimension:ALDimensionHeight toSize:100];
     [Icon autoSetDimension:ALDimensionWidth toSize:100];
@@ -60,9 +78,9 @@
     
     
     namefield=[CustomField newAutoLayoutView];
-    namefield.placeholder=@"username";
+    namefield.placeholder=@"用户名";
     namefield.textColor=[UIColor whiteColor];
-    namefield.textAlignment=NSTextAlignmentCenter;
+    namefield.textAlignment=NSTextAlignmentLeft;
     accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"account"]];
     //textfield左侧添加图片
     namefield.leftView=accIcon;
@@ -72,11 +90,11 @@
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
     
-    pwfield=[CustomField newAutoLayoutView];
-    pwfield.placeholder=@"password";
+    pwfield = [CustomField newAutoLayoutView];
+    pwfield.placeholder=@"密码";
     pwfield.textColor=[UIColor whiteColor];
-    pwfield.textAlignment=NSTextAlignmentCenter;
-    pwIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
+    pwfield.textAlignment=NSTextAlignmentLeft;
+    pwIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
     pwfield.leftView=pwIcon;
     pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];
@@ -85,26 +103,104 @@
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
     
+    remenberBtn = [UIButton newAutoLayoutView];
+   
+    [remenberBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    remenberBtn.titleLabel.font = [UIFont fontWithName:nil size:14];
+    [remenberBtn setTitle:@"记住密码" forState:UIControlStateNormal];
+    [self.view addSubview:remenberBtn];
+    [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:380];
+    [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
+    [remenberBtn autoSetDimension:ALDimensionWidth toSize:100];
+    [remenberBtn autoSetDimension:ALDimensionHeight toSize:30];
+    [remenberBtn bk_whenTapped:^{
+        //记住密码要做的事
+        
+    }];
+    
+    forgetBtn  = [UIButton newAutoLayoutView];
+    [forgetBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
+    [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    forgetBtn.titleLabel.font = [UIFont fontWithName:nil size:14];
+    [self.view addSubview:forgetBtn];
+    [forgetBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:380];
+    [forgetBtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
+    [forgetBtn autoSetDimension:ALDimensionHeight toSize:30];
+    [forgetBtn autoSetDimension:ALDimensionWidth toSize:100];
+    [forgetBtn bk_whenTapped:^{
+       //忘记密码
+        
+    }];
+    
     loginbtn=[UIButton newAutoLayoutView];
-    [loginbtn setTitle:@"login" forState:UIControlStateNormal];
+    [loginbtn setTitle:@"登录" forState:UIControlStateNormal];
     [self.view addSubview:loginbtn];
-    loginbtn.backgroundColor=[UIColor colorWithRed:0 green:245/255.0 blue:255/255.0 alpha:1];
+    //loginbtn.backgroundColor=[UIColor colorWithRed:0 green:245/255.0 blue:255/255.0 alpha:1];
+    loginbtn.backgroundColor = [UIColor redColor];
     loginbtn.layer.cornerRadius=5;
-    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:400];
-    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
-    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
+    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
+    [loginbtn autoSetDimension:ALDimensionWidth toSize:100];
+    [loginbtn autoSetDimension:ALDimensionHeight toSize:35];
     [loginbtn addTarget:self action:@selector(pushloginVC) forControlEvents:UIControlEventTouchUpInside];
     
     registbtn=[UIButton newAutoLayoutView];
-    [registbtn setTitle:@"regist" forState:UIControlStateNormal];
+    [registbtn setTitle:@"注册" forState:UIControlStateNormal];
     [self.view addSubview:registbtn];
-    registbtn.backgroundColor=[UIColor colorWithRed:30/255.0 green:144/255.0 blue:255/255.0 alpha:1];
+    registbtn.backgroundColor=[UIColor redColor];
     registbtn.layer.cornerRadius=5;
-    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:450];
-    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
-    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
+    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:TTScreenWith/2-100];
+    [registbtn autoSetDimension:ALDimensionWidth toSize:100];
+    [registbtn  autoSetDimension:ALDimensionHeight toSize:35];
     [registbtn addTarget:self action:@selector(pushregistVC) forControlEvents:UIControlEventTouchUpInside];
 
+//    centerLabel = [UILabel newAutoLayoutView];
+//    centerLabel.text = @"or";
+//    centerLabel.textAlignment = NSTextAlignmentCenter;
+//    centerLabel.backgroundColor = [UIColor whiteColor];
+//    [centerLabel setAutoresizesSubviews:YES];
+//    [self.view addSubview:centerLabel];
+//    [centerLabel setUserInteractionEnabled:YES];
+//    [centerLabel autoSetDimension:ALDimensionWidth toSize:35];
+//    [centerLabel autoSetDimension:ALDimensionHeight toSize:35];
+//    centerLabel.layer.borderWidth = 1;
+//    centerLabel.layer.borderColor = [UIColor colorWithRed:30/255.0 green:144/255.0 blue:255/255.0 alpha:1].CGColor;
+//    centerLabel.layer.cornerRadius = 17.5;
+//    [centerLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:400];
+//    [centerLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-17.5];
+    
+    centerView = [UIView newAutoLayoutView];
+    centerView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:centerView];
+    [centerView autoSetDimension:ALDimensionWidth toSize:35];
+    [centerView autoSetDimension:ALDimensionHeight toSize:35];
+    centerView.layer.borderWidth = 1;
+    centerView.layer.borderColor = [UIColor colorWithRed:30/255.0 green:144/255.0 blue:255/255.0 alpha:1].CGColor;
+    centerView.layer.cornerRadius = 17.5;
+    [centerView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [centerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-17.5];
+    
+    
+    bottomView = [UIView newAutoLayoutView];
+    bottomView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:bottomView];
+    [bottomView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [bottomView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [bottomView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [bottomView  autoSetDimension:ALDimensionHeight toSize:44];
+    
+    
+    bottomLable = [UILabel newAutoLayoutView];
+    bottomLable.text = @"客服电话:xxxxxxxxxxx";
+    bottomLable.textColor = [UIColor whiteColor];
+    bottomLable.textAlignment = NSTextAlignmentCenter;
+    [bottomView addSubview:bottomLable];
+    [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    
 }
 
 -(void)pushloginVC{
