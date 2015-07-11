@@ -18,6 +18,7 @@
 #import "MBProgressHUD.h"
 #import "CDRTranslucentSideBar.h"
 #import "MBProgressHUD+Simple.h"
+#import "PPBaseViewController.h"
 
 #define TTBaseurl    @"http://123.57.48.206:8080/GyBid"
 #define TTLoginUrl   @"http://123.57.48.206:8080/GyBid/appLogin/login.do?type=onlinedo"

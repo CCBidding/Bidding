@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "TTRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    AFHTTPRequestOperation *op = [manager POST:TTLoginUrl parameters:@{@"username":[TTUserDefaultTool objectForKey:TTusername],@"password":[TTUserDefaultTool objectForKey:TTpassword]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
+            TTRootViewController *rootVC=[[TTRootViewController alloc]init];
+            self.window.rootViewController=rootVC;
+        
+        }
+        else{
+          
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    [op start];
     [self.window makeKeyAndVisible];
     HomeViewController *home=[[HomeViewController alloc]init];
     self.window.rootViewController=home;

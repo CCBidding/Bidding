@@ -28,6 +28,10 @@
 		AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD21B464C7E00E11040 /* MBProgressHUD+Add.m */; };
 		AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */; };
 		AFC6200C1B46664F00E11040 /* CDRTranslucentSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */; };
+		AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */; };
+		AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48B1B50BBE400AC7977 /* MyButton.m */; };
+		AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */; };
+		AFE0E4961B50BCD200AC7977 /* TTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */; };
 		AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */; };
 		AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */; };
 		AFE3B0521B4A24BC002ACA1F /* TTUserDefaultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0511B4A24BC002ACA1F /* TTUserDefaultTool.m */; };
@@ -93,6 +97,14 @@
 		AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AFC6200A1B46664F00E11040 /* CDRTranslucentSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDRTranslucentSideBar.h; sourceTree = "<group>"; };
 		AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDRTranslucentSideBar.m; sourceTree = "<group>"; };
+		AFE0E4871B50BB8700AC7977 /* TTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRootViewController.h; sourceTree = "<group>"; };
+		AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRootViewController.m; sourceTree = "<group>"; };
+		AFE0E48A1B50BBE400AC7977 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
+		AFE0E48B1B50BBE400AC7977 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
+		AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiddingListWinViewController.h; sourceTree = "<group>"; };
+		AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiddingListWinViewController.m; sourceTree = "<group>"; };
+		AFE0E4941B50BCD200AC7977 /* TTMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMineViewController.h; sourceTree = "<group>"; };
+		AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMineViewController.m; sourceTree = "<group>"; };
 		AFE3B04B1B4A188C002ACA1F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		AFE3B04C1B4A188C002ACA1F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		AFE3B04D1B4A188C002ACA1F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
@@ -143,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				AFC61F741B44CF9C00E11040 /* 招标 */,
+				AFE0E4901B50BC9800AC7977 /* Mine */,
+				AFE0E4861B50BB6100AC7977 /* common */,
 				AFC61FC61B4627CF00E11040 /* Main */,
 				AFC61F9B1B44D03000E11040 /* LoginAndRegist */,
 				AFE3B0471B4A180F002ACA1F /* Menu */,
@@ -334,6 +348,8 @@
 				AFC61FCB1B46288E00E11040 /* BiddingListViewController.m */,
 				AFE3B0691B4B6FBC002ACA1F /* DetialBiddingViewController.h */,
 				AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */,
+				AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */,
+				AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -364,6 +380,50 @@
 				AFC6200B1B46664F00E11040 /* CDRTranslucentSideBar.m */,
 			);
 			path = CDRTranslucentSideBar;
+			sourceTree = "<group>";
+		};
+		AFE0E4861B50BB6100AC7977 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				AFE0E48A1B50BBE400AC7977 /* MyButton.h */,
+				AFE0E48B1B50BBE400AC7977 /* MyButton.m */,
+				AFE0E4871B50BB8700AC7977 /* TTRootViewController.h */,
+				AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		AFE0E4901B50BC9800AC7977 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				AFE0E4931B50BCAD00AC7977 /* Controller */,
+				AFE0E4921B50BCA400AC7977 /* Model */,
+				AFE0E4911B50BC9F00AC7977 /* View */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		AFE0E4911B50BC9F00AC7977 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AFE0E4921B50BCA400AC7977 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AFE0E4931B50BCAD00AC7977 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFE0E4941B50BCD200AC7977 /* TTMineViewController.h */,
+				AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		AFE3B0471B4A180F002ACA1F /* Menu */ = {
@@ -569,7 +629,9 @@
 				AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */,
 				AFC6200C1B46664F00E11040 /* CDRTranslucentSideBar.m in Sources */,
 				AFC61FA91B44D7BF00E11040 /* TTPerson.m in Sources */,
+				AFE0E4961B50BCD200AC7977 /* TTMineViewController.m in Sources */,
 				AFE3B0561B4A2F92002ACA1F /* MBProgressHUD+Simple.m in Sources */,
+				AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
 				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
 				AFE3B04E1B4A188C002ACA1F /* MenuViewController.m in Sources */,
@@ -583,8 +645,10 @@
 				68634EF71B4F5760004C1249 /* colorTurn.m in Sources */,
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
+				AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
 				AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */,
+				AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */,
 				AFE3B0681B4B6A12002ACA1F /* BiddinglistTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

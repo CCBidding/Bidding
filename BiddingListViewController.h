@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BiddingListViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,strong) UITableView *Mytableview;
 
 

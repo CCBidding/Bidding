@@ -22,15 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self creatUI];
     [self RegistSideBar];
-    [self HaveBiddingList];
     
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)creatUI{
-    self.title=@"列表1";
+-(void)createUI{
+    self.title=@"招标";
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showsideBar)];
     
     _Mytableview=[UITableView newAutoLayoutView];
@@ -46,7 +44,7 @@
 
 }
 
--(void)HaveBiddingList{
+-(void)createData{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -276,7 +274,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self HaveBiddingList];
+    [self createData];
 }
 
 
