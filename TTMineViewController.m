@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
 }
 
-<<<<<<< HEAD
+
 - (void)createUI{
 
     myTableView = [UITableView newAutoLayoutView];
@@ -86,14 +86,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-=======
--(void)createUI{
-    
-
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
 
 
-}
 
 
 
