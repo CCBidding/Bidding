@@ -8,6 +8,6 @@
 
 #import "PPBaseViewController.h"
 
-@interface PPRegistViewController : UIViewController
+@interface PPRegistViewController : PPBaseViewController
 
 @end
