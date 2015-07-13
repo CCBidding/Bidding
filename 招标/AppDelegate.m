@@ -32,10 +32,12 @@
                                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
-                self.window.rootViewController=rootVC;
+                self.window.rootViewController = rootVC;
                 
             }
             else{
+                HomeViewController *home = [[HomeViewController alloc]init];
+                self.window.rootViewController = home;
                 
             }
             
@@ -46,8 +48,8 @@
         [op start];
     }
     else{
-        HomeViewController *home=[[HomeViewController alloc]init];
-        self.window.rootViewController=home;
+        HomeViewController *home = [[HomeViewController alloc]init];
+        self.window.rootViewController = home;
     }
    
     [self.window makeKeyAndVisible];

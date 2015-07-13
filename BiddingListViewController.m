@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [self createUI];
     [self createData];
-    dataSource = [[NSMutableArray alloc]init];
+     dataSource = [[NSMutableArray alloc]init];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -48,12 +48,16 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     AFHTTPRequestOperation *op = [manager POST:TTBiddingLsitUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arr;
-        arr=responseObject[@"datas"];
+        arr = responseObject[@"datas"];
+        if (dataSource != 0) {
+            [dataSource removeAllObjects];
+        }
+        
         for (NSDictionary *dic in arr) {
             _biddingModel=[MTLJSONAdapter modelOfClass:[TTBiddingModel class] fromJSONDictionary:dic error:nil];
             [dataSource addObject:_biddingModel];
-        }
         
+        }
         [_myTableview reloadData];
         
         
@@ -69,7 +73,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView.tag==1001) {
+    if (tableView.tag == 1001) {
         return 1;
     }
     else{
@@ -79,7 +83,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView.tag==1001) {
+    if (tableView.tag == 1001) {
         return dataSource.count;
     }
     else{
@@ -101,112 +105,53 @@
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (tableView.tag==1001) {
-        return 0;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *identifier = @"infoCell";
+    BiddinglistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[BiddinglistTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    else
-    {
-    if (section == 0) {
-        // StatuBar Height
-        return 20;
-    } else if (section == 1) {
-        return 44;
-    }
-    }
-    return 0;
+    [self configureCell:cell withIndexPath:indexPath];
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+    return height;
+    
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    if (tableView.tag==1001) {
-        
-    }
-    else{
-    if (section == 0) {
-        UIView *clearView = [[UIView alloc] initWithFrame:CGRectZero];
-        clearView.backgroundColor = [UIColor clearColor];
-        return clearView;
-    } else if (section == 1) {
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 44)];
-        headerView.backgroundColor = [UIColor clearColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, tableView.bounds.size.width - 15, 44)];
-        //添加分割线
-        UIView *separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(15, 44, tableView.bounds.size.width, 0.5f)];
-        separatorLineView.backgroundColor = [UIColor blackColor];
-        [headerView addSubview:separatorLineView];
-        label.text = @"分类";
-        [headerView addSubview:label];
-        return headerView;
-    }
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (tableView.tag==1001) {
-        return 50;
-    }
-    else{
-    if (indexPath.section == 0) {
-        return 0;
-    } else if (indexPath.section == 1) {
-        return 44;
-    }
-    }
-    return 0;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView.tag==1001) {
+   
         static NSString *cellID=@"biddingcell";
         BiddinglistTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
             cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        cell.biddingModel=dataSource[indexPath.row];
-        cell.titleLab.text=cell.biddingModel.title_name;
-       // cell.infoLab.text=biddinglist[indexPath.row][@"address"];
-       
+       [self configureCell:cell withIndexPath:indexPath];
+    
         
         return cell;
         
-    }
-    else{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    
-    if (indexPath.section == 0) {
-        return cell;
-    } else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"政府采购";
-        } else if (indexPath.row == 1) {
-            cell.textLabel.text = @"企业投标";
-        }
-    }
-        return cell;
-    }
-    return nil;
-    
+
 }
 
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+- (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+   
+        BiddinglistTableViewCell *biddingcell = (BiddinglistTableViewCell *)cell;
+        biddingcell.biddingModel    = dataSource[indexPath.row];
+        biddingcell.titleLab.text   = biddingcell.biddingModel.title_name;
+        biddingcell.addressLab.text = biddingcell.biddingModel.address;
+        biddingcell.timeLab.text   = biddingcell.biddingModel.oppen_time;
+  
 }
 
 -(void)viewWillAppear:(BOOL)animated{

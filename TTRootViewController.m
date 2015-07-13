@@ -19,8 +19,7 @@
 @interface TTRootViewController ()
 {
     UIImageView *tabBarView;//自定义的覆盖原先的tarbar的控件
-    
-    MyButton  *previousBtn;//记录前一次选中的按钮
+    MyButton    *previousBtn;//记录前一次选中的按钮
 }
 
 @end
@@ -45,31 +44,31 @@
 {
     [super viewDidLoad];
 
-    tabBarView = [[UIImageView alloc]initWithFrame:self.tabBar.bounds];
+    tabBarView                        = [[UIImageView alloc]initWithFrame:self.tabBar.bounds];
     tabBarView.userInteractionEnabled = YES;
-    tabBarView.backgroundColor = [UIColor whiteColor];
+    tabBarView.backgroundColor        = [UIColor whiteColor];
     [self.tabBar addSubview:tabBarView];
     
     
-    BiddingListViewController *viewd = [[BiddingListViewController alloc] init];
-    BiddingListViewController *viewd1 = [[BiddingListViewController alloc] init];
+    BiddingListViewController *viewd      = [[BiddingListViewController alloc] init];
+    BiddingListViewController *viewd1     = [[BiddingListViewController alloc] init];
     DHMenuPagerViewController *pagerView1 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
-    pagerView1.title=@"招标";
+    pagerView1.title = @"招标";
     NavParentController *navi1 = [[NavParentController alloc]initWithRootViewController:pagerView1];
     MenuViewController *menuVC = [[MenuViewController alloc]init];
     REFrostedViewController *frostedViewController1 = [[REFrostedViewController alloc] initWithContentViewController:navi1 menuViewController:menuVC];
-    frostedViewController1.direction = REFrostedViewControllerDirectionLeft;
-    frostedViewController1.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    frostedViewController1.direction                = REFrostedViewControllerDirectionLeft;
+    frostedViewController1.liveBlurBackgroundStyle  = REFrostedViewControllerLiveBackgroundStyleLight;
     
     
     BiddingListWinViewController *postVC  = [[BiddingListWinViewController alloc]init];
     BiddingListWinViewController *postVC1 = [[BiddingListWinViewController alloc]init];
     DHMenuPagerViewController *pagerView2 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[postVC,postVC1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
-    pagerView2.title=@"中标";
-    NavParentController *navi2 = [[NavParentController alloc]initWithRootViewController:pagerView2];
+    pagerView2.title                                = @"中标";
+    NavParentController *navi2                      = [[NavParentController alloc]initWithRootViewController:pagerView2];
     REFrostedViewController *frostedViewController2 = [[REFrostedViewController alloc] initWithContentViewController:navi2 menuViewController:menuVC];
-    frostedViewController2.direction = REFrostedViewControllerDirectionLeft;
-    frostedViewController2.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    frostedViewController2.direction                = REFrostedViewControllerDirectionLeft;
+    frostedViewController2.liveBlurBackgroundStyle  = REFrostedViewControllerLiveBackgroundStyleLight;
     
     TTMineViewController *MineVC = [[TTMineViewController alloc]init];
     MineVC.haveBack = NO;
