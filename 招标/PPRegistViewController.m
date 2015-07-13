@@ -54,7 +54,7 @@
     nameLable.text = @"公司名称";
     [nameLable setTintAdjustmentMode:UIViewTintAdjustmentModeAutomatic];
     [scrollView addSubview:nameLable];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30];
+    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
     [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:70];
     [nameLable autoSetDimension:ALDimensionWidth toSize:100];
     [nameLable autoSetDimension:ALDimensionHeight toSize:30];
@@ -62,14 +62,14 @@
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:nameTextField];
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:70];
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:130];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:110];
     [nameTextField autoSetDimension:ALDimensionWidth toSize:200];
     [nameTextField autoSetDimension:ALDimensionHeight toSize:30];
     
     UILabel *pwdLable = [UILabel newAutoLayoutView];
     pwdLable.text = @"密码";
     [scrollView addSubview:pwdLable];
-    [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30];
+    [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
     [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:120];
     [pwdLable autoSetDimension:ALDimensionHeight toSize:30];
     [pwdLable autoSetDimension:ALDimensionWidth toSize:100];
@@ -77,7 +77,7 @@
     pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:pwdTextField];
     [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:120];
-    [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:130];
+    [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:110];
     [pwdTextField autoSetDimension:ALDimensionWidth toSize:200];
     [pwdTextField autoSetDimension:ALDimensionHeight toSize:30];
     
@@ -85,7 +85,7 @@
     UILabel *categoryLabel = [UILabel newAutoLayoutView];
     categoryLabel.text = @"公司类别";
     [scrollView addSubview:categoryLabel];
-    [categoryLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30];
+    [categoryLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
     [categoryLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:170];
     [categoryLabel autoSetDimension:ALDimensionWidth toSize:100];
     [categoryLabel autoSetDimension:ALDimensionHeight toSize:30];
@@ -108,20 +108,20 @@
     companyCategory.dropDownItems = dropdownItems;
     companyCategory.paddingLeft = 15;
     companyCategory.delegate = self;
-    [companyCategory setFrame:CGRectMake(130, 170, 200, 30)];
+    [companyCategory setFrame:CGRectMake(110, 170, 200, 30)];
     companyCategory.type = IGLDropDownMenuTypeStack;
     companyCategory.flipWhenToggleView = YES;
     [companyCategory reloadView];
     [scrollView addSubview:companyCategory];
     
     
-    UILabel *companyInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 260, 100, 30)];
+    UILabel *companyInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 260, 100, 30)];
     companyInfoLabel.text = @"公司资质";
     [scrollView addSubview:companyInfoLabel];
     infomationBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [infomationBtn setTitle:@"请选择" forState:UIControlStateNormal];
     
-    [infomationBtn setFrame:CGRectMake(130, 260, 200, 30)];
+    [infomationBtn setFrame:CGRectMake(110, 260, 200, 30)];
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
     [infomationBtn bk_whenTapped:^{
         //显示
@@ -147,27 +147,27 @@
     }];
     [scrollView addSubview:infomationBtn];
     
-    UILabel *numComLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 300, 100, 30)];
+    UILabel *numComLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 300, 100, 30)];
     numComLabel.text = @"机构代码";
     [scrollView addSubview:numComLabel];
-    numComTextField = [[UITextField alloc]initWithFrame:CGRectMake(130, 300, 200, 30)];
+    numComTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 300, 200, 30)];
     numComTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:numComTextField];
     
-    UILabel *headLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 350, 100, 30)];
+    UILabel *headLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 350, 100, 30)];
     headLabel.text = @"负责人";
     [scrollView addSubview:headLabel];
-    headTextField = [[UITextField alloc]initWithFrame:CGRectMake(130, 350, 200, 30)];
+    headTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 350, 200, 30)];
     headTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:headTextField];
     
-    UILabel *headInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 400, 200, 30)];
+    UILabel *headInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 400, 200, 30)];
     headInfoLabel.text = @"负责人资质";
     [scrollView addSubview:headInfoLabel];
     
     UIButton *headInfoBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headInfoBtn setTitle:@"请选择" forState:UIControlStateNormal];
-    [headInfoBtn setFrame:CGRectMake(130, 400, 200, 30)];
+    [headInfoBtn setFrame:CGRectMake(110, 400, 200, 30)];
     [scrollView addSubview:headInfoBtn];
     [headInfoBtn bk_whenTapped:^{
         [menuLevel2 showFromView:headInfoBtn];
@@ -186,26 +186,26 @@
 
     }];
     
-    UILabel *telLable = [[UILabel alloc]initWithFrame:CGRectMake(30, 450, 100, 30)];
+    UILabel *telLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 450, 100, 30)];
     telLable.text = @"联系电话";
     [scrollView addSubview:telLable];
-    telTextField = [[UITextField alloc]initWithFrame:CGRectMake(130, 450, 200, 30)];
+    telTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 450, 200, 30)];
     telTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:telTextField];
     
-    UILabel *mailLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 490, 100, 30)];
+    UILabel *mailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 490, 100, 30)];
     mailLabel.text = @"邮箱";
     [scrollView addSubview:mailLabel];
     
-    mailTextField = [[UITextField alloc]initWithFrame:CGRectMake(130, 490, 200, 30)];
+    mailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 490, 200, 30)];
     mailTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:mailTextField];
     
-    UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 540, 100, 30)];
+    UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 540, 100, 30)];
     detailLabel.text = @"主要业绩";
     [scrollView addSubview:detailLabel];
     
-    detailTextField = [[UITextField alloc]initWithFrame:CGRectMake(130, 540, 200, 100)];
+    detailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 540, 200, 100)];
     detailTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview: detailTextField];
     

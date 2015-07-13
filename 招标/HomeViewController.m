@@ -79,8 +79,9 @@
     
     namefield=[CustomField newAutoLayoutView];
     namefield.placeholder=@"用户名";
-    namefield.textColor=[UIColor whiteColor];
+    
     namefield.textAlignment=NSTextAlignmentLeft;
+    [namefield setTintColor:[UIColor blackColor]];
     accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"account"]];
     //textfield左侧添加图片
     namefield.leftView=accIcon;
@@ -92,10 +93,11 @@
     
     pwfield = [CustomField newAutoLayoutView];
     pwfield.placeholder=@"密码";
-    pwfield.textColor=[UIColor whiteColor];
+    
     pwfield.textAlignment=NSTextAlignmentLeft;
     pwIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
     pwfield.leftView=pwIcon;
+    
     pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];
     [pwfield addSubview:pwIcon];
