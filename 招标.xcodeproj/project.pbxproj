@@ -408,16 +408,16 @@
 		AFC61FC21B46235000E11040 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				68C6C1A51B53AC51002484DB /* PPMoreView */,
 				68C6C19E1B53A162002484DB /* PPDropView */,
 				68C6C1971B539CD6002484DB /* PPDownListView */,
 				AFC620091B46664F00E11040 /* CDRTranslucentSideBar */,
-=======
+
 				AFE0E4F81B5393EE00AC7977 /* REFrostedViewController */,
 				AFE0E4B51B535D3500AC7977 /* NTSlidingViewController */,
 				AFE0E4971B53542B00AC7977 /* DHMenuViewPagerView */,
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
+
 				AFC61FC31B46239D00E11040 /* CustomField.h */,
 				AFC61FC41B46239D00E11040 /* CustomField.m */,
 			);
@@ -801,15 +801,15 @@
 				68C6C1AE1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m in Sources */,
 				68C6C19D1B539D1A002484DB /* DropDownListView.m in Sources */,
 				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
-<<<<<<< HEAD
+
 				68C6C1681B5352E9002484DB /* PPRegistViewController.m in Sources */,
 				68C6C16B1B535A72002484DB /* PPRegistTableViewCell.m in Sources */,
-=======
+
 				AFE0E50A1B5393EE00AC7977 /* UIViewController+REFrostedViewController.m in Sources */,
 				AFE0E5051B5393EE00AC7977 /* RECommonFunctions.m in Sources */,
 				AFE0E5081B5393EE00AC7977 /* UIImage+REFrostedViewController.m in Sources */,
 				AFE0E5061B5393EE00AC7977 /* REFrostedContainerViewController.m in Sources */,
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
+
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
 				68C6C1A41B53A188002484DB /* IGLDropDownMenu.m in Sources */,
 				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
