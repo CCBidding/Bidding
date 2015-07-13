@@ -22,9 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"关于我";
+    self.navigationController.navigationBar.barTintColor=TTColor(255, 48, 48, 1);
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
     // Do any additional setup after loading the view.
 }
 
+<<<<<<< HEAD
 - (void)createUI{
 
     myTableView = [UITableView newAutoLayoutView];
@@ -83,15 +86,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+=======
+-(void)createUI{
+    
 
-/*
-#pragma mark - Navigation
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
-*/
+
+
 
 @end

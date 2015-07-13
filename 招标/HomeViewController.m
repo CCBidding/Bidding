@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "RegistViewController.h"
 #import "BiddingListViewController.h"
+#import "TTRootViewController.h"
 
 @interface HomeViewController ()
 {
@@ -188,7 +189,7 @@
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [bottomView  autoSetDimension:ALDimensionHeight toSize:44];
+    [bottomView autoSetDimension:ALDimensionHeight toSize:44];
     
     
     bottomLable = [UILabel newAutoLayoutView];
@@ -216,9 +217,14 @@
             [MBProgressHUD showMessageThenHide:@"已成功登录" toView:self.view];
             BiddingListViewController *biddingVC;
             if (!biddingVC) {
+<<<<<<< HEAD
                 biddingVC=[[BiddingListViewController alloc]init];
                     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:biddingVC];
                 self.view.window.rootViewController = nav;
+=======
+                TTRootViewController *rootVC=[[TTRootViewController alloc]init];
+                self.view.window.rootViewController=rootVC;
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
             }
         }
         else{
@@ -253,14 +259,14 @@
 }
 
 - (void) keyboardWasShown:(NSNotification *) notif {
-    NSDictionary *info = [notif userInfo];
-    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSDictionary *info  = [notif userInfo];
+    NSValue *value      = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGSize keyboardSize = [value CGRectValue].size;
-    self.view.frame=CGRectMake(0, -keyboardSize.height, TTScreenWith, TTScreenHeight);
+    self.view.frame     = CGRectMake(0, -keyboardSize.height, TTScreenWith, TTScreenHeight);
 
 }
 - (void) keyboardWasHidden:(NSNotification *) notif {
-    self.view.frame=CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
+    self.view.frame = CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
  
 }
 

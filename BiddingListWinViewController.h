@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentCellViewController.h"
 
-@interface BiddingListWinViewController : PPBaseViewController
+@interface BiddingListWinViewController : ParentCellViewController
 
 @end

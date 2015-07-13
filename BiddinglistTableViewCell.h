@@ -10,8 +10,10 @@
 #import "TTBiddingModel.h"
 
 @interface BiddinglistTableViewCell : UITableViewCell
-@property (nonatomic, strong) UILabel     *titleLab;
-@property (nonatomic, strong) UILabel     *infoLab;
-@property (nonatomic, copy)   TTBiddingModel *biddingModel;
+@property (nonatomic, strong) UILabel        *titleLab;    //标题
+@property (nonatomic, strong) UILabel        *infoLab;     //主要信息
+@property (nonatomic, strong) UILabel        *addressLab;  //单位信息
+@property (nonatomic, copy  ) TTBiddingModel *biddingModel;
+@property (nonatomic, strong) UILabel        *timeLab;     //发布时间
 
 @end

@@ -26,6 +26,7 @@
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
+  
 }
 
 + (BOOL)isEmptyForKey:(NSString *)key
