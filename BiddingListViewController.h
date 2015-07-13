@@ -10,7 +10,7 @@
 #import "TTBiddingModel.h"
 #import "ParentCellViewController.h"
 
-@interface BiddingListViewController : ParentCellViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,strong) UITableView *myTableview;
 @property (nonatomic,strong) TTBiddingModel *biddingModel;
 

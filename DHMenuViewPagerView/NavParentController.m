@@ -55,7 +55,7 @@
     for (UIViewController *vc in self.childViewControllers) {
         vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
         vc.navigationItem.leftBarButtonItem.tintColor = [UIColor blueColor];
-        self.navigationBar.barTintColor=TTColor(255, 78, 78, 1);
+//        self.navigationBar.barTintColor=TTColor(255, 78, 78, 1);
         self.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
        
     }

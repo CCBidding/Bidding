@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBiddingModel.h"
 
-@interface DetialBiddingViewController : UIViewController
+@interface DetialBiddingViewController : PPBaseViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UITableView *myTableview;
+@property (nonatomic, copy)   TTBiddingModel *biddingModel;
 
 @end

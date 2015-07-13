@@ -244,6 +244,14 @@
 
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if (![loginbtn isFirstResponder]||![registbtn isFirstResponder]) {
+        [self.view endEditing:YES];
+    }
+
+
+}
+
 #pragma mark - 获取键盘高度
 
 - (void) registerForKeyboardNotifications {

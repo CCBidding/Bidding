@@ -52,8 +52,10 @@
     
     
     BiddingListViewController *viewd      = [[BiddingListViewController alloc] init];
+    UINavigationController    *nav1       = [[UINavigationController alloc]initWithRootViewController:viewd];
     BiddingListViewController *viewd1     = [[BiddingListViewController alloc] init];
-    DHMenuPagerViewController *pagerView1 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
+    UINavigationController    *nav2       = [[UINavigationController alloc]initWithRootViewController:viewd1];
+    DHMenuPagerViewController *pagerView1 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[nav1,nav2] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
     pagerView1.title = @"招标";
     NavParentController *navi1 = [[NavParentController alloc]initWithRootViewController:pagerView1];
     MenuViewController *menuVC = [[MenuViewController alloc]init];
@@ -63,8 +65,10 @@
     
     
     BiddingListWinViewController *postVC  = [[BiddingListWinViewController alloc]init];
+     UINavigationController    *navpost1       = [[UINavigationController alloc]initWithRootViewController:postVC];
     BiddingListWinViewController *postVC1 = [[BiddingListWinViewController alloc]init];
-    DHMenuPagerViewController *pagerView2 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[postVC,postVC1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
+    UINavigationController    *navpost2       = [[UINavigationController alloc]initWithRootViewController:postVC1];
+    DHMenuPagerViewController *pagerView2 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[navpost1,navpost2] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
     pagerView2.title                                = @"中标";
     NavParentController *navi2                      = [[NavParentController alloc]initWithRootViewController:pagerView2];
     REFrostedViewController *frostedViewController2 = [[REFrostedViewController alloc] initWithContentViewController:navi2 menuViewController:menuVC];
