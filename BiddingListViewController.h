@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBiddingModel.h"
 
 @interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic,strong) UITableView *Mytableview;
+@property (nonatomic,strong) UITableView *myTableview;
+@property (nonatomic,strong) TTBiddingModel *biddingModel;
 
 
 @end

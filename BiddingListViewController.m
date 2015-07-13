@@ -12,7 +12,7 @@
 @interface BiddingListViewController ()<CDRTranslucentSideBarDelegate>
 {
     CDRTranslucentSideBar *_sideBar;     //左侧栏
-    NSArray  *biddinglist;  //获取招标列表
+    NSMutableArray  *dataSource;  //获取招标列表
     
 }
 
@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self RegistSideBar];
+    dataSource = [[NSMutableArray alloc]init];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -31,15 +32,15 @@
     self.title=@"招标";
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showsideBar)];
     
-    _Mytableview=[UITableView newAutoLayoutView];
-    _Mytableview.tag=1001;
-    _Mytableview.delegate=self;
-    _Mytableview.dataSource=self;
-    [self.view addSubview:_Mytableview];
-    [_Mytableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [_Mytableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [_Mytableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [_Mytableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    _myTableview=[UITableView newAutoLayoutView];
+    _myTableview.tag=1001;
+    _myTableview.delegate=self;
+    _myTableview.dataSource=self;
+    [self.view addSubview:_myTableview];
+    [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
 
 
 }
@@ -49,8 +50,14 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     AFHTTPRequestOperation *op = [manager POST:TTBiddingLsitUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        biddinglist=responseObject[@"datas"];
-        [_Mytableview reloadData];
+        NSArray *arr;
+        arr=responseObject[@"datas"];
+        for (NSDictionary *dic in arr) {
+            _biddingModel=[MTLJSONAdapter modelOfClass:[TTBiddingModel class] fromJSONDictionary:dic error:nil];
+            [dataSource addObject:_biddingModel];
+        }
+        
+        [_myTableview reloadData];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -145,7 +152,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView.tag==1001) {
-        return biddinglist.count;
+        return dataSource.count;
     }
     else{
     if (section == 0) {
@@ -232,7 +239,8 @@
         if (!cell) {
             cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        cell.titleLab.text=biddinglist[indexPath.row][@"title_name"];
+        cell.biddingModel=dataSource[indexPath.row];
+        cell.titleLab.text=cell.biddingModel.title_name;
        // cell.infoLab.text=biddinglist[indexPath.row][@"address"];
        
         

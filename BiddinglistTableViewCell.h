@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBiddingModel.h"
 
 @interface BiddinglistTableViewCell : UITableViewCell
 @property (nonatomic, strong) UILabel     *titleLab;
 @property (nonatomic, strong) UILabel     *infoLab;
+@property (nonatomic, copy)   TTBiddingModel *biddingModel;
 
 @end

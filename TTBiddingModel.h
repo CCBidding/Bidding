@@ -20,15 +20,15 @@
 //contact_info 招标人联系方式
 //url          招标网站
 
+@property (nonatomic, copy)    NSString  *address;
+@property (nonatomic, copy)    NSString  *contact_info;
+@property (nonatomic, copy)    NSString  *contact_name;
+@property (nonatomic, assign)    NSInteger  id;
+@property (nonatomic, copy)    NSString  *oppen_time;
+@property (nonatomic, copy)    NSString  *project_id;
+@property (nonatomic, copy)    NSString  *project_name;
+@property (nonatomic, copy)    NSString  *project_situation;
+@property (nonatomic, copy)    NSString  *title_name;
+@property (nonatomic, copy)    NSString  *url;
 
-@property (nonatomic,assign)  NSInteger Id;
-@property (nonatomic,copy)    NSString  *title_name;
-@property (nonatomic,copy)    NSString  *project_id;
-@property (nonatomic,copy)    NSString  *project_name;
-@property (nonatomic,copy)    NSString  *project_situation;
-@property (nonatomic,copy)    NSString  *oppen_time;
-@property (nonatomic,copy)    NSString  *address;
-@property (nonatomic,copy)    NSString  *contact_name;
-@property (nonatomic,copy)    NSString  *contact_info;
-@property (nonatomic,copy)    NSString  *url;
 @end
