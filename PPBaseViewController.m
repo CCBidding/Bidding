@@ -77,7 +77,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     if (_haveBack) {
-        self.navigationItem.leftBarButtonItem = [self itemWithImage:[UIImage imageNamed:@""] action:^(id sender){
+        self.navigationItem.leftBarButtonItem = [self itemWithImage:[UIImage imageNamed:@"Icon.png"] action:^(id sender){
         
             [self returenBtnTapped:sender];
         }];

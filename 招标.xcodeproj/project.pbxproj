@@ -11,6 +11,16 @@
 		68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */; };
 		68634EF71B4F5760004C1249 /* colorTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF61B4F5760004C1249 /* colorTurn.m */; };
 		68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68634EF81B4F6B21004C1249 /* QuartzCore.framework */; };
+		68C6C1681B5352E9002484DB /* PPRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1671B5352E9002484DB /* PPRegistViewController.m */; };
+		68C6C16B1B535A72002484DB /* PPRegistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C16A1B535A72002484DB /* PPRegistTableViewCell.m */; };
+		68C6C19C1B539D1A002484DB /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C6C1981B539D1A002484DB /* down_dark.png */; };
+		68C6C19D1B539D1A002484DB /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C19B1B539D1A002484DB /* DropDownListView.m */; };
+		68C6C1A31B53A188002484DB /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1A01B53A188002484DB /* IGLDropDownItem.m */; };
+		68C6C1A41B53A188002484DB /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1A21B53A188002484DB /* IGLDropDownMenu.m */; };
+		68C6C1AD1B53AC86002484DB /* TYGSelectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1A71B53AC86002484DB /* TYGSelectMenu.m */; };
+		68C6C1AE1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1A91B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m */; };
+		68C6C1AF1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C6C1AA1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib */; };
+		68C6C1B01B53AC86002484DB /* TYGSelectMenuEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C1AC1B53AC86002484DB /* TYGSelectMenuEntity.m */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
 		AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F7A1B44CF9C00E11040 /* AppDelegate.m */; };
 		AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC61F821B44CF9C00E11040 /* Images.xcassets */; };
@@ -76,6 +86,25 @@
 		68634EF51B4F5760004C1249 /* colorTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorTurn.h; sourceTree = "<group>"; };
 		68634EF61B4F5760004C1249 /* colorTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorTurn.m; sourceTree = "<group>"; };
 		68634EF81B4F6B21004C1249 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		68C6C1661B5352E9002484DB /* PPRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPRegistViewController.h; sourceTree = "<group>"; };
+		68C6C1671B5352E9002484DB /* PPRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPRegistViewController.m; sourceTree = "<group>"; };
+		68C6C1691B535A72002484DB /* PPRegistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPRegistTableViewCell.h; sourceTree = "<group>"; };
+		68C6C16A1B535A72002484DB /* PPRegistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPRegistTableViewCell.m; sourceTree = "<group>"; };
+		68C6C1981B539D1A002484DB /* down_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_dark.png; sourceTree = "<group>"; };
+		68C6C1991B539D1A002484DB /* DropDownChooseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownChooseProtocol.h; sourceTree = "<group>"; };
+		68C6C19A1B539D1A002484DB /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
+		68C6C19B1B539D1A002484DB /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
+		68C6C19F1B53A188002484DB /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
+		68C6C1A01B53A188002484DB /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
+		68C6C1A11B53A188002484DB /* IGLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownMenu.h; sourceTree = "<group>"; };
+		68C6C1A21B53A188002484DB /* IGLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenu.m; sourceTree = "<group>"; };
+		68C6C1A61B53AC86002484DB /* TYGSelectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGSelectMenu.h; sourceTree = "<group>"; };
+		68C6C1A71B53AC86002484DB /* TYGSelectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGSelectMenu.m; sourceTree = "<group>"; };
+		68C6C1A81B53AC86002484DB /* TYGSelectMenuCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGSelectMenuCellTableViewCell.h; sourceTree = "<group>"; };
+		68C6C1A91B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGSelectMenuCellTableViewCell.m; sourceTree = "<group>"; };
+		68C6C1AA1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYGSelectMenuCellTableViewCell.xib; sourceTree = "<group>"; };
+		68C6C1AB1B53AC86002484DB /* TYGSelectMenuEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGSelectMenuEntity.h; sourceTree = "<group>"; };
+		68C6C1AC1B53AC86002484DB /* TYGSelectMenuEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGSelectMenuEntity.m; sourceTree = "<group>"; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC61F761B44CF9C00E11040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC61F771B44CF9C00E11040 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +216,42 @@
 			name = PPBaseViewController;
 			sourceTree = "<group>";
 		};
+		68C6C1971B539CD6002484DB /* PPDownListView */ = {
+			isa = PBXGroup;
+			children = (
+				68C6C1981B539D1A002484DB /* down_dark.png */,
+				68C6C1991B539D1A002484DB /* DropDownChooseProtocol.h */,
+				68C6C19A1B539D1A002484DB /* DropDownListView.h */,
+				68C6C19B1B539D1A002484DB /* DropDownListView.m */,
+			);
+			name = PPDownListView;
+			sourceTree = "<group>";
+		};
+		68C6C19E1B53A162002484DB /* PPDropView */ = {
+			isa = PBXGroup;
+			children = (
+				68C6C19F1B53A188002484DB /* IGLDropDownItem.h */,
+				68C6C1A01B53A188002484DB /* IGLDropDownItem.m */,
+				68C6C1A11B53A188002484DB /* IGLDropDownMenu.h */,
+				68C6C1A21B53A188002484DB /* IGLDropDownMenu.m */,
+			);
+			name = PPDropView;
+			sourceTree = "<group>";
+		};
+		68C6C1A51B53AC51002484DB /* PPMoreView */ = {
+			isa = PBXGroup;
+			children = (
+				68C6C1A61B53AC86002484DB /* TYGSelectMenu.h */,
+				68C6C1A71B53AC86002484DB /* TYGSelectMenu.m */,
+				68C6C1A81B53AC86002484DB /* TYGSelectMenuCellTableViewCell.h */,
+				68C6C1A91B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m */,
+				68C6C1AA1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib */,
+				68C6C1AB1B53AC86002484DB /* TYGSelectMenuEntity.h */,
+				68C6C1AC1B53AC86002484DB /* TYGSelectMenuEntity.m */,
+			);
+			name = PPMoreView;
+			sourceTree = "<group>";
+		};
 		AFC61F691B44CF9C00E11040 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +335,8 @@
 			children = (
 				AFC61FBE1B454D3F00E11040 /* RegistViewController.xib */,
 				AFC61FA41B44D19000E11040 /* HomeViewController.xib */,
+				68C6C1691B535A72002484DB /* PPRegistTableViewCell.h */,
+				68C6C16A1B535A72002484DB /* PPRegistTableViewCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -290,6 +357,8 @@
 				AFC61FA31B44D19000E11040 /* HomeViewController.m */,
 				AFC61FBC1B454D3F00E11040 /* RegistViewController.h */,
 				AFC61FBD1B454D3F00E11040 /* RegistViewController.m */,
+				68C6C1661B5352E9002484DB /* PPRegistViewController.h */,
+				68C6C1671B5352E9002484DB /* PPRegistViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -339,9 +408,16 @@
 		AFC61FC21B46235000E11040 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				68C6C1A51B53AC51002484DB /* PPMoreView */,
+				68C6C19E1B53A162002484DB /* PPDropView */,
+				68C6C1971B539CD6002484DB /* PPDownListView */,
+				AFC620091B46664F00E11040 /* CDRTranslucentSideBar */,
+=======
 				AFE0E4F81B5393EE00AC7977 /* REFrostedViewController */,
 				AFE0E4B51B535D3500AC7977 /* NTSlidingViewController */,
 				AFE0E4971B53542B00AC7977 /* DHMenuViewPagerView */,
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
 				AFC61FC31B46239D00E11040 /* CustomField.h */,
 				AFC61FC41B46239D00E11040 /* CustomField.m */,
 			);
@@ -648,9 +724,11 @@
 				AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */,
 				AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */,
 				AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */,
+				68C6C1AF1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib in Resources */,
 				AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */,
 				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
 				AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */,
+				68C6C19C1B539D1A002484DB /* down_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +788,8 @@
 				AFE3B0561B4A2F92002ACA1F /* MBProgressHUD+Simple.m in Sources */,
 				AFE0E4F11B53670100AC7977 /* ParentCellViewController.m in Sources */,
 				AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */,
+				68C6C1B01B53AC86002484DB /* TYGSelectMenuEntity.m in Sources */,
+				68C6C1AD1B53AC86002484DB /* TYGSelectMenu.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
 				AFE0E4A01B53542B00AC7977 /* DHMenuPagerViewController.m in Sources */,
 				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
@@ -718,13 +798,22 @@
 				AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */,
 				AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */,
 				AFC61FB61B45303600E11040 /* UIImage+LBBlurredImage.m in Sources */,
+				68C6C1AE1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m in Sources */,
+				68C6C19D1B539D1A002484DB /* DropDownListView.m in Sources */,
 				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
+<<<<<<< HEAD
+				68C6C1681B5352E9002484DB /* PPRegistViewController.m in Sources */,
+				68C6C16B1B535A72002484DB /* PPRegistTableViewCell.m in Sources */,
+=======
 				AFE0E50A1B5393EE00AC7977 /* UIViewController+REFrostedViewController.m in Sources */,
 				AFE0E5051B5393EE00AC7977 /* RECommonFunctions.m in Sources */,
 				AFE0E5081B5393EE00AC7977 /* UIImage+REFrostedViewController.m in Sources */,
 				AFE0E5061B5393EE00AC7977 /* REFrostedContainerViewController.m in Sources */,
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
+				68C6C1A41B53A188002484DB /* IGLDropDownMenu.m in Sources */,
 				AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */,
+				68C6C1A31B53A188002484DB /* IGLDropDownItem.m in Sources */,
 				68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */,
 				68634EF71B4F5760004C1249 /* colorTurn.m in Sources */,
 				AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */,

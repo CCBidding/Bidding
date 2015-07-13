@@ -217,8 +217,14 @@
             [MBProgressHUD showMessageThenHide:@"已成功登录" toView:self.view];
             BiddingListViewController *biddingVC;
             if (!biddingVC) {
+<<<<<<< HEAD
+                biddingVC=[[BiddingListViewController alloc]init];
+                    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:biddingVC];
+                self.view.window.rootViewController = nav;
+=======
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
                 self.view.window.rootViewController=rootVC;
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
             }
         }
         else{
@@ -236,11 +242,11 @@
 }
 
 -(void)pushregistVC{
-    RegistViewController *registVC;
+    PPRegistViewController *registVC;
     if (!registVC) {
-        registVC=[[RegistViewController alloc]init];
+        registVC=[[PPRegistViewController alloc]init];
     }
-    [self presentViewController:registVC animated:YES completion:nil];
+    [self.navigationController pushViewController:registVC animated:YES];
 
 }
 

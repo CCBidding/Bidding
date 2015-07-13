@@ -30,6 +30,7 @@
 {
     [super viewWillAppear:animated];
     //wsq
+    self.navigationController.navigationBarHidden = NO;
     for (UIView* obj in self.tabBar.subviews) {
         if (obj != tabBarView) {//_tabBarView 应该单独封装。
             [obj removeFromSuperview];

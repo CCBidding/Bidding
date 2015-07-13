@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
+    [self customInterFace];
     
     if ([TTUserDefaultTool objectForKey:TTusername ]||[TTUserDefaultTool objectForKey:TTpassword]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -32,7 +32,12 @@
                                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
+<<<<<<< HEAD
+                UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:rootVC];
+                self.window.rootViewController=nav;
+=======
                 self.window.rootViewController = rootVC;
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
                 
             }
             else{
@@ -48,14 +53,35 @@
         [op start];
     }
     else{
+<<<<<<< HEAD
+         HomeViewController *home=[[HomeViewController alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
+       
+        self.window.rootViewController=nav;
+=======
         HomeViewController *home = [[HomeViewController alloc]init];
         self.window.rootViewController = home;
+>>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
     }
    
     [self.window makeKeyAndVisible];
     return YES;
 }
+// 自定义界面
+- (void)customInterFace{
 
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:229.0/255.0 green:80.0/255.0 blue:76.0/255.0 alpha:1.0], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    
+    //    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241.0/255.0 green:94.0/255.0 blue:141.0/255.0 alpha:.95]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bg_navigation"] forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], NSForegroundColorAttributeName,[UIFont fontWithName:@"STHeitiSC-Light" size:20.0], NSFontAttributeName, nil]];
+
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
