@@ -27,12 +27,12 @@
     // Do any additional setup after loading the view.
 }
 
-<<<<<<< HEAD
+
 - (void)createUI{
 
     myTableView = [UITableView newAutoLayoutView];
     [self.view addSubview:myTableView];
-    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 0, 0, 0)];
     myTableView.delegate = (id<UITableViewDelegate>)self;
     myTableView.dataSource = (id<UITableViewDataSource>)self;
     
@@ -86,14 +86,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-=======
--(void)createUI{
-    
-
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
 
 
-}
 
 
 

@@ -23,21 +23,23 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self customInterFace];
     
-    if ([TTUserDefaultTool objectForKey:TTusername ]||[TTUserDefaultTool objectForKey:TTpassword]) {
+    if ([TTUserDefaultTool objectForKey:TTusername ]&&[TTUserDefaultTool objectForKey:TTpassword]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+        NSString *username = [[TTUserDefaultTool objectForKey:TTusername]isKindOfClass:[NSNull class]]?@"":[TTUserDefaultTool objectForKey:TTusername];
+        NSString *password = [[TTUserDefaultTool objectForKey:TTpassword]isKindOfClass:[NSNull class]]?@"":[TTUserDefaultTool objectForKey:TTpassword];
         AFHTTPRequestOperation *op = [manager POST:TTLoginUrl
-                                              parameters:@{@"username":[TTUserDefaultTool objectForKey:TTusername],@"password":[TTUserDefaultTool objectForKey:TTpassword]}
+                                              parameters:@{@"username":username,@"password":password}
                                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
-<<<<<<< HEAD
+
                 UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:rootVC];
                 self.window.rootViewController=nav;
-=======
+
                 self.window.rootViewController = rootVC;
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
+
                 
             }
             else{
@@ -53,15 +55,12 @@
         [op start];
     }
     else{
-<<<<<<< HEAD
-         HomeViewController *home=[[HomeViewController alloc]init];
-        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
-       
-        self.window.rootViewController=nav;
-=======
+
+        
+
         HomeViewController *home = [[HomeViewController alloc]init];
         self.window.rootViewController = home;
->>>>>>> 8bb36860ca65d29e942ca543b88ab5f65ad4b7f0
+
     }
    
     [self.window makeKeyAndVisible];
