@@ -8,10 +8,10 @@
 
 #import "BiddingListViewController.h"
 #import "BiddinglistTableViewCell.h"
+#import "DHMenuPagerViewController.h"
 
-@interface BiddingListViewController ()<CDRTranslucentSideBarDelegate>
+@interface BiddingListViewController ()
 {
-    CDRTranslucentSideBar *_sideBar;     //左侧栏
     NSMutableArray  *dataSource;  //获取招标列表
     
 }
@@ -22,15 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self RegistSideBar];
+    [self createUI];
+    [self createData];
     dataSource = [[NSMutableArray alloc]init];
     
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)createUI{
-    self.title=@"招标";
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showsideBar)];
     
     _myTableview=[UITableView newAutoLayoutView];
     _myTableview.tag=1001;
@@ -41,8 +40,6 @@
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-
-
 }
 
 -(void)createData{
@@ -67,75 +64,6 @@
     [op start];
 }
 
--(void)showsideBar{
-    [_sideBar show];
-
-}
--(void)RegistSideBar{
-    // Create SideBar and Set Properties
-    _sideBar = [[CDRTranslucentSideBar alloc] init];
-    _sideBar.sideBarWidth = 200;
-    _sideBar.delegate = self;
-    _sideBar.tag = 0;
-    
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-    [self.view addGestureRecognizer:panGestureRecognizer];
-    
-    UITableView *tableView = [[UITableView alloc] init];
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-    v.backgroundColor = [UIColor clearColor];
-    [tableView setTableHeaderView:v];
-    [tableView setTableFooterView:v];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    
-    // Set ContentView in SideBar
-    [_sideBar setContentViewInSideBar:tableView];
-    
-    
-
-
-
-
-}
-
-#pragma mark - Gesture Handler
-- (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer
-{
-    
-     _sideBar.isCurrentPanGestureTarget = YES;
-    [_sideBar handlePanGestureToShow:recognizer inView:self.view];
-}
-
-#pragma mark - CDRTranslucentSideBarDelegate
-- (void)sideBar:(CDRTranslucentSideBar *)sideBar didAppear:(BOOL)animated
-{
-   
-        NSLog(@"Left SideBar did appear");
-   
-}
-
-- (void)sideBar:(CDRTranslucentSideBar *)sideBar willAppear:(BOOL)animated
-{
-   
-
-        NSLog(@"Left SideBar will appear");
-    
-}
-
-- (void)sideBar:(CDRTranslucentSideBar *)sideBar didDisappear:(BOOL)animated
-{
-   
-        NSLog(@"Left SideBar did disappear");
-
-}
-
-- (void)sideBar:(CDRTranslucentSideBar *)sideBar willDisappear:(BOOL)animated
-{
-    
-        NSLog(@"Left SideBar will disappear");
-
-}
 
 // This is just a sample for tableview menu
 #pragma mark - UITableViewDataSource

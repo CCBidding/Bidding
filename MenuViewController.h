@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REFrostedViewController.h"
 
-@interface MenuViewController : UIViewController
-
+@interface MenuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic) UITableView *myTableView;
 @end

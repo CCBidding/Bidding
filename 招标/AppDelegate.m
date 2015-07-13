@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "TTRootViewController.h"
+#import "REFrostedViewController.h"
 
 @interface AppDelegate ()
 

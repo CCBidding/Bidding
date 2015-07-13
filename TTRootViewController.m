@@ -10,6 +10,11 @@
 #import "TTMineViewController.h"
 #import "BiddingListViewController.h"
 #import "BiddingListWinViewController.h"
+#import "NTSlidingViewController.h"
+#import "DHMenuPagerViewController.h"
+#import "NavParentController.h"
+#import "MenuViewController.h"
+#import "REFrostedViewController.h"
 
 @interface TTRootViewController ()
 {
@@ -39,39 +44,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.tabBar.hidden = YES;
-    // CGFloat tabBarViewY = self.view.frame.size.height - 49;
-    
-    
-    //_tabBarView = [[UIImageView alloc]initWithFrame:CGRectMake(0, tabBarViewY, 320, 49)];
-    //wsq
+
     tabBarView = [[UIImageView alloc]initWithFrame:self.tabBar.bounds];
     tabBarView.userInteractionEnabled = YES;
     tabBarView.backgroundColor = [UIColor whiteColor];
-    //[self.view addSubview:_tabBarView];
-    //wsq
     [self.tabBar addSubview:tabBarView];
     
     
-    BiddingListViewController *friendVC=[[BiddingListViewController alloc]init];
-    friendVC.haveBack=NO;
-    friendVC.showNavi=YES;
-    UINavigationController *navi1=[[UINavigationController alloc]initWithRootViewController:friendVC];
-    BiddingListWinViewController *postVC=[[BiddingListWinViewController alloc]init];
-    postVC.haveBack=NO;
-    postVC.showNavi=YES;
-    UINavigationController *navi2=[[UINavigationController alloc]initWithRootViewController:postVC];
-    TTMineViewController *settingVC=[[TTMineViewController alloc]init];
-    settingVC.haveBack=NO;
-    settingVC.showNavi=YES;
-    UINavigationController *navi3=[[UINavigationController alloc]initWithRootViewController:settingVC];
+    BiddingListViewController *viewd = [[BiddingListViewController alloc] init];
+    BiddingListViewController *viewd1 = [[BiddingListViewController alloc] init];
+    DHMenuPagerViewController *pagerView1 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
+    pagerView1.title=@"招标";
+    NavParentController *navi1 = [[NavParentController alloc]initWithRootViewController:pagerView1];
+    MenuViewController *menuVC = [[MenuViewController alloc]init];
+    REFrostedViewController *frostedViewController1 = [[REFrostedViewController alloc] initWithContentViewController:navi1 menuViewController:menuVC];
+    frostedViewController1.direction = REFrostedViewControllerDirectionLeft;
+    frostedViewController1.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    
+    
+    BiddingListWinViewController *postVC  = [[BiddingListWinViewController alloc]init];
+    BiddingListWinViewController *postVC1 = [[BiddingListWinViewController alloc]init];
+    DHMenuPagerViewController *pagerView2 = [[DHMenuPagerViewController alloc] initWithViewControllers:@[postVC,postVC1] titles:@[@"工程建设",@"政府采购"] menuBackgroundColor:[UIColor grayColor] titleColor:[UIColor colorWithRed:1. green:0. blue:0. alpha:0.3] titleColorHighlighted:[UIColor yellowColor]];
+    pagerView2.title=@"中标";
+    NavParentController *navi2 = [[NavParentController alloc]initWithRootViewController:pagerView2];
+    REFrostedViewController *frostedViewController2 = [[REFrostedViewController alloc] initWithContentViewController:navi2 menuViewController:menuVC];
+    frostedViewController2.direction = REFrostedViewControllerDirectionLeft;
+    frostedViewController2.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    
+    TTMineViewController *MineVC = [[TTMineViewController alloc]init];
+    MineVC.haveBack = NO;
+    MineVC.showNavi = YES;
+    UINavigationController *navi3 = [[UINavigationController alloc]initWithRootViewController:MineVC];
     
     
     
-    self.viewControllers = [NSArray arrayWithObjects:navi1,navi2,navi3, nil];
+    self.viewControllers = [NSArray arrayWithObjects:frostedViewController1,frostedViewController2,navi3, nil];
     
     [self creatButtonWithNormalName:@"callbid_tb_img_no" andSelectName:@"callbid_tb_img_yes" andTitle:@"招标" andIndex:0];
-    [self creatButtonWithNormalName:@"bidded_tb_img_no" andSelectName:@"bidded_tb_img_yes" andTitle:@"找中标" andIndex:1];
+    [self creatButtonWithNormalName:@"bidded_tb_img_no" andSelectName:@"bidded_tb_img_yes" andTitle:@"中标" andIndex:1];
     //[self creatButtonWithNormalName:@"tabbar_info" andSelectName:@"tabbar_info_selected" andTitle:@"信息" andIndex:2];
     [self creatButtonWithNormalName:@"aboutme_tb_img_no" andSelectName:@"aboutme_tb_img_yes" andTitle:@"关于我" andIndex:2];
     MyButton * button = tabBarView.subviews[0];
