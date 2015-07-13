@@ -37,12 +37,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self creatUI];
     [self registerForKeyboardNotifications];
 }
 
 
--(void)creatUI{
+-(void)createUI{
 //    backgroundImage=[UIImageView newAutoLayoutView];
 //    UIImage *img=[[UIImage alloc]init];
 //   //backgroundImage.image= [img getBlurImage:[UIImage imageNamed:@"backImage2"]];
@@ -238,9 +237,12 @@
 -(void)pushregistVC{
     PPRegistViewController *registVC;
     if (!registVC) {
-        registVC=[[PPRegistViewController alloc]init];
+        registVC = [[PPRegistViewController alloc]init];
+       
     }
-    [self.navigationController pushViewController:registVC animated:YES];
+    registVC.haveBack=YES;
+     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:registVC];
+    [self presentViewController:nav animated:YES completion:nil];
 
 }
 
@@ -264,5 +266,8 @@
  
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.showNavi=NO;
+}
 
 @end

@@ -38,9 +38,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self createData];
-    [self createUI];
+    self.title=@"注册";
+ 
 }
 - (void)createUI{
 
@@ -215,6 +214,9 @@
     [registBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registBtn setBackgroundColor:[UIColor redColor]];
     [scrollView addSubview:registBtn];
+    [registBtn bk_whenTapped:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     
     
 }
