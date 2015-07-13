@@ -32,7 +32,7 @@
 
     myTableView = [UITableView newAutoLayoutView];
     [self.view addSubview:myTableView];
-    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 0, 0, 0)];
     myTableView.delegate = (id<UITableViewDelegate>)self;
     myTableView.dataSource = (id<UITableViewDataSource>)self;
     
