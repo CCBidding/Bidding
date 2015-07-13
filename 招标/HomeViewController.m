@@ -218,7 +218,7 @@
             if (!biddingVC) {
                 biddingVC=[[BiddingListViewController alloc]init];
                     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:biddingVC];
-                    [self presentViewController:nav animated:YES completion:nil];
+                self.view.window.rootViewController = nav;
             }
         }
         else{
@@ -236,11 +236,11 @@
 }
 
 -(void)pushregistVC{
-    RegistViewController *registVC;
+    PPRegistViewController *registVC;
     if (!registVC) {
-        registVC=[[RegistViewController alloc]init];
+        registVC=[[PPRegistViewController alloc]init];
     }
-    [self presentViewController:registVC animated:YES completion:nil];
+    [self.navigationController pushViewController:registVC animated:YES];
 
 }
 

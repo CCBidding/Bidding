@@ -33,4 +33,10 @@
 #import "UIViewController+PPUser.h"
 #import "colorTurn.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PPRegistViewController.h"
+#import "PPRegistTableViewCell.h"
+#import "DropDownListView.h"
+#import "IGLDropDownMenu.h"
+#import "TYGSelectMenu.h"
+#import "HomeViewController.h"
 #endif
