@@ -129,7 +129,7 @@
         if (isSave) {
             [remenberBtn setImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
         }else
-            [remenberBtn setImage:[UIImage imageNamed:@"checkbox_ture"] forState:UIControlStateNormal];
+            [remenberBtn setImage:[UIImage imageNamed:@"25"] forState:UIControlStateNormal];
         
     }];
     
@@ -148,10 +148,11 @@
     }];
     
     loginbtn=[UIButton newAutoLayoutView];
-    [loginbtn setTitle:@"登录" forState:UIControlStateNormal];
+    //[loginbtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginbtn setBackgroundImage:[UIImage imageNamed:@"26"] forState:UIControlStateNormal];
     [self.view addSubview:loginbtn];
-    //loginbtn.backgroundColor=[UIColor colorWithRed:0 green:245/255.0 blue:255/255.0 alpha:1];
-    loginbtn.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
+
+    //loginbtn.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     loginbtn.layer.cornerRadius=5;
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
@@ -160,9 +161,9 @@
     [loginbtn addTarget:self action:@selector(pushloginVC) forControlEvents:UIControlEventTouchUpInside];
     
     registbtn=[UIButton newAutoLayoutView];
-    [registbtn setTitle:@"注册" forState:UIControlStateNormal];
+    //[registbtn setTitle:@"注册" forState:UIControlStateNormal];
+    [registbtn setBackgroundImage:[UIImage imageNamed:@"27"] forState:UIControlStateNormal];
     [self.view addSubview:registbtn];
-    registbtn.backgroundColor=[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     registbtn.layer.cornerRadius=5;
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:TTScreenWith/2-100];
@@ -260,6 +261,8 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [namefield endEditing:YES];
+    [pwfield endEditing:YES];
     if (![loginbtn isFirstResponder]||![registbtn isFirstResponder]) {
         [self.view endEditing:YES];
     }
@@ -286,12 +289,7 @@
     self.view.frame = CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
  
 }
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 
-    [namefield endEditing:YES];
-    [pwfield endEditing:YES];
-
-}
 -(void)viewWillAppear:(BOOL)animated{
     self.showNavi=NO;
 }
