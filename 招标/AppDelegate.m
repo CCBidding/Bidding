@@ -68,14 +68,14 @@
 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:229.0/255.0 green:80.0/255.0 blue:76.0/255.0 alpha:1.0], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
     //    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241.0/255.0 green:94.0/255.0 blue:141.0/255.0 alpha:.95]];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bg_navigation"] forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], NSForegroundColorAttributeName,[UIFont fontWithName:@"STHeitiSC-Light" size:20.0], NSFontAttributeName, nil]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1], NSForegroundColorAttributeName,[UIFont fontWithName:@"STHeitiSC-Light" size:20.0], NSFontAttributeName, nil]];
 
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

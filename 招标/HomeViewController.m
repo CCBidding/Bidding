@@ -71,8 +71,7 @@
     
     Icon=[UIImageView newAutoLayoutView];
     //[Icon setAutoresizingMask:UIViewAutoresizingNone];
-    Icon.image=[UIImage imageNamed:@"5.png"];
-    Icon.layer.borderWidth = 1;
+    Icon.image=[UIImage imageNamed:@"31.png"];
     Icon.layer.cornerRadius = 50;
     [Icon.layer setMasksToBounds:YES];
     [self.view addSubview:Icon];
@@ -148,11 +147,10 @@
     }];
     
     loginbtn=[UIButton newAutoLayoutView];
-    //[loginbtn setTitle:@"登录" forState:UIControlStateNormal];
-    [loginbtn setBackgroundImage:[UIImage imageNamed:@"26"] forState:UIControlStateNormal];
+    [loginbtn setBackgroundImage:[UIImage imageNamed:@"29"] forState:UIControlStateNormal];
+    [loginbtn setBackgroundImage:[UIImage imageNamed:@"26"] forState:UIControlStateHighlighted];
     [self.view addSubview:loginbtn];
 
-    //loginbtn.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     loginbtn.layer.cornerRadius=5;
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
@@ -161,8 +159,8 @@
     [loginbtn addTarget:self action:@selector(pushloginVC) forControlEvents:UIControlEventTouchUpInside];
     
     registbtn=[UIButton newAutoLayoutView];
-    //[registbtn setTitle:@"注册" forState:UIControlStateNormal];
-    [registbtn setBackgroundImage:[UIImage imageNamed:@"27"] forState:UIControlStateNormal];
+    [registbtn setBackgroundImage:[UIImage imageNamed:@"28"] forState:UIControlStateNormal];
+    [registbtn setBackgroundImage:[UIImage imageNamed:@"27"] forState:UIControlStateHighlighted];
     [self.view addSubview:registbtn];
     registbtn.layer.cornerRadius=5;
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
