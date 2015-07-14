@@ -28,7 +28,7 @@
     UILabel     *bottomLable;
     UIButton    *remenberBtn; //记住密码
     UIButton    *forgetBtn;   //忘记密码
-    
+    BOOL         isSave;     //是否记住密码
 
 }
 @end
@@ -40,7 +40,11 @@
     [self registerForKeyboardNotifications];
 }
 
+- (void)createData{
 
+    isSave = YES;
+
+}
 -(void)createUI{
 //    backgroundImage=[UIImageView newAutoLayoutView];
 //    UIImage *img=[[UIImage alloc]init];
@@ -56,7 +60,7 @@
 //    [backgroundImage  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     
     bgIconView = [UIView newAutoLayoutView];
-    bgIconView.backgroundColor = [UIColor redColor];
+    bgIconView.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     [bgIconView.layer setMasksToBounds:YES];
     [self.view addSubview:bgIconView];
     [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
@@ -66,8 +70,10 @@
     
     
     Icon=[UIImageView newAutoLayoutView];
-    Icon.image=[UIImage imageNamed:@"Icon"];
-     Icon.layer.cornerRadius=50;
+    //[Icon setAutoresizingMask:UIViewAutoresizingNone];
+    Icon.image=[UIImage imageNamed:@"5.png"];
+    Icon.layer.borderWidth = 1;
+    Icon.layer.cornerRadius = 50;
     [Icon.layer setMasksToBounds:YES];
     [self.view addSubview:Icon];
     [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100];
@@ -82,7 +88,7 @@
     
     namefield.textAlignment=NSTextAlignmentLeft;
     [namefield setTintColor:[UIColor blackColor]];
-    accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"account"]];
+    accIcon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"2"]];
     //textfield左侧添加图片
     namefield.leftView=accIcon;
     namefield.leftViewMode=UITextFieldViewModeAlways;
@@ -95,7 +101,7 @@
     pwfield.placeholder=@"密码";
     
     pwfield.textAlignment=NSTextAlignmentLeft;
-    pwIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
+    pwIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"3"]];
     pwfield.leftView=pwIcon;
     
     pwfield.leftViewMode=UITextFieldViewModeAlways;
@@ -110,6 +116,8 @@
     [remenberBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     remenberBtn.titleLabel.font = [UIFont fontWithName:nil size:14];
     [remenberBtn setTitle:@"记住密码" forState:UIControlStateNormal];
+    [remenberBtn setImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
+    
     [self.view addSubview:remenberBtn];
     [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:380];
     [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
@@ -117,6 +125,11 @@
     [remenberBtn autoSetDimension:ALDimensionHeight toSize:30];
     [remenberBtn bk_whenTapped:^{
         //记住密码要做的事
+        isSave = !isSave;
+        if (isSave) {
+            [remenberBtn setImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
+        }else
+            [remenberBtn setImage:[UIImage imageNamed:@"checkbox_ture"] forState:UIControlStateNormal];
         
     }];
     
@@ -138,7 +151,7 @@
     [loginbtn setTitle:@"登录" forState:UIControlStateNormal];
     [self.view addSubview:loginbtn];
     //loginbtn.backgroundColor=[UIColor colorWithRed:0 green:245/255.0 blue:255/255.0 alpha:1];
-    loginbtn.backgroundColor = [UIColor redColor];
+    loginbtn.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     loginbtn.layer.cornerRadius=5;
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
@@ -149,7 +162,7 @@
     registbtn=[UIButton newAutoLayoutView];
     [registbtn setTitle:@"注册" forState:UIControlStateNormal];
     [self.view addSubview:registbtn];
-    registbtn.backgroundColor=[UIColor redColor];
+    registbtn.backgroundColor=[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     registbtn.layer.cornerRadius=5;
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:TTScreenWith/2-100];
@@ -178,14 +191,14 @@
     [centerView autoSetDimension:ALDimensionWidth toSize:35];
     [centerView autoSetDimension:ALDimensionHeight toSize:35];
     centerView.layer.borderWidth = 1;
-    centerView.layer.borderColor = [UIColor colorWithRed:30/255.0 green:144/255.0 blue:255/255.0 alpha:1].CGColor;
+    centerView.layer.borderColor = (__bridge CGColorRef)([colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1]);
     centerView.layer.cornerRadius = 17.5;
     [centerView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
     [centerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-17.5];
     
     
     bottomView = [UIView newAutoLayoutView];
-    bottomView.backgroundColor = [UIColor redColor];
+    bottomView.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     [self.view addSubview:bottomView];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
@@ -194,7 +207,7 @@
     
     
     bottomLable = [UILabel newAutoLayoutView];
-    bottomLable.text = @"客服电话:xxxxxxxxxxx";
+    bottomLable.text = @"贵阳招标投标行业协会";
     bottomLable.textColor = [UIColor whiteColor];
     bottomLable.textAlignment = NSTextAlignmentCenter;
     [bottomView addSubview:bottomLable];
@@ -265,7 +278,12 @@
     self.view.frame = CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
  
 }
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 
+    [namefield endEditing:YES];
+    [pwfield endEditing:YES];
+
+}
 -(void)viewWillAppear:(BOOL)animated{
     self.showNavi=NO;
 }

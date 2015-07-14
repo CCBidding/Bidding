@@ -8,7 +8,7 @@
 
 #import "PPRegistViewController.h"
 
-@interface PPRegistViewController ()<UITableViewDataSource,UITableViewDelegate,IGLDropDownMenuDelegate>{
+@interface PPRegistViewController ()<IGLDropDownMenuDelegate,UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate>{
 
     UITableView *myTableView;
     NSArray     *dataArr;
@@ -24,6 +24,7 @@
     UITextField    *telTextField;
     UITextField   *mailTextField;
     UITextField   *detailTextField;
+    UIButton *headInfoBtn;
 }
 
 @end
@@ -45,8 +46,9 @@
 
 
     scrollView = [UIScrollView newAutoLayoutView];
-    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.2);
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.25);
     scrollView.showsHorizontalScrollIndicator = YES;
+    scrollView.delegate = self;
     [self.view addSubview:scrollView];
     [scrollView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
@@ -61,6 +63,7 @@
     nameTextField = [UITextField newAutoLayoutView];
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:nameTextField];
+    numComTextField.delegate = self;
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:70];
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:110];
     [nameTextField autoSetDimension:ALDimensionWidth toSize:200];
@@ -74,6 +77,7 @@
     [pwdLable autoSetDimension:ALDimensionHeight toSize:30];
     [pwdLable autoSetDimension:ALDimensionWidth toSize:100];
     pwdTextField = [UITextField newAutoLayoutView];
+    pwdTextField.delegate = self;
     pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:pwdTextField];
     [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:120];
@@ -125,7 +129,7 @@
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
     [infomationBtn bk_whenTapped:^{
         //显示
-        [menuLevel showFromView:infomationBtn];
+        [menuLevel showFromView:infomationBtn toView:scrollView];
         [menuLevel2 disMiss];
         
         //block回调
@@ -147,11 +151,16 @@
     }];
     [scrollView addSubview:infomationBtn];
     
+    
+    
     UILabel *numComLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 300, 100, 30)];
+    //UILabel *numComLabel = [UILabel newAutoLayoutView];
     numComLabel.text = @"机构代码";
     [scrollView addSubview:numComLabel];
+
     numComTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 300, 200, 30)];
     numComTextField.borderStyle = UITextBorderStyleRoundedRect;
+    numComTextField.delegate = self;
     [scrollView addSubview:numComTextField];
     
     UILabel *headLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 350, 100, 30)];
@@ -159,31 +168,43 @@
     [scrollView addSubview:headLabel];
     headTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 350, 200, 30)];
     headTextField.borderStyle = UITextBorderStyleRoundedRect;
+    headTextField.delegate = self;
     [scrollView addSubview:headTextField];
     
     UILabel *headInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 400, 200, 30)];
     headInfoLabel.text = @"负责人资质";
     [scrollView addSubview:headInfoLabel];
     
-    UIButton *headInfoBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+     headInfoBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headInfoBtn setTitle:@"请选择" forState:UIControlStateNormal];
     [headInfoBtn setFrame:CGRectMake(110, 400, 200, 30)];
     [scrollView addSubview:headInfoBtn];
     [headInfoBtn bk_whenTapped:^{
-        [menuLevel2 showFromView:headInfoBtn];
-        [menuLevel disMiss];
+        if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
+            [alert show];
+           
+        }
+        else{
         
-        //block回调
-        [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+            //显示
+            [menuLevel2 showFromView:headInfoBtn toView:scrollView];
             
-            NSMutableString *title = [NSMutableString string];
-            for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
-                [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
-            }
-            
-            [headInfoBtn setTitle:title forState:UIControlStateNormal];
-        }];
-
+            [menuLevel disMiss];
+            //block回调
+            [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+                
+                NSMutableString *title = [NSMutableString string];
+                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
+                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
+                }
+                
+                [headInfoBtn setTitle:title forState:UIControlStateNormal];
+            }];
+        
+        }
+       
     }];
     
     UILabel *telLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 450, 100, 30)];
@@ -191,6 +212,7 @@
     [scrollView addSubview:telLable];
     telTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 450, 200, 30)];
     telTextField.borderStyle = UITextBorderStyleRoundedRect;
+    telTextField.delegate = self;
     [scrollView addSubview:telTextField];
     
     UILabel *mailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 490, 100, 30)];
@@ -199,6 +221,7 @@
     
     mailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 490, 200, 30)];
     mailTextField.borderStyle = UITextBorderStyleRoundedRect;
+    mailTextField.delegate = self;
     [scrollView addSubview:mailTextField];
     
     UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 540, 100, 30)];
@@ -207,10 +230,11 @@
     
     detailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 540, 200, 100)];
     detailTextField.borderStyle = UITextBorderStyleRoundedRect;
+    detailTextField .delegate = self;
     [scrollView addSubview: detailTextField];
     
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [registBtn setFrame:CGRectMake(140, 660, 100, 30)];
+    [registBtn setFrame:CGRectMake(120, 660, 100, 30)];
     [registBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registBtn setBackgroundColor:[UIColor redColor]];
     [scrollView addSubview:registBtn];
@@ -238,14 +262,14 @@
     }
     
     menuLevel2 = [[TYGSelectMenu alloc] init];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 5; i++) {
         TYGSelectMenuEntity *menu1 = [[TYGSelectMenuEntity alloc] init];
         menu1.title = [NSString stringWithFormat:@"%d",i];
         [menuLevel2 addChildSelectMenu:menu1 forParent:nil];
         
-        for (int j = 0; j < 15; j++) {
+        for (int j = 0; j < 10; j++) {
             TYGSelectMenuEntity *menu2 = [[TYGSelectMenuEntity alloc] init];
-            menu2.title = [NSString stringWithFormat:@"%@-%d",menu2.title,j];
+            menu2.title = [NSString stringWithFormat:@"%@-%d",menu1.title,j];
             [menuLevel2 addChildSelectMenu:menu2 forParent:menu1];
             
         }
@@ -253,42 +277,86 @@
 
 }
 
+#pragma -mark alertDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if (buttonIndex == 0) {
+        //显示
+        [menuLevel2 showFromView:headInfoBtn toView:scrollView];
+        
+        
+        //block回调
+        [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+            
+            NSMutableString *title = [NSMutableString string];
+            for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
+                [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
+            }
+            if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
+                
+                NSString *titleToTal = [NSString stringWithFormat:@"%@ , %@",headInfoBtn.titleLabel.text,title];
+                [headInfoBtn setTitle:titleToTal forState:UIControlStateNormal];
+            }
+            else
+                [headInfoBtn setTitle:title forState:UIControlStateNormal];
+        }];
+
+        
+    }
+    else{
+        //显示
+        [menuLevel2 showFromView:headInfoBtn toView:scrollView];
+       
+        
+        //block回调
+        [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+            
+            NSMutableString *title = [NSMutableString string];
+            for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
+                [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
+            }
+            
+            [headInfoBtn setTitle:title forState:UIControlStateNormal];
+        }];
+
+    
+    }
+
+}
 #pragma mark - IGLDropDownMenuDelegate
 
 - (void)selectedItemAtIndex:(NSInteger)index
 {
  
 }
+#pragma -mark textfield delegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
 
-#pragma -mark  tableView delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-    return dataArr.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    static NSString *cellID = @"regisCell";
-    PPRegistTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        
-        cell = [[PPRegistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        [cell setTag:indexPath.row];
-    }
-    
-    cell.textLabel.text = dataArr[indexPath.row];
-    return  cell;
+    [menuLevel2 disMiss];
+    [menuLevel disMiss];
 
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 
-    
+#pragma -mark scrollView delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [nameTextField endEditing:YES];
+    [pwdTextField endEditing:YES];
+    [numComTextField endEditing:YES];
+    [headTextField endEditing:YES];
+    [telTextField endEditing:YES];
+    [mailTextField endEditing:YES];
+    [detailTextField endEditing:YES];
+    [menuLevel disMiss];
+    [menuLevel2 disMiss];
 
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    return 60;
+- (void)viewWillDisappear:(BOOL)animated{
+
+    [menuLevel disMiss];
+    [menuLevel2 disMiss];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

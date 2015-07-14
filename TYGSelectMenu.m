@@ -114,15 +114,15 @@
 - (void)showFromView:(UIView *)view{
     
     //初始化视图
-    CGRect rc = [view convertRect:view.frame toView:RootWindow];
+   // CGRect rc = [view convertRect:view.frame toView:RootWindow];
     
-    CGFloat menuX = 0;
-    CGFloat menuY = CGRectGetMaxY(rc);
-    CGFloat menuW = CGRectGetWidth(MainFrame) - menuX;
-    CGFloat menuH = CGRectGetHeight(MainFrame) - menuY;
-    
-    menuW = MIN(menuW, self.maxWidth);
-    menuH = MIN(menuH, self.maxHeight);
+//    CGFloat menuX = 0;
+//    CGFloat menuY = CGRectGetMaxY(rc);
+//    CGFloat menuW = CGRectGetWidth(MainFrame) - menuX;
+//    CGFloat menuH = CGRectGetHeight(MainFrame) - menuY;
+//    
+//    menuW = MIN(menuW, self.maxWidth);
+//    menuH = MIN(menuH, self.maxHeight);
     
     if (mainView) {
         [self disMiss];
@@ -146,11 +146,11 @@
             }
         }
         
-        CGRect mainViewFrame = CGRectMake(0, menuY-260, menuW, menuH+100);
+        CGRect mainViewFrame = CGRectMake(0, view.frame.origin.y, CGRectGetWidth(MainFrame), 200);
         [self drawShowViewWithFrame:mainViewFrame];
         mainView.backgroundColor = [UIColor lightGrayColor];
         
-        mainView.frame = CGRectMake(menuX, menuY, menuW, 0);
+        mainView.frame = CGRectMake(0, view.frame.origin.y, CGRectGetWidth(MainFrame), 0);
         [UIView animateWithDuration:0.24 animations:^{
             
             mainView.frame = mainViewFrame;
@@ -163,6 +163,51 @@
     }
  
 }
+- (void)showFromView:(UIView *)view toView:(UIView *)superView{
+
+    
+    if (mainView) {
+        [self disMiss];
+    }
+    else{
+        //初始化数据
+        if (self.selectedMneuArray.count == 0) {
+            
+            TYGSelectMenuEntity *tempMenu = [self.menuArray firstObject];
+            [self.selectedMneuArray addObject:tempMenu];
+            
+            BOOL canNext = YES;
+            while (canNext) {
+                tempMenu = [tempMenu.childMenuArray firstObject];
+                if (tempMenu) {
+                    [self.selectedMneuArray addObject:tempMenu];
+                }
+                else{
+                    canNext = NO;
+                }
+            }
+        }
+        
+        CGRect mainViewFrame = CGRectMake(0, view.frame.origin.y+40, CGRectGetWidth(MainFrame), 200);
+        [self drawShowViewWithFrame:mainViewFrame];
+        mainView.backgroundColor = [UIColor lightGrayColor];
+        
+        mainView.frame = CGRectMake(0, view.frame.origin.y+40, CGRectGetWidth(MainFrame), 0);
+        [UIView animateWithDuration:0.24 animations:^{
+            
+            mainView.frame = mainViewFrame;
+            [superView addSubview:mainView];
+            
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+
+
+
+}
+
 
 /**
  *  绘制目录视图

@@ -42,6 +42,12 @@
 - (void)showFromView:(UIView *)view;
 
 /**
+ * 显示
+ * @param 在父视图上显示要加的View
+*/
+- (void)showFromView:(UIView *)view toView:(UIView *)superView;
+
+/**
  *  隐藏
  */
 - (void)disMiss;
