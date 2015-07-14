@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      dataSource = [[NSMutableArray alloc]init];
+    self.title=@"招标";
+ 
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -106,19 +108,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier = @"infoCell";
-    BiddinglistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[BiddinglistTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    [self configureCell:cell withIndexPath:indexPath];
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
-    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
-    return height;
+    return 80;
     
 }
 
@@ -127,14 +117,13 @@
     DetialBiddingViewController *detailVC = [[DetialBiddingViewController alloc]init];
     detailVC.showNavi = YES;
     detailVC.haveBack = YES;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:detailVC];
     static NSString *cellID=@"biddingcell";
     BiddinglistTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     detailVC.biddingModel=dataSource[indexPath.row];
-    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:detailVC animated:YES];
     
     
 }
@@ -159,7 +148,7 @@
    
         BiddinglistTableViewCell *biddingcell = (BiddinglistTableViewCell *)cell;
         biddingcell.biddingModel    = dataSource[indexPath.row];
-        biddingcell.titleLab.text   = biddingcell.biddingModel.title_name;
+        biddingcell.infoLab.text   = biddingcell.biddingModel.title_name;
         biddingcell.addressLab.text = biddingcell.biddingModel.address;
         biddingcell.timeLab.text   = biddingcell.biddingModel.oppen_time;
   
@@ -168,6 +157,7 @@
 -(void)viewWillAppear:(BOOL)animated{
   
     [self createData];
+   
 }
 
 

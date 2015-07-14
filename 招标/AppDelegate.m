@@ -63,6 +63,25 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+-(void)getCategory{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer             = [AFJSONResponseSerializer serializer];
+    AFHTTPRequestOperation *op             = [manager POST:TTgetCategorylistUrl
+                                    parameters:@{}
+                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                        NSMutableArray *arr=[NSMutableArray arrayWithCapacity:10];
+                                        for (NSDictionary *dic in responseObject[@"datas"]) {
+                                            [arr addObject:dic[@"bid_name"]];
+                                        }
+                                           [TTUserDefaultTool setObject:arr forKey:TTcateGory];
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"%@",error);
+                                       }];
+    [op start];
+
+
+}
 // 自定义界面
 - (void)customInterFace{
 

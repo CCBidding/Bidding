@@ -7,6 +7,7 @@
 //
 
 #import "PPBaseViewController.h"
+#import "REFrostedViewController.h"
 
 @interface PPBaseViewController ()
 
@@ -92,15 +93,35 @@
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     }
+    [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
     
     [self createUI];
     [self createData];
+    if (_showMenu) {
+        self.navigationItem.leftBarButtonItem = [self itemWithImage:[UIImage imageNamed:@"menu"] action:^(id sender){
+            
+            [self willShowMenu];
+        }];
+        
+    }
 }
 -(void)returenBtnTapped:(id)sender{
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)willShowMenu
+{
+    [self.frostedViewController presentMenuViewController];
+}
+
+#pragma mark -
+#pragma mark Gesture recognizer
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
+{
+    [self.frostedViewController panGestureRecognized:sender];
+}
 -(void)createUI{
 
 }
