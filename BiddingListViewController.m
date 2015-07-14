@@ -9,6 +9,7 @@
 #import "BiddingListViewController.h"
 #import "BiddinglistTableViewCell.h"
 #import "DHMenuPagerViewController.h"
+#import "DetialBiddingViewController.h"
 
 @interface BiddingListViewController ()
 {
@@ -22,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createUI];
-    [self createData];
      dataSource = [[NSMutableArray alloc]init];
     
     // Do any additional setup after loading the view from its nib.
@@ -125,6 +124,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    DetialBiddingViewController *detailVC = [[DetialBiddingViewController alloc]init];
+    detailVC.showNavi = YES;
+    detailVC.haveBack = YES;
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:detailVC];
+    static NSString *cellID=@"biddingcell";
+    BiddinglistTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    detailVC.biddingModel=dataSource[indexPath.row];
+    [self presentViewController:nav animated:YES completion:nil];
+    
     
 }
 
@@ -155,6 +166,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+  
     [self createData];
 }
 

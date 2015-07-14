@@ -24,6 +24,7 @@
     self.title=@"关于我";
     self.navigationController.navigationBar.barTintColor=TTColor(255, 48, 48, 1);
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    dataArr = @[@"密码修改",@"资料修改",@"关于我们",@"退出登录"];
     // Do any additional setup after loading the view.
 }
 
@@ -32,7 +33,8 @@
 
     myTableView = [UITableView newAutoLayoutView];
     [self.view addSubview:myTableView];
-    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 0, 0, 0)];
+    myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     myTableView.delegate = (id<UITableViewDelegate>)self;
     myTableView.dataSource = (id<UITableViewDataSource>)self;
     
@@ -40,7 +42,7 @@
 }
 - (void)createData{
 
-    dataArr = [NSArray arrayWithObjects:@"退出登录", nil];
+   
     
 
 }
@@ -51,7 +53,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 1;
+    return dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -62,7 +64,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
-    cell.textLabel.text = dataArr[indexPath.row];
+    [self configureCell:cell withIndexPath:indexPath];
     return cell;
 
 }
@@ -74,12 +76,46 @@
 //    login.showNavi = NO;
 //    login.haveBack = NO;
 //    [[AppDelegate shared].window setRootViewController:login];
-    
-    [TTUserDefaultTool removeObjectForKey:TTusername];
-    HomeViewController *home = [[HomeViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
-    self.view.window.rootViewController = nav;
+    switch (indexPath.row) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+        {
+            [TTUserDefaultTool removeObjectForKey:TTusername];
+            HomeViewController *home = [[HomeViewController alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
+            self.view.window.rootViewController = nav;
+            
+        }
+            break;
+        default:
+            break;
+    }
+  
 
+
+}
+
+
+- (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    
+
+    
+            cell.textLabel.text = dataArr[indexPath.row];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return TTScreenWith*60/320;
 
 }
 - (void)didReceiveMemoryWarning {

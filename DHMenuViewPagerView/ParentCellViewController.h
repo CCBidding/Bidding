@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParentCellViewController : UIViewController
-
+@interface ParentCellViewController : PPBaseViewController
+-(void)pushdViewController:(UIViewController *)viewController;
 @end

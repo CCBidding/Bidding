@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailBiddingTableViewCell : UITableViewCell
+@property (nonatomic, strong) UILabel        *titleLab;    //标题
+@property (nonatomic, strong) UILabel        *infoLab;     //主要信息
 
 @end

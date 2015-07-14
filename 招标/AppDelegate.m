@@ -35,9 +35,6 @@
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
 
-                UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:rootVC];
-                self.window.rootViewController=nav;
-
                 self.window.rootViewController = rootVC;
 
                 

@@ -19,4 +19,8 @@
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64 - 49 - 30);
 }
 
+-(void)pushdViewController:(UIViewController *)viewController{
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 @end
