@@ -146,7 +146,7 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"Home", @"Profile", @"Chats"];
+        NSArray *titles = @[@"关注", @"个人设置", @"修改密码"];
         cell.textLabel.text = titles[indexPath.row];
     } else {
         NSArray *titles = @[@"John Appleseed", @"John Doe", @"Test User"];
