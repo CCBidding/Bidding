@@ -25,6 +25,7 @@
 #define TTLoginUrl   @"http://123.57.48.206:8080/GyBid/appLogin/login.do?type=onlinedo"
 #define TTRegistUrl  @"http://123.57.48.206:8080/GyBid/appReg/regedit.do?type=onlinedo"
 #define TTBiddingLsitUrl @"http://123.57.48.206:8080/GyBid/app/bilist.do?type=bilist"
+#define TTBidWinlistUrl  @"http://123.57.48.206:8080/GyBid/app/bilist.do?type=bilist"
 #define TTgetCategorylistUrl @"http://123.57.48.206:8080/GyBid/appReg/comtype.do?type=proty"
 
 #define TTUserid     @"user_id"

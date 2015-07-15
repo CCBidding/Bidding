@@ -34,15 +34,15 @@
     [self.contentView addSubview:_addressLab];
     [_addressLab autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30*TTScreenWith/640];
     [_addressLab autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_infoLab withOffset:15];
-    [_addressLab autoSetDimension:ALDimensionWidth toSize:200];
-    _addressLab.font=[UIFont fontWithName:nil size:12];
+    [_addressLab autoSetDimension:ALDimensionWidth toSize:150];
+    _addressLab.font=[UIFont fontWithName:nil size:10];
 
     
      _timeLab = [UILabel newAutoLayoutView];
     [self.contentView addSubview:_timeLab];
     [_timeLab autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_addressLab];
     [_timeLab autoPinEdgeToSuperviewEdge:ALEdgeRight  withInset:15];
-    [_timeLab autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_addressLab withOffset:40];
+    [_timeLab autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_addressLab withOffset:10];
      _timeLab.font=[UIFont fontWithName:nil size:12];
      _timeLab.textAlignment=NSTextAlignmentRight;
 

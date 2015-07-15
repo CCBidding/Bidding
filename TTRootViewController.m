@@ -55,6 +55,7 @@
     viewd.showNavi = YES;
     viewd.haveBack = NO;
     viewd.showMenu = YES;
+    viewd.bidsType=bidTypeBidding;
     UINavigationController    *nav       = [[UINavigationController alloc]initWithRootViewController:viewd];
     MenuViewController *menuVC = [[MenuViewController alloc]init];
     REFrostedViewController *frostedViewController1 = [[REFrostedViewController alloc] initWithContentViewController:nav menuViewController:menuVC];
@@ -62,10 +63,11 @@
     frostedViewController1.liveBlurBackgroundStyle  = REFrostedViewControllerLiveBackgroundStyleLight;
     
     
-    BiddingListWinViewController *postVC  = [[BiddingListWinViewController alloc]init];
+    BiddingListViewController *postVC  = [[BiddingListViewController alloc]init];
     postVC.showNavi = YES;
     postVC.haveBack = NO;
     postVC.showMenu = YES;
+    postVC.bidsType=bidTypeWinBidding;
      UINavigationController    *navpost      = [[UINavigationController alloc]initWithRootViewController:postVC];
     REFrostedViewController *frostedViewController2 = [[REFrostedViewController alloc] initWithContentViewController:navpost menuViewController:menuVC];
     frostedViewController2.direction                = REFrostedViewControllerDirectionLeft;

@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "TTBiddingModel.h"
 #import "ParentCellViewController.h"
+typedef NS_ENUM(NSInteger, bidType)
+{
+    bidTypeBidding,
+    bidTypeWinBidding
+};
 
 @interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic,strong) UITableView *myTableview;
-@property (nonatomic,strong) TTBiddingModel *biddingModel;
+@property (nonatomic, strong) UITableView    *myTableview;
+@property (nonatomic, strong) TTBiddingModel *biddingModel;
+@property (nonatomic, assign)  bidType        bidsType;
 
 
 @end
