@@ -13,6 +13,7 @@
 @property(nonatomic,assign) BOOL haveBack;  //是否显示返回键
 @property(nonatomic,assign) BOOL showNavi;  //是否显示导航栏
 @property(nonatomic,assign) BOOL showMenu;  //是否显示菜单键
+@property(nonatomic,assign) BOOL isShowModal; //是否弹出模态视图
 @property(nonatomic,strong) UITableView *myTableView;
 
 

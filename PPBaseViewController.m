@@ -106,8 +106,12 @@
     }
 }
 -(void)returenBtnTapped:(id)sender{
-
+    if (_isShowModal) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else{
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)willShowMenu
