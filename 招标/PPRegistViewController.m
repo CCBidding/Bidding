@@ -455,6 +455,7 @@
     [telTextField endEditing:YES];
     [mailTextField endEditing:YES];
     [detailTextField endEditing:YES];
+    [surePwdTextField endEditing:YES];
     [menuLevel disMiss];
     [menuLevel2 disMiss];
     if (pwdTextField.text && surePwdTextField.text && ![pwdTextField.text isEqualToString:surePwdTextField.text]) {

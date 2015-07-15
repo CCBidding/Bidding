@@ -66,7 +66,7 @@
     [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [bgIconView autoSetDimension:ALDimensionHeight toSize:270];
+    [bgIconView autoSetDimension:ALDimensionHeight toSize:TTScreenHeight*1/2];
     
     
     Icon=[UIImageView newAutoLayoutView];
@@ -92,9 +92,10 @@
     namefield.leftView=accIcon;
     namefield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:namefield];
-    [namefield autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:300];
+    [namefield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
+    [namefield autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:bgIconView withOffset:20];
     
     pwfield = [CustomField newAutoLayoutView];
     pwfield.placeholder=@"密码";
@@ -106,7 +107,8 @@
     pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];
     [pwfield addSubview:pwIcon];
-    [pwfield autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:350];
+    [pwfield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
+    [pwfield autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:namefield withOffset:20];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
     
@@ -118,9 +120,9 @@
     [remenberBtn setImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
     
     [self.view addSubview:remenberBtn];
-    [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:380];
+    [remenberBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwfield withOffset:15];
     [remenberBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
-    [remenberBtn autoSetDimension:ALDimensionWidth toSize:100];
+    [remenberBtn autoSetDimension:ALDimensionWidth toSize: TTScreenWith*10/32];
     [remenberBtn autoSetDimension:ALDimensionHeight toSize:30];
     [remenberBtn bk_whenTapped:^{
         //记住密码要做的事
@@ -137,10 +139,10 @@
     [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     forgetBtn.titleLabel.font = [UIFont fontWithName:nil size:14];
     [self.view addSubview:forgetBtn];
-    [forgetBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:380];
+    [forgetBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwfield withOffset:15];
     [forgetBtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
     [forgetBtn autoSetDimension:ALDimensionHeight toSize:30];
-    [forgetBtn autoSetDimension:ALDimensionWidth toSize:100];
+    [forgetBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
     [forgetBtn bk_whenTapped:^{
        //忘记密码
         
@@ -152,9 +154,9 @@
     [self.view addSubview:loginbtn];
 
     loginbtn.layer.cornerRadius=5;
-    [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [loginbtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:remenberBtn withOffset:20];
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
-    [loginbtn autoSetDimension:ALDimensionWidth toSize:100];
+    [loginbtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
     [loginbtn autoSetDimension:ALDimensionHeight toSize:35];
     [loginbtn addTarget:self action:@selector(pushloginVC) forControlEvents:UIControlEventTouchUpInside];
     
@@ -163,9 +165,9 @@
     [registbtn setBackgroundImage:[UIImage imageNamed:@"27"] forState:UIControlStateHighlighted];
     [self.view addSubview:registbtn];
     registbtn.layer.cornerRadius=5;
-    [registbtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [registbtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:remenberBtn withOffset:20];
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:TTScreenWith/2-100];
-    [registbtn autoSetDimension:ALDimensionWidth toSize:100];
+    [registbtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
     [registbtn  autoSetDimension:ALDimensionHeight toSize:35];
     [registbtn addTarget:self action:@selector(pushregistVC) forControlEvents:UIControlEventTouchUpInside];
 
@@ -187,12 +189,12 @@
     centerView = [UIView newAutoLayoutView];
     centerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:centerView];
-    [centerView autoSetDimension:ALDimensionWidth toSize:35];
-    [centerView autoSetDimension:ALDimensionHeight toSize:35];
+    [centerView autoSetDimension:ALDimensionWidth toSize:TTScreenWith * 35/320];
+    [centerView autoSetDimension:ALDimensionHeight toSize:TTScreenWith * 35/320];
     centerView.layer.borderWidth = 1;
     centerView.layer.borderColor = (__bridge CGColorRef)([colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1]);
     centerView.layer.cornerRadius = 17.5;
-    [centerView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:420];
+    [centerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:remenberBtn withOffset:20];
     [centerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-17.5];
     
     
