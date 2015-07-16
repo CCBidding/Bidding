@@ -26,6 +26,9 @@
 		AF93D9561B5512DC00B96EFD /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93D94F1B5512DC00B96EFD /* SDRefreshHeaderView.m */; };
 		AF93D9571B5512DC00B96EFD /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93D9511B5512DC00B96EFD /* SDRefreshView.m */; };
 		AF93D9581B5512DC00B96EFD /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93D9531B5512DC00B96EFD /* UIView+SDExtension.m */; };
+		AF97F5511B576694003B10D3 /* PPAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97F5501B576694003B10D3 /* PPAboutUsViewController.m */; };
+		AF97F5541B576871003B10D3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5521B576871003B10D3 /* bootstrap.min.css */; };
+		AF97F5551B576871003B10D3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5531B576871003B10D3 /* index.html */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
 		AFC61F7B1B44CF9C00E11040 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F7A1B44CF9C00E11040 /* AppDelegate.m */; };
 		AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC61F821B44CF9C00E11040 /* Images.xcassets */; };
@@ -130,6 +133,10 @@
 		AF93D9511B5512DC00B96EFD /* SDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshView.m; sourceTree = "<group>"; };
 		AF93D9521B5512DC00B96EFD /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		AF93D9531B5512DC00B96EFD /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		AF97F54F1B576694003B10D3 /* PPAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAboutUsViewController.h; sourceTree = "<group>"; };
+		AF97F5501B576694003B10D3 /* PPAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAboutUsViewController.m; sourceTree = "<group>"; };
+		AF97F5521B576871003B10D3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
+		AF97F5531B576871003B10D3 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC61F761B44CF9C00E11040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC61F771B44CF9C00E11040 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -357,6 +364,8 @@
 		AFC61F751B44CF9C00E11040 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AF97F5521B576871003B10D3 /* bootstrap.min.css */,
+				AF97F5531B576871003B10D3 /* index.html */,
 				AFC61F761B44CF9C00E11040 /* Info.plist */,
 				AFC61F771B44CF9C00E11040 /* main.m */,
 				AFC61FAA1B44D82700E11040 /* Bidding.pch */,
@@ -586,6 +595,8 @@
 		AFE0E4931B50BCAD00AC7977 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AF97F54F1B576694003B10D3 /* PPAboutUsViewController.h */,
+				AF97F5501B576694003B10D3 /* PPAboutUsViewController.m */,
 				AFE0E4941B50BCD200AC7977 /* TTMineViewController.h */,
 				AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */,
 			);
@@ -813,6 +824,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF97F5541B576871003B10D3 /* bootstrap.min.css in Resources */,
 				AFC61F831B44CF9C00E11040 /* Images.xcassets in Resources */,
 				AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */,
 				AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */,
@@ -821,6 +833,7 @@
 				68C6C1AF1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib in Resources */,
 				AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */,
 				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
+				AF97F5551B576871003B10D3 /* index.html in Resources */,
 				AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */,
 				68C6C19C1B539D1A002484DB /* down_dark.png in Resources */,
 			);
@@ -897,6 +910,7 @@
 				68C6C1AE1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.m in Sources */,
 				68C6C19D1B539D1A002484DB /* DropDownListView.m in Sources */,
 				68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */,
+				AF97F5511B576694003B10D3 /* PPAboutUsViewController.m in Sources */,
 				68C6C1681B5352E9002484DB /* PPRegistViewController.m in Sources */,
 				68C6C16B1B535A72002484DB /* PPRegistTableViewCell.m in Sources */,
 				AFE0E50A1B5393EE00AC7977 /* UIViewController+REFrostedViewController.m in Sources */,
