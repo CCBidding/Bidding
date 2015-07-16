@@ -83,7 +83,15 @@
         case 1:
             
             break;
-        case 2:
+        case 2:{
+        
+            PPAboutUsViewController *about = [[PPAboutUsViewController alloc]init];
+            about.haveBack = YES;
+            about.showNavi = YES;
+            [self.navigationController pushViewController:about animated:YES];
+        
+        
+        }
             
             break;
         case 3:

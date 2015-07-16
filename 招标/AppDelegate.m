@@ -22,6 +22,23 @@
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self customInterFace];
+    // 友盟统计
+//    [MobClick startWithAppkey:@"55a6132567e58e74bc005e00" reportPolicy:BATCH   channelId:@"Web"];
+//    [MobClick setEncryptEnabled:YES];//对数据的加密，默认情况下不加密
+//    [MobClick setBackgroundTaskEnabled:YES]; // 开启后台模式，保存数据的持久化操作，保证数据的完整性
+//    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    [MobClick setAppVersion:version];
+//    Class cls = NSClassFromString(@"UMANUtil");
+//    SEL deviceIDSelector = @selector(openUDIDString);
+//    NSString *deviceID = nil;
+//    if(cls && [cls respondsToSelector:deviceIDSelector]){
+//        deviceID = [cls performSelector:deviceIDSelector];
+//    }
+//    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
+//                                                       options:NSJSONWritingPrettyPrinted
+//                                                         error:nil];
+//    
+//    NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     
     if ([TTUserDefaultTool objectForKey:TTusername ]&&[TTUserDefaultTool objectForKey:TTpassword]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
