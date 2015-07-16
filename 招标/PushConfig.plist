@@ -4,9 +4,9 @@
 <dict>
 	<key>APS_FOR_PRODUCTION</key>
 	<string>0</string>
-	<key>APP_KEY</key>
-	<string>AppKey copied from JPush Portal application</string>
 	<key>CHANNEL</key>
 	<string>Publish channel</string>
+	<key>APP_KEY</key>
+	<string>ef8ebfe6b68f9ffc650dadf1</string>
 </dict>
 </plist>
