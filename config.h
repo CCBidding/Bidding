@@ -33,6 +33,8 @@
 #define TTpassword   @"password"
 #define TTusername   @"username"
 #define TTcateGory   @"cateGory"
+//通知的时间
+#define TTEnterBackOrTerminateTime @"notificationTime"
 
 #import "UIViewController+PPUser.h"
 #import "colorTurn.h"

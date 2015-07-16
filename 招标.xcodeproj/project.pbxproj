@@ -67,6 +67,16 @@
 		AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */; };
 		AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */; };
 		AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */; };
+		AFF8F62E1B5643170075DB60 /* libPushSDK-1.8.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6111B5643170075DB60 /* libPushSDK-1.8.3.a */; };
+		AFF8F6341B5643820075DB60 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6331B5643820075DB60 /* CFNetwork.framework */; };
+		AFF8F6361B5643970075DB60 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6351B5643970075DB60 /* CoreFoundation.framework */; };
+		AFF8F6381B5643A30075DB60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6371B5643A30075DB60 /* CoreTelephony.framework */; };
+		AFF8F63A1B5643B00075DB60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6391B5643B00075DB60 /* SystemConfiguration.framework */; };
+		AFF8F63C1B5643B90075DB60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F63B1B5643B90075DB60 /* CoreGraphics.framework */; };
+		AFF8F63E1B5643C50075DB60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F63D1B5643C50075DB60 /* Foundation.framework */; };
+		AFF8F6401B5643D20075DB60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F63F1B5643D20075DB60 /* Security.framework */; };
+		AFF8F6421B5643DD0075DB60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6411B5643DD0075DB60 /* libz.dylib */; };
+		AFF8F6441B5644840075DB60 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFF8F6431B5644840075DB60 /* PushConfig.plist */; };
 		EC079653000D351C3100628B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B86DD9ACF283721F4EB233 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +210,17 @@
 		AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBiddingTableViewCell.m; sourceTree = "<group>"; };
 		AFE3B06F1B4B75F9002ACA1F /* TTBiddingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBiddingModel.h; sourceTree = "<group>"; };
 		AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBiddingModel.m; sourceTree = "<group>"; };
+		AFF8F6101B5643170075DB60 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		AFF8F6111B5643170075DB60 /* libPushSDK-1.8.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.3.a"; sourceTree = "<group>"; };
+		AFF8F6331B5643820075DB60 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AFF8F6351B5643970075DB60 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		AFF8F6371B5643A30075DB60 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AFF8F6391B5643B00075DB60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AFF8F63B1B5643B90075DB60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AFF8F63D1B5643C50075DB60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AFF8F63F1B5643D20075DB60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AFF8F6411B5643DD0075DB60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AFF8F6431B5644840075DB60 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +228,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF8F6421B5643DD0075DB60 /* libz.dylib in Frameworks */,
+				AFF8F6401B5643D20075DB60 /* Security.framework in Frameworks */,
+				AFF8F63E1B5643C50075DB60 /* Foundation.framework in Frameworks */,
+				AFF8F63C1B5643B90075DB60 /* CoreGraphics.framework in Frameworks */,
+				AFF8F63A1B5643B00075DB60 /* SystemConfiguration.framework in Frameworks */,
+				AFF8F6381B5643A30075DB60 /* CoreTelephony.framework in Frameworks */,
+				AFF8F6361B5643970075DB60 /* CoreFoundation.framework in Frameworks */,
+				AFF8F6341B5643820075DB60 /* CFNetwork.framework in Frameworks */,
+				AFF8F62E1B5643170075DB60 /* libPushSDK-1.8.3.a in Frameworks */,
 				68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */,
 				EC079653000D351C3100628B /* libPods.a in Frameworks */,
 			);
@@ -330,6 +360,7 @@
 				AFC61F761B44CF9C00E11040 /* Info.plist */,
 				AFC61F771B44CF9C00E11040 /* main.m */,
 				AFC61FAA1B44D82700E11040 /* Bidding.pch */,
+				AFF8F6431B5644840075DB60 /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -440,6 +471,7 @@
 		AFC61FC21B46235000E11040 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				AFF8F6321B5643230075DB60 /* Jpush */,
 				AF93D9491B55125B00B96EFD /* SDRefresh */,
 				68C6C1A51B53AC51002484DB /* PPMoreView */,
 				68C6C19E1B53A162002484DB /* PPDropView */,
@@ -650,6 +682,23 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		AFF8F60F1B5643170075DB60 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				AFF8F6101B5643170075DB60 /* APService.h */,
+				AFF8F6111B5643170075DB60 /* libPushSDK-1.8.3.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		AFF8F6321B5643230075DB60 /* Jpush */ = {
+			isa = PBXGroup;
+			children = (
+				AFF8F60F1B5643170075DB60 /* lib */,
+			);
+			name = Jpush;
+			sourceTree = "<group>";
+		};
 		F3B8F4B161103105AFE6C3F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +711,14 @@
 		FAC7C2C6DA0AFC7B45B6C139 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFF8F6411B5643DD0075DB60 /* libz.dylib */,
+				AFF8F63F1B5643D20075DB60 /* Security.framework */,
+				AFF8F63D1B5643C50075DB60 /* Foundation.framework */,
+				AFF8F63B1B5643B90075DB60 /* CoreGraphics.framework */,
+				AFF8F6391B5643B00075DB60 /* SystemConfiguration.framework */,
+				AFF8F6371B5643A30075DB60 /* CoreTelephony.framework */,
+				AFF8F6351B5643970075DB60 /* CoreFoundation.framework */,
+				AFF8F6331B5643820075DB60 /* CFNetwork.framework */,
 				68634EF81B4F6B21004C1249 /* QuartzCore.framework */,
 				25B86DD9ACF283721F4EB233 /* libPods.a */,
 			);
@@ -720,6 +777,11 @@
 					AFC61F711B44CF9C00E11040 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = Q867RQKZ98;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					AFC61F8A1B44CF9C00E11040 = {
 						CreatedOnToolsVersion = 6.3;
@@ -755,6 +817,7 @@
 				AFE3B04F1B4A188C002ACA1F /* MenuViewController.xib in Resources */,
 				AFC61FA61B44D19000E11040 /* HomeViewController.xib in Resources */,
 				AF93D9541B5512DC00B96EFD /* sdRefeshView_arrow@2x.png in Resources */,
+				AFF8F6441B5644840075DB60 /* PushConfig.plist in Resources */,
 				68C6C1AF1B53AC86002484DB /* TYGSelectMenuCellTableViewCell.xib in Resources */,
 				AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */,
 				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
@@ -967,15 +1030,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "招标/Bidding.pch";
 				INFOPLIST_FILE = "招标/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1ddc3fe5-2b5c-4b65-bf23-94d09f97ed92";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Debug;
 		};
@@ -985,15 +1053,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "招标/Bidding.pch";
 				INFOPLIST_FILE = "招标/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1ddc3fe5-2b5c-4b65-bf23-94d09f97ed92";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Release;
 		};

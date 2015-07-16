@@ -14,7 +14,7 @@
 @interface BiddingListViewController ()
 {
     NSMutableArray  *dataSource;  //获取招标列表
-    NSString           *requestUrl;  //请求URL
+    NSString        *requestUrl;  //请求URL
     
 }
 @property (nonatomic, weak) SDRefreshFooterView *refreshFooter;
@@ -36,19 +36,16 @@
     else{
         self.title = @"中标";
     }
-    
- 
-    
-    // Do any additional setup after loading the view from its nib.
+
 }
 
 -(void)createUI{
 
-    _myTableview=[UITableView newAutoLayoutView];
-    _myTableview.tag=1001;
-    _myTableview.delegate=self;
-    _myTableview.dataSource=self;
-    _myTableview.rowHeight=60.0f;
+    _myTableview = [UITableView newAutoLayoutView];
+    _myTableview.tag        = 1001;
+    _myTableview.delegate   = self;
+    _myTableview.dataSource = self;
+    _myTableview.rowHeight  = 60.0f;
      _myTableview.separatorColor = [UIColor whiteColor];
     [self.view addSubview:_myTableview];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
@@ -244,7 +241,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    
-        static NSString *cellID=@"biddingcell";
+        static NSString *cellID = @"biddingcell";
         BiddinglistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
             cell = [[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
