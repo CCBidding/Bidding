@@ -35,6 +35,23 @@
 
 @implementation HomeViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:YES];
+    self.showNavi=NO;
+
+//    //友盟统计
+//    [MobClick beginLogPageView:@"PageOne"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+
+    [super viewWillDisappear:YES];
+//    [MobClick endLogPageView:@"PageOne"];
+
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerForKeyboardNotifications];
@@ -189,8 +206,8 @@
     centerView = [UIView newAutoLayoutView];
     centerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:centerView];
-    [centerView autoSetDimension:ALDimensionWidth toSize:TTScreenWith * 35/320];
-    [centerView autoSetDimension:ALDimensionHeight toSize:TTScreenWith * 35/320];
+    [centerView autoSetDimension:ALDimensionWidth toSize:35];
+    [centerView autoSetDimension:ALDimensionHeight toSize:35];
     centerView.layer.borderWidth = 1;
     centerView.layer.borderColor = (__bridge CGColorRef)([colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1]);
     centerView.layer.cornerRadius = 17.5;
@@ -291,8 +308,6 @@
  
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    self.showNavi=NO;
-}
+
 
 @end

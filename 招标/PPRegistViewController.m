@@ -56,68 +56,64 @@
     
     UILabel *nameLable = [UILabel newAutoLayoutView];
     nameLable.text = @"公司名称 :";
-    [nameLable setTintAdjustmentMode:UIViewTintAdjustmentModeAutomatic];
     [myScrollView addSubview:nameLable];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:54];
-    [nameLable autoSetDimension:ALDimensionWidth toSize:100];
-    [nameLable autoSetDimension:ALDimensionHeight toSize:30];
+    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
+    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
+    
+    
     nameTextField = [UITextField newAutoLayoutView];
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:54];
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
-    [nameTextField autoSetDimension:ALDimensionWidth toSize:200 relation:NSLayoutRelationGreaterThanOrEqual];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [nameTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320 relation:NSLayoutRelationGreaterThanOrEqual];
 
     UILabel *userLabel = [UILabel newAutoLayoutView];
     [myScrollView addSubview:userLabel];
     userLabel.text = @"用户名 :";
-    [userLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
-    [userLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameLable withOffset:20];
-    [nameLable autoSetDimension:ALDimensionWidth toSize:100];
-    [nameLable autoSetDimension:ALDimensionHeight toSize:30];
+    [userLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
+    [userLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
+
     userTextField = [UITextField newAutoLayoutView];
     userTextField.delegate = self;
     [myScrollView addSubview:userTextField];
     userTextField.borderStyle = UITextBorderStyleRoundedRect;
     [userTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
-    [userTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
-    [userTextField autoSetDimension:ALDimensionWidth toSize:200];
+    [userTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [userTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
     
     
     UILabel *pwdLable = [UILabel newAutoLayoutView];
-    pwdLable.text = @"密码";
+    pwdLable.text = @"密码 : ";
     [myScrollView addSubview:pwdLable];
-    [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [pwdLable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
-    [pwdLable autoSetDimension:ALDimensionHeight toSize:30];
-    [pwdLable autoSetDimension:ALDimensionWidth toSize:100];
+ 
     pwdTextField = [UITextField newAutoLayoutView];
     pwdTextField.delegate = self;
     pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:pwdTextField];
     [pwdTextField setSecureTextEntry:YES];
     [pwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
-    [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
-    [pwdTextField autoSetDimension:ALDimensionWidth toSize:200];
-    [pwdTextField autoSetDimension:ALDimensionHeight toSize:30];
+    [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [pwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
+   
     
     UILabel *surePwdLabel = [UILabel newAutoLayoutView];
     surePwdLabel.text = @"确认密码";
     [myScrollView addSubview:surePwdLabel];
-    [surePwdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [surePwdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [surePwdLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
-    [surePwdLabel autoSetDimension:ALDimensionWidth toSize:100];
-    [surePwdLabel autoSetDimension:ALDimensionHeight toSize:30];
+   
     surePwdTextField  = [UITextField newAutoLayoutView];
     [myScrollView addSubview:surePwdTextField];
     surePwdTextField.secureTextEntry = YES;
     [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
-    [surePwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
+    [surePwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
     surePwdTextField.borderStyle = UITextBorderStyleRoundedRect;
-    [surePwdTextField autoSetDimension:ALDimensionWidth toSize:200];
-    [surePwdTextField autoSetDimension:ALDimensionHeight toSize:30];
+    [surePwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
+   ;
     
 //    UILabel *categoryLabel = [UILabel newAutoLayoutView];
 //    categoryLabel.text = @"公司类别";
@@ -155,17 +151,16 @@
     UILabel *companyInfoLabel = [UILabel newAutoLayoutView];
     companyInfoLabel.text = @"公司资质";
     [myScrollView addSubview:companyInfoLabel];
-    [companyInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [companyInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [companyInfoLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdLabel withOffset:20];
-    [companyInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
-    [companyInfoLabel autoSetDimension:ALDimensionWidth toSize:100];
+  
     infomationBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [infomationBtn setTitle:@"请选择" forState:UIControlStateNormal];
     [myScrollView addSubview:infomationBtn];
-    [infomationBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
+    [infomationBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
     [infomationBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdLabel withOffset:20];
-    [infomationBtn autoSetDimension:ALDimensionWidth toSize:200];
-    [infomationBtn autoSetDimension:ALDimensionHeight toSize:30];
+    [infomationBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
+    
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
     [infomationBtn bk_whenTapped:^{
         if (infomationBtn.titleLabel.text && ![infomationBtn.titleLabel.text isEqualToString:@"请选择"]) {
@@ -211,34 +206,30 @@
     UILabel *headLabel = [UILabel newAutoLayoutView];
     headLabel.text = @"负责人";
     [myScrollView addSubview:headLabel];
-    [headLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [headLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [headLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
-    [headLabel autoSetDimension:ALDimensionWidth toSize:100];
-    [headLabel autoSetDimension:ALDimensionHeight toSize:30];
+
     headTextField = [UITextField newAutoLayoutView];
     headTextField.borderStyle = UITextBorderStyleRoundedRect;
     headTextField.delegate = self;
     [myScrollView addSubview:headTextField];
     [headTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
-    [headTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
-    [headTextField autoSetDimension:ALDimensionHeight toSize:30];
-    [headTextField autoSetDimension:ALDimensionWidth toSize:200];
+    [headTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith *115/320];
+    [headTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
     
     UILabel *headInfoLabel = [UILabel newAutoLayoutView];
     headInfoLabel.text = @"负责人资质";
     [myScrollView addSubview:headInfoLabel];
-    [headInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [headInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [headInfoLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headLabel withOffset:20];
-    [headInfoLabel autoSetDimension:ALDimensionWidth toSize:100];
-    [headInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
+   
     
     headInfoBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headInfoBtn setTitle:@"请选择" forState:UIControlStateNormal];
     [myScrollView addSubview:headInfoBtn];
-    [headInfoBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:115];
+    [headInfoBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith *115/320];
     [headInfoBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headLabel withOffset:20];
-    [headInfoBtn autoSetDimension:ALDimensionHeight toSize:30];
-    [headInfoBtn autoSetDimension:ALDimensionWidth toSize:200];
+    [headInfoBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
   
     [headInfoBtn bk_whenTapped:^{
         if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
@@ -302,11 +293,12 @@
     [registBtn setBackgroundColor:[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1]];
     [myScrollView addSubview:registBtn];
     [registBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [registBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headInfoBtn withOffset:80];
-    [registBtn autoSetDimension:ALDimensionWidth toSize:100];
+    [registBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headInfoBtn withOffset:TTScreenHeight*80/568];
+    [registBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith * 100/320];
     [registBtn autoSetDimension:ALDimensionHeight toSize:40];
     [registBtn bk_whenTapped:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        [self registuser];
     }];
     
     
@@ -429,6 +421,42 @@
     
 
 
+}
+#pragma -mark 注册方法
+-(void)registuser{
+    if (userTextField.text && pwdTextField.text && surePwdTextField.text) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+        AFHTTPRequestOperation *op = [manager POST:TTRegistUrl parameters:@{@"username":userTextField.text,@"password":pwdTextField.text} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
+                [TTUserDefaultTool setObject:responseObject[@"datas"][0][@"sessionid"] forKey:TTsessinid];
+                [MBProgressHUD showSuccess:@"注册成功" toView:myScrollView];
+                
+                [self performSelector:@selector(dismiss) withObject:nil afterDelay:1];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+            
+        }];
+        [op start];
+        
+  
+    }else{
+    
+    
+        [MBProgressHUD showError:@"请输入用户名！" toView:myScrollView];
+    
+    }
+    
+    
+}
+
+-(void)dismiss{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark - IGLDropDownMenuDelegate
