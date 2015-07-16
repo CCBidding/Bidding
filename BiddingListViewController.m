@@ -14,13 +14,11 @@
 @interface BiddingListViewController ()
 {
     NSMutableArray  *dataSource;  //获取招标列表
+    NSString        *requestUrl;  //请求URL
     
 }
 @property (nonatomic, weak) SDRefreshFooterView *refreshFooter;
 @property (nonatomic, weak) SDRefreshHeaderView *refreshHeader;
-@property (nonatomic, assign) NSInteger totalRowCount;
-
-
 @property (nonatomic, weak) UIImageView *animationView;
 @property (nonatomic, weak) UIImageView *boxView;
 @property (nonatomic, weak) UILabel *label;
@@ -30,29 +28,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupHeader];
-    [self setupFooter];
      dataSource = [[NSMutableArray alloc]init];
-    self.title=@"招标";
- 
-    
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    if (_bidsType==bidTypeBidding) {
+        self.title = @"招标";
+    }
+    else{
+        self.title = @"中标";
+    }
+
 }
 
 -(void)createUI{
-    
-    _myTableview=[UITableView newAutoLayoutView];
-    _myTableview.tag=1001;
-    _myTableview.delegate=self;
-    _myTableview.dataSource=self;
+
+    _myTableview = [UITableView newAutoLayoutView];
+    _myTableview.tag        = 1001;
+    _myTableview.delegate   = self;
+    _myTableview.dataSource = self;
+    _myTableview.rowHeight  = 60.0f;
+     _myTableview.separatorColor = [UIColor whiteColor];
     [self.view addSubview:_myTableview];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [self setupHeader];
+    [self setupFooter];
 }
 
 -(void)createData{
+    if (_bidsType==bidTypeBidding) {
+        requestUrl=TTBiddingLsitUrl;
+    }
+    else{
+        requestUrl=TTBidWinlistUrl;
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -89,32 +100,29 @@
     __weak SDRefreshHeaderView *weakRefreshHeader = refreshHeader;
     refreshHeader.beginRefreshingOperation = ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.totalRowCount += 3;
-            [_myTableview reloadData];
+            [self createData];
             [weakRefreshHeader endRefreshing];
         });
     };
     
     // 动画view
-    UIImageView *animationView = [[UIImageView alloc] init];
-    animationView.frame = CGRectMake(30, 45, 40, 40);
-    animationView.image = [UIImage imageNamed:@"staticDeliveryStaff"];
+    UIImageView *animationView =[UIImageView newAutoLayoutView];
     [refreshHeader addSubview:animationView];
-    _animationView = animationView;
-    
-    UIImageView *boxView = [[UIImageView alloc] init];
-    boxView.frame = CGRectMake(150, 10, 15, 8);
-    boxView.image = [UIImage imageNamed:@"box"];
-    [refreshHeader addSubview:boxView];
-    _boxView = boxView;
-    
-    UILabel *label= [[UILabel alloc] init];
+    [animationView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
+    [animationView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:-TTScreenWith/3];
+    [animationView autoSetDimensionsToSize:CGSizeMake(40, 40)];
+    animationView.image = [UIImage imageNamed:@"staticDeliveryStaff"];
+       _animationView = animationView;
+
+    UILabel *label= [UILabel newAutoLayoutView];
+    [refreshHeader addSubview:label];
     label.text = @"下拉加载最新数据";
-    label.frame = CGRectMake((self.view.bounds.size.width - 200) * 0.5, 5, 200, 20);
+    [label autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5];
+    [label autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:-TTScreenWith/4-5];
+    [label autoSetDimensionsToSize:CGSizeMake(200, 20)];
     label.textColor = [UIColor grayColor];
     label.font = [UIFont systemFontOfSize:14];
     label.textAlignment = NSTextAlignmentCenter;
-    [refreshHeader addSubview:label];
     _label = label;
     
     // normal状态执行的操作
@@ -153,8 +161,6 @@
         }];
     };
     
-    // 进入页面自动加载一次数据
-    [refreshHeader beginRefreshing];
 }
 
 - (void)setupFooter
@@ -169,8 +175,7 @@
 - (void)footerRefresh
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.totalRowCount += 2;
-        [_myTableview reloadData];
+        [self createData];
         [self.refreshFooter endRefreshing];
     });
 }
@@ -222,7 +227,7 @@
     DetialBiddingViewController *detailVC = [[DetialBiddingViewController alloc]init];
     detailVC.showNavi = YES;
     detailVC.haveBack = YES;
-    static NSString *cellID=@"biddingcell";
+    static NSString *cellID = @"biddingcell";
     BiddinglistTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
@@ -236,14 +241,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    
-        static NSString *cellID=@"biddingcell";
-        BiddinglistTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+        static NSString *cellID = @"biddingcell";
+        BiddinglistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
-            cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            cell = [[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
        [self configureCell:cell withIndexPath:indexPath];
     
-        
         return cell;
         
 
@@ -252,10 +256,10 @@
 - (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
    
         BiddinglistTableViewCell *biddingcell = (BiddinglistTableViewCell *)cell;
-        biddingcell.biddingModel    = dataSource[indexPath.row];
-        biddingcell.infoLab.text   = biddingcell.biddingModel.title_name;
-        biddingcell.addressLab.text = biddingcell.biddingModel.address;
-        biddingcell.timeLab.text   = biddingcell.biddingModel.oppen_time;
+        biddingcell.biddingModel              = dataSource[indexPath.row];
+        biddingcell.infoLab.text              = biddingcell.biddingModel.title_name;
+        biddingcell.addressLab.text           = biddingcell.biddingModel.address;
+        biddingcell.timeLab.text              = biddingcell.biddingModel.oppen_time  ;
   
 }
 
@@ -264,6 +268,7 @@
     [self createData];
    
 }
+
 
 
 
