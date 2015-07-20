@@ -27,6 +27,7 @@
     UITextField   *mailTextField;
     UITextField   *detailTextField;
     UIButton *headInfoBtn;
+    UILabel *surePwdLabel;
 }
 
 @end
@@ -42,7 +43,23 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.title=@"注册";
+    NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
+    [noti addObserver:self selector:@selector(changeTitle:) name:@"isSelectArr" object:nil];
  
+}
+- (void)changeTitle:(NSNotification *)userInfo{
+
+    NSDictionary *dic = userInfo.userInfo;
+  
+    NSArray *arr = dic[@"arr"];
+    
+    if (arr.count > 0) {
+        NSString *title = [NSString stringWithFormat:@"您一共选择%lu种资质",(unsigned long)arr.count];
+        
+        [infomationBtn setTitle:title forState:UIControlStateNormal];
+
+    }
+   
 }
 - (void)createUI{
 
@@ -51,12 +68,19 @@
     myScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     myScrollView.showsHorizontalScrollIndicator = YES;
     myScrollView.delegate = self;
+   
     [self.view addSubview:myScrollView];
     [myScrollView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     UIView *labelBackgroundView = [UIView newAutoLayoutView];
-    [myScrollView addSubview:labelBackgroundView];
-    [labelBackgroundView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(TTScreenHeight*34/320, 0, 100, TTScreenWith-TTScreenWith*115/320)];
+    labelBackgroundView.autoresizingMask = YES;
+    labelBackgroundView.backgroundColor = [UIColor grayColor];
+    labelBackgroundView.alpha = 0.3;
+    [self.view addSubview:labelBackgroundView];
+    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:64];
+    [labelBackgroundView autoSetDimension:ALDimensionWidth toSize:TTScreenWith*114/320];
+    [labelBackgroundView autoSetDimension:ALDimensionHeight toSize:340];
     labelBackgroundView.backgroundColor = [UIColor grayColor];
     
     UILabel *nameLable = [UILabel newAutoLayoutView];
@@ -68,14 +92,14 @@
     nameLable.layer.cornerRadius = 5;
     nameLable.layer.masksToBounds = YES;
     [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
+    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*4/320];
     
     
     nameTextField = [UITextField newAutoLayoutView];
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*4/320];
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
     [nameTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320 relation:NSLayoutRelationGreaterThanOrEqual];
 
@@ -120,7 +144,7 @@
     [pwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
    
     
-    UILabel *surePwdLabel = [UILabel newAutoLayoutView];
+    surePwdLabel = [UILabel newAutoLayoutView];
     surePwdLabel.text = @" * 确认密码";
     surePwdLabel.backgroundColor = [UIColor grayColor];
     surePwdLabel.layer.cornerRadius = 5;
@@ -183,7 +207,8 @@
     [companyInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
     [companyInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [companyInfoLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdLabel withOffset:20];
-  
+
+    
     infomationBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [infomationBtn setTitle:@"请选择" forState:UIControlStateNormal];
     [myScrollView addSubview:infomationBtn];
@@ -193,31 +218,38 @@
     
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
     [infomationBtn bk_whenTapped:^{
-        if (infomationBtn.titleLabel.text && ![infomationBtn.titleLabel.text isEqualToString:@"请选择"]) {
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
-            alert.tag = 1004;
-            [alert show];
-            
-        }
-        else{
-            
-            //显示
-            [menuLevel showFromView:infomationBtn toView:myScrollView];
-            
-            [menuLevel2 disMiss];
-            //block回调
-            [menuLevel selectAtMenu:^(NSMutableArray *selectedMenuArray) {
-                
-                NSMutableString *title = [NSMutableString string];
-                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
-                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
-                }
-                
-                [infomationBtn setTitle:title forState:UIControlStateNormal];
-            }];
-            
-        }
+//        if (infomationBtn.titleLabel.text && ![infomationBtn.titleLabel.text isEqualToString:@"请选择"]) {
+//            
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
+//            alert.tag = 1004;
+//            [alert show];
+//            
+//        }
+//        else{
+//            
+//            //显示
+//            [menuLevel showFromView:infomationBtn toView:myScrollView];
+//            
+//            [menuLevel2 disMiss];
+//            //block回调
+//            [menuLevel selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+//                
+//                NSMutableString *title = [NSMutableString string];
+//                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
+//                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
+//                }
+//                
+//                [infomationBtn setTitle:title forState:UIControlStateNormal];
+//            }];
+//            
+//        }
+        
+        PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
+        choose.showNavi = YES;
+        choose.haveBack = YES;
+        
+        [self.navigationController pushViewController:choose animated:YES];
+        
     }];
     
     
@@ -519,6 +551,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [nameTextField endEditing:YES];
     [pwdTextField endEditing:YES];
+    [userTextField endEditing:YES];
     [numComTextField endEditing:YES];
     [headTextField endEditing:YES];
     [telTextField endEditing:YES];
