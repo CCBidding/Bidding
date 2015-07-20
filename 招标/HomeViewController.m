@@ -29,6 +29,8 @@
     UIButton    *remenberBtn; //记住密码
     UIButton    *forgetBtn;   //忘记密码
     BOOL         isSave;     //是否记住密码
+    
+    CAGradientLayer *gradienLayer;
 
 }
 @end
@@ -233,7 +235,36 @@
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    //创建渐变层
+    gradienLayer = [CAGradientLayer layer];
+    gradienLayer.frame = bottomLable.frame;
+    //设置渐变层的颜色，颜色随机改变
+    gradienLayer.colors = @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor,(id)[self randomColor].CGColor];
+    [bottomView.layer addSublayer:gradienLayer];
+    gradienLayer.mask = bottomLable.layer;
+    bottomLable.frame = gradienLayer.frame;
+    //利用定时器，快速切换渐变颜色，就有文字颜色变化的效果
+    CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(textColorChange)];
+    [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     
+}
+#pragma -mark 定时器触发方法
+- (void)textColorChange{
+ 
+    gradienLayer.colors =  @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor,(id)[self randomColor].CGColor];
+    
+
+}
+
+#pragma -mark 绘制随机颜色
+- (UIColor *)randomColor{
+
+    CGFloat r = arc4random_uniform(256) / 255.0;
+    CGFloat g = arc4random_uniform(256) / 255.0;
+    CGFloat b = arc4random_uniform(256) / 255.0;
+    return [UIColor colorWithRed:r green:g blue:b alpha:1];
+    
+
 }
 
 -(void)pushloginVC{

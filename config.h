@@ -46,5 +46,6 @@
 #import "TYGSelectMenu.h"
 #import "HomeViewController.h"
 #import "PPAboutUsViewController.h"
-
+#import "PPChooseInfoViewController.h"
+#import "PinyinHelper.h"
 #endif
