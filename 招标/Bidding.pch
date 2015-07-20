@@ -17,6 +17,7 @@
 #import "UIImage+LBBlurredImage.h"
 #import <AFNetworking.h>
 #import <PureLayout.h>
+#import <Masonry.h>
 #import "config.h"
 
 #endif

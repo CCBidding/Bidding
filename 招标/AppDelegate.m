@@ -66,8 +66,6 @@
         self.window.rootViewController = home;
 
     }
-    
-
    
     [self.window makeKeyAndVisible];
     return YES;
@@ -150,7 +148,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    
+    NSLog(@"%@",userInfo);
     
     
     // IOS 7 Support Required
@@ -163,6 +161,7 @@
 {
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     [TTUserDefaultTool setObject:[NSString stringWithFormat:@"%.0f",interval] forKey:TTEnterBackOrTerminateTime];
+ 
 }
 
 //获取中间的消息

@@ -19,32 +19,45 @@
 }
 -(void)createUI{
  
-    _infoLab  = [UILabel newAutoLayoutView];
+    _infoLab    = [UILabel new];
     [self.contentView addSubview:_infoLab];
+
+    _addressLab = [UILabel new];
+    [self.contentView addSubview:_addressLab];
+
+    _timeLab    = [UILabel new];
+    [self.contentView addSubview:_timeLab];
+    
     _infoLab.numberOfLines = 0;
     _infoLab.lineBreakMode=NSLineBreakByCharWrapping;
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40*TTScreenWith/640];
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:15];
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:40];
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
+    [_infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-20);
+        make.bottom.equalTo(_addressLab.mas_top).with.offset(-20);
+        
+    }];
     _infoLab.font = [UIFont systemFontOfSize:24*TTScreenWith/640];
-    
-    
-     _addressLab = [UILabel newAutoLayoutView];
-    [self.contentView addSubview:_addressLab];
-    [_addressLab autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30*TTScreenWith/640];
-    [_addressLab autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_infoLab withOffset:15];
-    [_addressLab autoSetDimension:ALDimensionWidth toSize:150];
-    _addressLab.font=[UIFont fontWithName:nil size:10];
 
-    
-     _timeLab = [UILabel newAutoLayoutView];
-    [self.contentView addSubview:_timeLab];
-    [_timeLab autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_addressLab];
-    [_timeLab autoPinEdgeToSuperviewEdge:ALEdgeRight  withInset:15];
-    [_timeLab autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_addressLab withOffset:10];
-     _timeLab.font=[UIFont fontWithName:nil size:12];
-     _timeLab.textAlignment=NSTextAlignmentRight;
+    _addressLab.font=[UIFont fontWithName:nil size:10];
+    [_addressLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_infoLab.mas_bottom).with.offset(20);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
+        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+        make.right.equalTo(_timeLab.mas_left).with.offset(-20);
+        make.width.equalTo(@200);
+    }];
+
+     _timeLab.font = [UIFont fontWithName:nil size:12];
+     _timeLab.textAlignment = NSTextAlignmentRight;
+    _timeLab.numberOfLines = 0;
+    [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(_addressLab.mas_centerY);
+        make.left.equalTo(_addressLab.mas_right).with.offset(20);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-10);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
+       
+    }];
 
     
     

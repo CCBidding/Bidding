@@ -67,7 +67,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    AFHTTPRequestOperation *op = [manager POST:TTBiddingLsitUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *op = [manager POST:requestUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arr;
         arr = responseObject[@"datas"];
         if (dataSource != 0) {

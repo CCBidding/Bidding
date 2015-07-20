@@ -12,20 +12,20 @@
 
     UITableView *myTableView;
     NSArray     *dataArr;
-    UITextField *nameTextField;
-    UITextField *pwdTextField;
+    CustomField *nameTextField;
+    CustomField *pwdTextField;
     IGLDropDownMenu *companyCategory;
     UIButton     *infomationBtn;
     TYGSelectMenu *menuLevel;
     TYGSelectMenu *menuLevel2;
-    UITextField   *userTextField;
-    UITextField   *surePwdTextField;
+    CustomField   *userTextField;
+    CustomField   *surePwdTextField;
     UIScrollView  *myScrollView;
-    UITextField   *numComTextField;
-    UITextField   *headTextField;
-    UITextField    *telTextField;
-    UITextField   *mailTextField;
-    UITextField   *detailTextField;
+    CustomField   *numComTextField;
+    CustomField   *headTextField;
+    CustomField    *telTextField;
+    CustomField   *mailTextField;
+    CustomField   *detailTextField;
     UIButton *headInfoBtn;
 }
 
@@ -46,7 +46,9 @@
 }
 - (void)createUI{
 
-
+//    [self.view bk_whenTapped:^{
+//        [self.view endEditing:YES];
+//    }];
     myScrollView = [UIScrollView newAutoLayoutView];
     myScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     myScrollView.showsHorizontalScrollIndicator = YES;
@@ -61,8 +63,7 @@
     [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
     
     
-    nameTextField = [UITextField newAutoLayoutView];
-    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    nameTextField = [CustomField newAutoLayoutView];
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*34/320];
@@ -75,10 +76,9 @@
     [userLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [userLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
 
-    userTextField = [UITextField newAutoLayoutView];
+    userTextField = [CustomField newAutoLayoutView];
     userTextField.delegate = self;
     [myScrollView addSubview:userTextField];
-    userTextField.borderStyle = UITextBorderStyleRoundedRect;
     [userTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
     [userTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
     [userTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
@@ -90,9 +90,8 @@
     [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [pwdLable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
  
-    pwdTextField = [UITextField newAutoLayoutView];
+    pwdTextField = [CustomField newAutoLayoutView];
     pwdTextField.delegate = self;
-    pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:pwdTextField];
     [pwdTextField setSecureTextEntry:YES];
     [pwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
@@ -106,12 +105,11 @@
     [surePwdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [surePwdLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
    
-    surePwdTextField  = [UITextField newAutoLayoutView];
+    surePwdTextField  = [CustomField newAutoLayoutView];
     [myScrollView addSubview:surePwdTextField];
     surePwdTextField.secureTextEntry = YES;
     [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
     [surePwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
-    surePwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [surePwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
    ;
     
@@ -209,8 +207,7 @@
     [headLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
     [headLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
 
-    headTextField = [UITextField newAutoLayoutView];
-    headTextField.borderStyle = UITextBorderStyleRoundedRect;
+    headTextField = [CustomField newAutoLayoutView];
     headTextField.delegate = self;
     [myScrollView addSubview:headTextField];
     [headTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
@@ -492,6 +489,7 @@
     }
 
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated{
 

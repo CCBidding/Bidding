@@ -271,12 +271,12 @@ static const CGFloat kNavbarButtonScaleFactor = 1.4f;
         relativeButton = (UIButton *)[_navigationBarView viewWithTag:_selectedIndex-1];
     }
     
-    offset = fabsf(offset);
+    offset = fabs(offset);
     if (relativeButton) {
         
         CGFloat scrollViewWidth = scrollView.frame.size.width;
-        CGFloat currentScaleFactor = (kNavbarButtonScaleFactor)-(kNavbarButtonScaleFactor-1)*fabsf(offset)/scrollViewWidth;
-        CGFloat relativeScaleFactor = (kNavbarButtonScaleFactor-1)*fabsf(offset)/scrollViewWidth+1.f;
+        CGFloat currentScaleFactor = (kNavbarButtonScaleFactor)-(kNavbarButtonScaleFactor-1)*fabs(offset)/scrollViewWidth;
+        CGFloat relativeScaleFactor = (kNavbarButtonScaleFactor-1)*fabs(offset)/scrollViewWidth+1.f;
         
         
         

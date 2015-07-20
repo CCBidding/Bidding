@@ -35,9 +35,10 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Mantle (2.0.2):
-    - Mantle/extobjc (= 2.0.2)
-  - Mantle/extobjc (2.0.2)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - Masonry (0.6.1)
   - PureLayout (2.0.6)
   - RESideMenu-onlyLeft (4.0.7)
   - TMCache (2.1.0)
@@ -45,7 +46,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - BlocksKit (~> 2.2.5)
-  - Mantle (~> 2.0.2)
+  - Mantle (~> 1.5)
+  - Masonry (~> 0.6.1)
   - PureLayout (~> 2.0.6)
   - RESideMenu-onlyLeft (~> 4.0.7)
   - TMCache (~> 2.1.0)
@@ -53,7 +55,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   RESideMenu-onlyLeft: d4e4010a5dce24e3e5e29bfa914db4bd7191c83e
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
