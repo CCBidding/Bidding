@@ -10,4 +10,6 @@
 //colorWithRed:0 green:245/255.0 blue:255/255.0 alpha:1];
 @interface colorTurn : NSObject
 +(UIColor *)colorTurnWithRed:(float)redf  greed:(float)greedf blue:(float)bluef alpa:(float)alpaf;
+
++(UIColor *)RGBColorFromHexString:(NSString *)color alpha:(float)alpha;
 @end

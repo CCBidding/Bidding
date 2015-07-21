@@ -78,9 +78,6 @@
  */
 - (void)succeedWithItem:(UIBarButtonItem *)item{
 
-//    NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
-//    NSDictionary *dic = @{@"arr":_isSelectArr,@"isCompany":self.isCompany,@"pidArr":isSelectPidArr};
-//    [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
     if (isSelect) {
         
         [myTableView setEditing:YES animated:YES];
@@ -92,7 +89,7 @@
         for (NSString *pid in self.pidArr) {
             NSMutableDictionary *dicions = [[NSMutableDictionary alloc]init];
 
-             [dicions setObject:pid forKey:@"pro"];
+             [dicions setObject:pid forKey:@"pro_id"];
             NSArray *arr = dict [pid];
             if (arr.count>0) {
                 for (NSDictionary *dicion in arr) {
@@ -105,7 +102,7 @@
                         int sum = idt.intValue;
                         if (fen == sum ) {
                             
-                            [dicions setObject:grade forKey:@"grade"];
+                            [dicions setObject:grade forKey:@"gr_id"];
                         }
                     }
                 }
@@ -114,22 +111,47 @@
             }else{
             
                
-                [dicions setObject:@"" forKey:@"grade"];
+                [dicions setObject:@"" forKey:@"gr_id"];
             
             }
+            NSMutableArray *ar = [[NSMutableArray alloc]init];
+            for (NSString *string in self.stringArr) {
+                
+                [ar addObject:string];
+               
+            }
+            [dicions setObject:ar forKey:@"string"];
             [returnArr addObject:dicions];
         }
         
         [myTableView setEditing:NO animated:YES];
       
-        NSLog(@"return:%@",returnArr);
-        [item setTitle:@"选择"];
+        [self dismissVCWith:returnArr];
+       [item setTitle:@"选择"];
+        
+
     }
     
     
     isSelect = !isSelect;
 
 }
+
+/**
+ *  消失界面
+ */
+
+- (void)dismissVCWith:(NSArray *)arr{
+
+    NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
+    NSDictionary *dic = @{@"arr":arr,@"isCompany":self.isCompany,@"string":_stringArr};
+    [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+
+}
+
 - (void)createData{
 
     self.title = @"请选择您资质的等级";

@@ -52,4 +52,5 @@
 #import "PPGuideUserView.h"
 #import "TTBaseWebViewController.h"
 #import "PPGadeViewController.h"
+#import "PPSelectedViewController.h"
 #endif

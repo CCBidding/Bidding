@@ -12,4 +12,7 @@
 @property(strong,nonatomic)UIColor *color;
 @property(strong,nonatomic)UIImage *paopaoImage;
 @property(strong,nonatomic)NSString *txt;
+
+-(id)initWithFrame:(CGRect)frame backImage:(UIImage*)image msgStr:(NSString*)txt
+          txtColor:(UIColor*)color;
 @end

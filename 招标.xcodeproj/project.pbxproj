@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6838CA5C1B5CD46900292A0A /* PPGuideUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838CA5B1B5CD46900292A0A /* PPGuideUserView.m */; };
 		6838CA5F1B5CEBAA00292A0A /* PPGadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */; };
+		6838CA621B5DF97700292A0A /* PPSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838CA611B5DF97700292A0A /* PPSelectedViewController.m */; };
 		68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF01B4E7256004C1249 /* PPBaseViewController.m */; };
 		68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */; };
 		68634EF71B4F5760004C1249 /* colorTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF61B4F5760004C1249 /* colorTurn.m */; };
@@ -115,6 +116,8 @@
 		6838CA5B1B5CD46900292A0A /* PPGuideUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGuideUserView.m; sourceTree = "<group>"; };
 		6838CA5D1B5CEBAA00292A0A /* PPGadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGadeViewController.h; sourceTree = "<group>"; };
 		6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGadeViewController.m; sourceTree = "<group>"; };
+		6838CA601B5DF97700292A0A /* PPSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSelectedViewController.h; sourceTree = "<group>"; };
+		6838CA611B5DF97700292A0A /* PPSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSelectedViewController.m; sourceTree = "<group>"; };
 		68634EEF1B4E7256004C1249 /* PPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBaseViewController.h; sourceTree = "<group>"; };
 		68634EF01B4E7256004C1249 /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
 		68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PPUser.h"; sourceTree = "<group>"; };
@@ -493,6 +496,8 @@
 				6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */,
 				68DB730D1B59EDFC009FE618 /* PPResultViewController.h */,
 				68DB730E1B59EDFC009FE618 /* PPResultViewController.m */,
+				6838CA601B5DF97700292A0A /* PPSelectedViewController.h */,
+				6838CA611B5DF97700292A0A /* PPSelectedViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1050,6 +1055,7 @@
 				6838CA5F1B5CEBAA00292A0A /* PPGadeViewController.m in Sources */,
 				AFE3B0681B4B6A12002ACA1F /* BiddinglistTableViewCell.m in Sources */,
 				AFE0E4B81B535D5B00AC7977 /* NTSlidingViewController.m in Sources */,
+				6838CA621B5DF97700292A0A /* PPSelectedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
