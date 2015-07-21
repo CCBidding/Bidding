@@ -62,7 +62,7 @@
     }];
 
      _timeLab.font = [UIFont fontWithName:nil size:12];
-    // _timeLab.textAlignment = NSTextAlignmentRight;
+     _timeLab.textAlignment = NSTextAlignmentRight;
      _timeLab.numberOfLines = 0;
     _timeLab.textColor = [UIColor whiteColor];
     [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {

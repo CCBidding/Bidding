@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.title=@"详情";
     if (_detailBidType == detailbidTypeBidding) {
-         detailArr = @[@"标题",@"项目编号",@"项目名称",@"项目简介",@"发布日期",@"代理机构",@"项目负责人",@"联系方式",@"详细网址"];
+         detailArr = @[@"招标标题",@"招标条件",@"项目概况与招标范围",@"投标人资格要求",@"招标文件的获取",@"投标报名",@"投标文件的递交",@"发布公告的媒介",@"联系方式",@"其他事项",@"招标机构",@"发布招标消息时间",@"详细网址"];
     }
     else{
         detailArr = @[@"采购标题",@"采购人",@"项目名称",@"项目编号",@"项目序列",@"采购方式",@"采购公告",@"评审信息",@"定标日期",@"中标信息",@"联系事项",@"详细网址"];
@@ -82,7 +82,7 @@
             cell = [[DetailBiddingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         [self configureCell:cell withIndexPath:indexPath];
-        if(!_biddingModel||!_winBiddingModel){
+        if(!(_biddingModel||_winBiddingModel)){
             return TTScreenWith*60/320;
         }
         else{
@@ -107,42 +107,63 @@
     if (_detailBidType == detailbidTypeBidding) {
         switch (indexPath.row) {
             case 0:
-                biddingcell.infoLab.text = _biddingModel.title_name;
+                biddingcell.infoLab.text = _biddingModel.bid_title;
         
                 break;
             case 1:
-                biddingcell.infoLab.text = _biddingModel.project_id;
+                biddingcell.infoLab.text = _biddingModel.bid_condition;
                 
                 break;
             case 2:
-                biddingcell.infoLab.text = _biddingModel.project_name;
+                biddingcell.infoLab.text = _biddingModel.bid_survey;
                
                 break;
             case 3:
-                biddingcell.infoLab.text = _biddingModel.project_situation;
+                biddingcell.infoLab.text = _biddingModel.bid_qua;
               
                 break;
             case 4:
-                biddingcell.infoLab.text = _biddingModel.oppen_time;
+                biddingcell.infoLab.text = _biddingModel.bid_obtain;
                 
                 break;
             case 5:
-                biddingcell.infoLab.text = _biddingModel.address;
+                biddingcell.infoLab.text = _biddingModel.bid_reg;
        
                 break;
             case 6:
-                biddingcell.infoLab.text = _biddingModel.contact_name;
+                biddingcell.infoLab.text = _biddingModel.bid_submit;
              
                 break;
             case 7:
-                biddingcell.infoLab.text = _biddingModel.contact_info;
+                biddingcell.infoLab.text = _biddingModel.bid_media;
                 
                 break;
             case 8:
-                biddingcell.infoLab.text = _biddingModel.url;
-                mainUrl = _biddingModel.url;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                biddingcell.infoLab.text = _biddingModel.bid_contact;
+               
                 break;
+            case 9:
+                biddingcell.infoLab.text = _biddingModel.bid_other;
+                
+                break;
+            case 10:
+                biddingcell.infoLab.text = _biddingModel.org_name;
+                
+                break;
+            case 11:
+                biddingcell.infoLab.text = _biddingModel.org_putime;
+                
+                break;
+            case 12:
+                biddingcell.infoLab.text = _biddingModel.bid_url;
+                mainUrl = _biddingModel.bid_url;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+                break;
+
+
+
+
                 
             default:
                 break;

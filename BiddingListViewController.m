@@ -271,9 +271,9 @@
         biddingcell.backgroundview.backgroundColor = colorArr[indexPath.row%6];
     if(_bidsType == bidTypeBidding){
         biddingcell.biddingModel              = dataSource[indexPath.row];
-        biddingcell.infoLab.text              = biddingcell.biddingModel.title_name;
-        biddingcell.addressLab.text           = biddingcell.biddingModel.address;
-        biddingcell.timeLab.text              = biddingcell.biddingModel.oppen_time  ;
+        biddingcell.infoLab.text              = biddingcell.biddingModel.bid_title;
+        biddingcell.addressLab.text           = biddingcell.biddingModel.org_name;
+        biddingcell.timeLab.text              = biddingcell.biddingModel.ref_date  ;
     }
     else
     {
