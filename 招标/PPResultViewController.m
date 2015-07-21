@@ -37,9 +37,10 @@
 }
 
 - (void)createData{
-    origailArr = [NSMutableArray arrayWithObjects:@"工程招标代理甲级",@"工程招标代理乙级",@"中央投资项目招标代理预备级",@"政府采购甲级",@"市政行业甲级",@"建筑行业甲级",@"房屋建筑工程施工总承包特级",@"公路工程一级",@"矿山工程一级",@"市政公用工程一级",@"钢结构工程一级",@"消费设施工程一级",@"建筑防水工程二级",@"建筑装修装饰工程一级",@"建筑装修装饰工程一级",@"机电安装工程二级",@"机电设备安装工程一级"
-               ,@"防腐保温工程一级",@"店里工程二级",@"水利水电工程三级",@"化工石油设备管道安装一级",@"城市及道路照明工程一级",@"送变电工程一级",@"建筑幕墙工程一级",@"工程造价咨询企业甲级",@"项目管理乙级",nil];
-
+    
+    origailArr = [[NSMutableArray alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    origailArr = [defaults arrayForKey:@"data"];
     origailArr = [origailArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSString *string1 = obj1;
         NSString *str1 = [PinyinHelper getFirstHanyuPinyinStringWithChar:[string1 characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
@@ -125,7 +126,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+    NSArray *arr = [NSArray arrayWithObject:searchArr[indexPath.row]];
+    NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
+    NSDictionary *dic = @{@"arr":arr};
+    [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
     
+    [self.navigationController popViewControllerAnimated:YES];
+
 
 
 }
