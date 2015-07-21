@@ -21,11 +21,7 @@
 -(void)createUI{
     
     _titleLab = [UILabel new];
- 
-    
     [self.contentView addSubview:_titleLab];
-   
-    
     _infoLab  = [UILabel new];
   
     [self.contentView addSubview:_infoLab];
@@ -37,12 +33,8 @@
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
-        make.right.equalTo(self.infoLab.mas_left).with.offset(-15);
-      
-
+        make.width.equalTo(@100);
     }];
-    
-   
 
     _infoLab.numberOfLines = 0;
     _infoLab.lineBreakMode = NSLineBreakByCharWrapping;

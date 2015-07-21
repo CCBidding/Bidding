@@ -12,6 +12,7 @@
 @interface DetialBiddingViewController ()
 {
     NSArray  *detailArr;   //详情数组
+    NSString *mainUrl;     //主页
 }
 @end
 
@@ -20,7 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"详情";
-    detailArr = @[@"项目名称",@"项目内容",@"投标时间",@"投标地点"];
+    if (_detailBidType == detailbidTypeBidding) {
+         detailArr = @[@"标题",@"项目编号",@"项目名称",@"项目简介",@"发布日期",@"代理机构",@"项目负责人",@"联系方式",@"详细网址"];
+    }
+    else{
+        detailArr = @[@"采购标题",@"采购人",@"项目名称",@"项目编号",@"项目序列",@"采购方式",@"采购公告",@"评审信息",@"定标日期",@"中标信息",@"联系事项",@"详细网址"];
+    }
+   
     // Do any additional setup after loading the view.
 }
 
@@ -75,7 +82,7 @@
             cell = [[DetailBiddingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         [self configureCell:cell withIndexPath:indexPath];
-        if(!_biddingModel){
+        if(!_biddingModel||!_winBiddingModel){
             return TTScreenWith*60/320;
         }
         else{
@@ -97,28 +104,127 @@
     
     DetailBiddingTableViewCell *biddingcell = (DetailBiddingTableViewCell *)cell;
     biddingcell.titleLab.text    = detailArr[indexPath.row];
-    switch (indexPath.row) {
-        case 0:
-            biddingcell.infoLab.text = _biddingModel.project_name;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-        case 1:
-            biddingcell.infoLab.text = _biddingModel.project_situation;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-        case 2:
-            biddingcell.infoLab.text = _biddingModel.oppen_time;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-        case 3:
-            biddingcell.infoLab.text = _biddingModel.address;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-            
-        default:
-            break;
+    if (_detailBidType == detailbidTypeBidding) {
+        switch (indexPath.row) {
+            case 0:
+                biddingcell.infoLab.text = _biddingModel.title_name;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 1:
+                biddingcell.infoLab.text = _biddingModel.project_id;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 2:
+                biddingcell.infoLab.text = _biddingModel.project_name;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 3:
+                biddingcell.infoLab.text = _biddingModel.project_situation;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 4:
+                biddingcell.infoLab.text = _biddingModel.oppen_time;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 5:
+                biddingcell.infoLab.text = _biddingModel.address;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 6:
+                biddingcell.infoLab.text = _biddingModel.contact_name;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 7:
+                biddingcell.infoLab.text = _biddingModel.contact_info;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 8:
+                biddingcell.infoLab.text = _biddingModel.url;
+                mainUrl = _biddingModel.url;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+                
+            default:
+                break;
+        }
+
+    }
+    else{
+        switch (indexPath.row) {
+            case 0:
+                biddingcell.infoLab.text = _winBiddingModel.title_name;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 1:
+                biddingcell.infoLab.text = _winBiddingModel.caigourenName;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 2:
+                biddingcell.infoLab.text = _winBiddingModel.xiangmuName;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 3:
+                biddingcell.infoLab.text = _winBiddingModel.xiangmuNum;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 4:
+                biddingcell.infoLab.text = _winBiddingModel.xiangmuxulieNum;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 5:
+                biddingcell.infoLab.text = _winBiddingModel.caigoufangshi;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 6:
+                biddingcell.infoLab.text = _winBiddingModel.caigougonggaoriqijiMeiti;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 7:
+                biddingcell.infoLab.text = _winBiddingModel.pingshenxinxi;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 8:
+                biddingcell.infoLab.text = _winBiddingModel.dingbiaoriqi;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 9:
+                biddingcell.infoLab.text = _winBiddingModel.zhongbiaoxinxi;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 10:
+                biddingcell.infoLab.text = _winBiddingModel.lianxishixiang;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 11:
+                biddingcell.infoLab.text = _winBiddingModel.url;
+                mainUrl = _winBiddingModel.url;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+                
+            default:
+                break;
+        }
+ 
+    
     }
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == (detailArr.count-1)){
+        TTBaseWebViewController *webVC;
+        if (!webVC) {
+            webVC = [[TTBaseWebViewController alloc]init] ;
+        }
+        webVC.haveBack = YES;
+        webVC.showNavi = YES;
+        webVC.mainUrl  = mainUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    
+    }
+
+}
+
 
 
 @end

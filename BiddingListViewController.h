@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBiddingModel.h"
+#import "TTWinBiddingModel.h"
 #import "ParentCellViewController.h"
 typedef NS_ENUM(NSInteger, bidType)
 {
@@ -16,9 +17,10 @@ typedef NS_ENUM(NSInteger, bidType)
 };
 
 @interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) UITableView    *myTableview;
-@property (nonatomic, strong) TTBiddingModel *biddingModel;
-@property (nonatomic, assign)  bidType        bidsType;
+@property (nonatomic, strong) UITableView       *myTableview;
+@property (nonatomic, strong) TTBiddingModel    *biddingModel;         //招标数据
+@property (nonatomic, strong) TTWinBiddingModel *winBiddingModel;   //中标数据
+@property (nonatomic, assign)  bidType           bidsType;
 
 
 @end

@@ -10,15 +10,15 @@
 
 @interface TTBiddingModel : MTLModel<MTLJSONSerializing>
 //id           用户id
-//title_name   标题名
-//project_id   项目id
-//project_name 项目名
-//project_situation 项目情况
-//oppen_time   打开时间
-//address      地址
-//contact_name 招标人名字
-//contact_info 招标人联系方式
-//url          招标网站
+//title_name   标题
+//project_id   项目编号
+//project_name 项目名称
+//project_situation 项目简介
+//oppen_time   发布日期
+//address      代理机构
+//contact_name 项目负责人
+//contact_info 联系方式
+//url          详细网址
 
 @property (nonatomic, copy)    NSString  *address;
 @property (nonatomic, copy)    NSString  *contact_info;
