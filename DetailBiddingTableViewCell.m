@@ -20,25 +20,37 @@
 
 -(void)createUI{
     
-    _titleLab = [UILabel newAutoLayoutView];
+    _titleLab = [UILabel new];
     [self.contentView addSubview:_titleLab];
-    _titleLab.numberOfLines = 0;
-    [_titleLab autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [_titleLab autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30*TTScreenWith/640];
-    [_titleLab autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:15];
-    [_titleLab autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:15];
-    _titleLab.font = [UIFont systemFontOfSize:28*TTScreenWith/640];
     
-    _infoLab  = [UILabel newAutoLayoutView];
+    _infoLab  = [UILabel new];
     [self.contentView addSubview:_infoLab];
+    
+    
+    _titleLab.font = [UIFont systemFontOfSize:28*TTScreenWith/640];
+    [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.contentView.mas_centerY);
+        make.left.equalTo(self.contentView.mas_left).with.offset(15);
+        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
+        make.right.equalTo(_infoLab.mas_left).with.offset(-20);
+       
+
+    }];
+    
+
     _infoLab.numberOfLines = 0;
     _infoLab.lineBreakMode = NSLineBreakByCharWrapping;
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20*TTScreenWith/640];
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:15];
-    [_infoLab autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:15];
-    [_infoLab autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_titleLab withOffset:10];
     _infoLab.font          = [UIFont systemFontOfSize:24*TTScreenWith/640];
-    _infoLab.textAlignment = NSTextAlignmentRight;
+    [_infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(_titleLab.mas_centerY);
+        make.left.equalTo(_titleLab.mas_right).with.offset(20);
+        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+       
+    }];
+
     
     
     

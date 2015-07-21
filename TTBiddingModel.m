@@ -11,15 +11,6 @@
 @implementation TTBiddingModel
 
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
-    return @{@"id":@"id",
-             @"title_name":@"title_name",
-             @"project_id":@"project_id",
-             @"project_name":@"project_name",
-             @"project_situation":@"project_situation",
-             @"oppen_time":@"oppen_time",
-             @"address":@"address",
-             @"contact_name":@"contact_name",
-             @"contact_info":@"contact_info",
-             @"url":@"url"};
+    return @{};
 }
 @end
