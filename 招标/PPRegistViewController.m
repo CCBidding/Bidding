@@ -28,6 +28,8 @@
     UITextField   *detailTextField;
     UIButton *headInfoBtn;
     UILabel *surePwdLabel;
+    
+    NSArray *pidArr;
 }
 
 @end
@@ -43,6 +45,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.title=@"注册";
+    pidArr = [[NSArray alloc]init];
     NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
     [noti addObserver:self selector:@selector(changeTitle:) name:@"isSelectArr" object:nil];
  
@@ -52,12 +55,20 @@
     NSDictionary *dic = userInfo.userInfo;
   
     NSArray *arr = dic[@"arr"];
+    NSString *isCom = dic[@"isCompany"];
+    pidArr = dic[@"pidArr"];
     
-    if (arr.count > 0) {
+    if (arr.count > 0 && [isCom isEqualToString:@"isCompany"]) {
         NSString *title = [NSString stringWithFormat:@"您一共选择%lu种资质",(unsigned long)arr.count];
-        
+        [infomationBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [infomationBtn setTitle:title forState:UIControlStateNormal];
 
+    }else if (arr.count>0 && [isCom isEqualToString:@"noCompany"]){
+    
+        NSString *title = [NSString stringWithFormat:@"您一共选择%lu种资质",(unsigned long)arr.count];
+        [headInfoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [headInfoBtn setTitle:title forState:UIControlStateNormal];
+    
     }
    
 }
@@ -247,23 +258,10 @@
         PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
         choose.showNavi = YES;
         choose.haveBack = YES;
-        
+        choose.isCompany = @"isCompany";
         [self.navigationController pushViewController:choose animated:YES];
         
     }];
-    
-    
-    
-    
-//    UILabel *numComLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 300, 100, 30)];
-//    //UILabel *numComLabel = [UILabel newAutoLayoutView];
-//    numComLabel.text = @"机构代码";
-//    [scrollView addSubview:numComLabel];
-//
-//    numComTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 300, 200, 30)];
-//    numComTextField.borderStyle = UITextBorderStyleRoundedRect;
-//    numComTextField.delegate = self;
-//    [scrollView addSubview:numComTextField];
     
     UILabel *headLabel = [UILabel newAutoLayoutView];
     headLabel.text = @" * 负责人";
@@ -305,59 +303,40 @@
     [headInfoBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
   
     [headInfoBtn bk_whenTapped:^{
-        if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
-            alert.tag = 1003;
-            [alert show];
-           
-        }
-        else{
+//        if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
+//            
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
+//            alert.tag = 1003;
+//            [alert show];
+//           
+//        }
+//        else{
+//        
+//            //显示
+//            [menuLevel2 showFromView:headInfoBtn toView:myScrollView];
+//            
+//            [menuLevel disMiss];
+//            //block回调
+//            [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
+//                
+//                NSMutableString *title = [NSMutableString string];
+//                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
+//                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
+//                }
+//                
+//                [headInfoBtn setTitle:title forState:UIControlStateNormal];
+//            }];
+//        
+//        }
         
-            //显示
-            [menuLevel2 showFromView:headInfoBtn toView:myScrollView];
-            
-            [menuLevel disMiss];
-            //block回调
-            [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
-                
-                NSMutableString *title = [NSMutableString string];
-                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
-                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
-                }
-                
-                [headInfoBtn setTitle:title forState:UIControlStateNormal];
-            }];
-        
-        }
+        PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
+        choose.showNavi = YES;
+        choose.haveBack = YES;
+        choose.isCompany = @"noCompany";
+        [self.navigationController pushViewController:choose animated:YES];
        
     }];
     
-//    UILabel *telLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 450, 100, 30)];
-//    telLable.text = @"联系电话";
-//    [scrollView addSubview:telLable];
-//    telTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 450, 200, 30)];
-//    telTextField.borderStyle = UITextBorderStyleRoundedRect;
-//    telTextField.delegate = self;
-//    [scrollView addSubview:telTextField];
-//    
-//    UILabel *mailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 490, 100, 30)];
-//    mailLabel.text = @"邮箱";
-//    [scrollView addSubview:mailLabel];
-//    
-//    mailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 490, 200, 30)];
-//    mailTextField.borderStyle = UITextBorderStyleRoundedRect;
-//    mailTextField.delegate = self;
-//    [scrollView addSubview:mailTextField];
-//    
-//    UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 540, 100, 30)];
-//    detailLabel.text = @"主要业绩";
-//    [scrollView addSubview:detailLabel];
-//    
-//    detailTextField = [[UITextField alloc]initWithFrame:CGRectMake(110, 540, 200, 100)];
-//    detailTextField.borderStyle = UITextBorderStyleRoundedRect;
-//    detailTextField .delegate = self;
-//    [scrollView addSubview: detailTextField];
     
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [registBtn setTitle:@"注册" forState:UIControlStateNormal];

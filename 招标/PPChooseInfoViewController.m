@@ -12,7 +12,7 @@
 @interface PPChooseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchControllerDelegate,UISearchResultsUpdating>
 {
 
-    UITableView *myTableView;
+    UITableView          *myTableView;
     NSMutableArray *dataArr;
     NSArray  *newDataArr; //排序后的数组
     NSArray *keys;
@@ -22,6 +22,8 @@
     UISearchController *mySearchController;
     BOOL  isSelect;
     NSMutableArray  *isSelectArr;
+    NSMutableDictionary  *pidDic;
+    NSMutableArray  *isSelectPidArr;
 }
 @end
 
@@ -62,18 +64,67 @@
     self.navigationItem.rightBarButtonItem = item;
 
 }
+/**
+ *  从服务器获取资质数组
+ */
+- (void )getDataWithURL:(NSString *)urlStr{
+
+    AFHTTPRequestOperationManager *manger = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperation *op = [manger GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSArray *arr = dic[@"datas"];
+        
+        for (NSDictionary *dic in arr) {
+            
+            NSString *str = dic[@"pro_name"];
+            NSString *pidStr = dic[@"pro_id"];
+            [pidDic setObject:pidStr forKey:str];
+            [dataArr addObject:str];
+        }
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:dataArr forKey:@"data"];
+        [userDefaults  synchronize];
+        
+        [ MBProgressHUD  hideHUDForView:myTableView animated:YES];
+        [self sortArrWith:dataArr];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         [ MBProgressHUD  hideHUDForView:myTableView animated:YES];
+        [MBProgressHUD showError:@"获取数据失败" toView:myTableView];
+       
+    }];
+
+    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [op start];
+
+}
 
 - (void)createData{
 
     isSelect = YES;
-    dataArr = [NSMutableArray arrayWithObjects:@"工程招标代理甲级",@"工程招标代理乙级",@"中央投资项目招标代理预备级",@"政府采购甲级",@"市政行业甲级",@"建筑行业甲级",@"房屋建筑工程施工总承包特级",@"公路工程一级",@"矿山工程一级",@"市政公用工程一级",@"钢结构工程一级",@"消费设施工程一级",@"建筑防水工程二级",@"建筑装修装饰工程一级",@"建筑装修装饰工程一级",@"机电安装工程二级",@"机电设备安装工程一级"
-               ,@"防腐保温工程一级",@"店里工程二级",@"水利水电工程三级",@"化工石油设备管道安装一级",@"城市及道路照明工程一级",@"送变电工程一级",@"建筑幕墙工程一级",@"工程造价咨询企业甲级",@"项目管理乙级",nil];
-
+    dataArr = [[NSMutableArray alloc]init];
+    pidDic = [[NSMutableDictionary alloc]init];
+    isSelectPidArr = [[NSMutableArray alloc]init];
+    [self getDataWithURL:TTGetComtypeURL];
     newDataArr = [NSArray new];
     titleDic = [[NSDictionary alloc]init];
     isSelectArr = [[NSMutableArray alloc]init];
     sectionNum = [[NSMutableDictionary alloc]init];
-    [dataArr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    
+    [MBProgressHUD showLoading:@"正在加载数据" toView:myTableView];
+}
+/**
+ *  把数组里面内容按首字大写排序，提取大写字母作为索引
+ *
+ *  @param NSDictionary <#NSDictionary description#>
+ *
+ *  @return <#return value description#>
+ */
+- (void)sortArrWith:(NSMutableArray *)array{
+
+
+    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         
         NSString *string1 = obj1;
         NSString *str1 = [PinyinHelper getFirstHanyuPinyinStringWithChar:[string1 characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
@@ -82,7 +133,7 @@
         
         NSString *string2 = obj2;
         NSString *str2 = [PinyinHelper getFirstHanyuPinyinStringWithChar:[string2 characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
-      
+        
         NSString *c2 = [str2 substringWithRange:range];
         NSComparisonResult result = [c1 compare:c2];
         
@@ -97,11 +148,11 @@
         NSMutableArray *array = [[NSMutableArray alloc]init];
         [dic setObject:array forKey:[NSString stringWithFormat:@"%c",character]];
     }
-   
-    //将数据按拼音首字母分别放入数组
-    for (NSString *info in dataArr) {
     
-       NSString *str = [PinyinHelper getFirstHanyuPinyinStringWithChar:[info characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
+    //将数据按拼音首字母分别放入数组
+    for (NSString *info in array) {
+        
+        NSString *str = [PinyinHelper getFirstHanyuPinyinStringWithChar:[info characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
         
         NSRange range = NSMakeRange(0, 1);
         NSString *c = [str substringWithRange:range];
@@ -128,9 +179,11 @@
         NSComparisonResult result = [number1 compare:number2];
         
         return result == NSOrderedDescending; // 升序
-       
+        
     }];
-    
+
+
+    [myTableView reloadData];
 }
 
 #pragma -mark 把数组中首字母一样的归为一类
@@ -139,22 +192,6 @@
     
    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
    
-//    for (NSString *string in arr) {
-//        
-//        NSString *str = [PinyinHelper getFirstHanyuPinyinStringWithChar:[string characterAtIndex:0] withHanyuPinyinOutputFormat:nil];
-//        NSRange range = NSMakeRange(0, 1);
-//        NSString *c = [str substringWithRange:range];
-//        for (int i = 0; i < keysArr.count; i++) {
-//          
-//            if ([c isEqualToString: keysArr[i]]) {
-//                
-//                [arra addObject:string];
-//               
-//            }
-//        }
-//       
-//        [dic setObject:arr forKey:c];
-//    }
     for (NSString *st in keysArr) {
          NSMutableArray *arra = [[NSMutableArray alloc ]init];
         for (int i= 0; i<arr.count; i++) {
@@ -184,7 +221,7 @@
     if (isSelect) {
         
         [myTableView setEditing:YES animated:YES];
-        [item setTitle:@"确定"];
+        [item setTitle:@"下一步"];
        
     }else{
     
@@ -201,12 +238,17 @@
 #pragma -mark 消失
 - (void)dissmisController{
 
-    NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
-    NSDictionary *dic = @{@"arr":isSelectArr};
-    [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+       
+    PPGadeViewController *gradeVC = [[PPGadeViewController alloc]init];
+    gradeVC.haveBack = YES;
+    gradeVC.showNavi = YES;
+    gradeVC.pidArr = isSelectPidArr;
+    gradeVC.stringArr = isSelectArr;
+    gradeVC.isCompany = self.isCompany;
+    [self.navigationController pushViewController:gradeVC animated:YES];
+  //  [self.navigationController popViewControllerAnimated:YES];
 
+    
 }
 
 #pragma -mark tableView delegate
@@ -216,25 +258,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-//    NSDictionary *dic = [[NSDictionary alloc]init];
-//    NSMutableArray *array = [[NSMutableArray alloc]init];
-//    dic = [self combineWithFirst:dataArr withKeys:keys];
-//
-//    NSArray *valuesArr = [dic allValues];
-//
-//   
-//    
-//    for (NSString *str in valuesArr) {
-//        
-//        if ([str isEqualToString:keys[section]]) {
-//            
-//            [array addObject:str];
-//        }
-//    }
-//    NSString *sect = [NSString stringWithFormat:@"%ld",(long)section];
-//    [sectionNum setObject:array forKey:sect];
-    
    
     titleDic  = [self combineWithFirst:dataArr withKeys:keys];
     NSArray *array = [[NSArray alloc]init];
@@ -254,9 +277,6 @@
     
     cell.textLabel.text = arr[indexPath.row];
     
-    //
- 
-    
     return cell;
 }
 
@@ -270,8 +290,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *arr = [titleDic objectForKey:keys[indexPath.section]];
     
-    //cell.textLabel.text = arr[indexPath.row];
-
+    NSString *string = arr[indexPath.row];
+   
+    NSString *pidStr = [pidDic objectForKey:string];
+    [isSelectPidArr addObject:pidStr];
     [isSelectArr addObject:arr[indexPath.row]];
 
 }

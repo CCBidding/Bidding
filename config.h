@@ -27,7 +27,8 @@
 #define TTBiddingLsitUrl @"http://123.57.48.206:8080/GyBid/app/bilist.do?type=bilist"
 #define TTBidWinlistUrl  @"http://123.57.48.206:8080/GyBid/app/bilist.do?type=bilist"
 #define TTgetCategorylistUrl @"http://123.57.48.206:8080/GyBid/appReg/comtype.do?type=proty"
-
+#define TTGetComtypeURL  @"http://123.57.48.206:8080/GyBid/appReg/comtype.do?type=quaty" //获取资质接口
+#define TTGetGradeURL     @"http://123.57.48.206:8080/GyBid/appReg/findgrade.do" //获取等级接口
 #define TTUserid     @"user_id"
 #define TTsessinid   @"session_id"
 #define TTpassword   @"password"
@@ -48,4 +49,6 @@
 #import "PPAboutUsViewController.h"
 #import "PPChooseInfoViewController.h"
 #import "PinyinHelper.h"
+#import "PPGuideUserView.h"
+#import "PPGadeViewController.h"
 #endif

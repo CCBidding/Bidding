@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6838CA5C1B5CD46900292A0A /* PPGuideUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838CA5B1B5CD46900292A0A /* PPGuideUserView.m */; };
+		6838CA5F1B5CEBAA00292A0A /* PPGadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */; };
 		68634EF11B4E7256004C1249 /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF01B4E7256004C1249 /* PPBaseViewController.m */; };
 		68634EF41B4E7C44004C1249 /* UIViewController+PPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF31B4E7C44004C1249 /* UIViewController+PPUser.m */; };
 		68634EF71B4F5760004C1249 /* colorTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 68634EF61B4F5760004C1249 /* colorTurn.m */; };
@@ -106,6 +108,10 @@
 		25B86DD9ACF283721F4EB233 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		29829C2FDBBE7C1C5691DCB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		556F51A9F0429DE857E4B8D6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6838CA5A1B5CD46900292A0A /* PPGuideUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGuideUserView.h; sourceTree = "<group>"; };
+		6838CA5B1B5CD46900292A0A /* PPGuideUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGuideUserView.m; sourceTree = "<group>"; };
+		6838CA5D1B5CEBAA00292A0A /* PPGadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGadeViewController.h; sourceTree = "<group>"; };
+		6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGadeViewController.m; sourceTree = "<group>"; };
 		68634EEF1B4E7256004C1249 /* PPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBaseViewController.h; sourceTree = "<group>"; };
 		68634EF01B4E7256004C1249 /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
 		68634EF21B4E7C44004C1249 /* UIViewController+PPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PPUser.h"; sourceTree = "<group>"; };
@@ -457,6 +463,8 @@
 				AFC61FA41B44D19000E11040 /* HomeViewController.xib */,
 				68C6C1691B535A72002484DB /* PPRegistTableViewCell.h */,
 				68C6C16A1B535A72002484DB /* PPRegistTableViewCell.m */,
+				6838CA5A1B5CD46900292A0A /* PPGuideUserView.h */,
+				6838CA5B1B5CD46900292A0A /* PPGuideUserView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -481,6 +489,8 @@
 				68C6C1671B5352E9002484DB /* PPRegistViewController.m */,
 				68DB72E61B58A4BC009FE618 /* PPChooseInfoViewController.h */,
 				68DB72E71B58A4BC009FE618 /* PPChooseInfoViewController.m */,
+				6838CA5D1B5CEBAA00292A0A /* PPGadeViewController.h */,
+				6838CA5E1B5CEBAA00292A0A /* PPGadeViewController.m */,
 				68DB730D1B59EDFC009FE618 /* PPResultViewController.h */,
 				68DB730E1B59EDFC009FE618 /* PPResultViewController.m */,
 			);
@@ -955,6 +965,7 @@
 				AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */,
 				68C6C1B01B53AC86002484DB /* TYGSelectMenuEntity.m in Sources */,
 				68C6C1AD1B53AC86002484DB /* TYGSelectMenu.m in Sources */,
+				6838CA5C1B5CD46900292A0A /* PPGuideUserView.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
 				AF93D9551B5512DC00B96EFD /* SDRefreshFooterView.m in Sources */,
 				AFE0E4A01B53542B00AC7977 /* DHMenuPagerViewController.m in Sources */,
@@ -996,6 +1007,7 @@
 				68DB730F1B59EDFC009FE618 /* PPResultViewController.m in Sources */,
 				AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */,
 				AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */,
+				6838CA5F1B5CEBAA00292A0A /* PPGadeViewController.m in Sources */,
 				AFE3B0681B4B6A12002ACA1F /* BiddinglistTableViewCell.m in Sources */,
 				AFE0E4B81B535D5B00AC7977 /* NTSlidingViewController.m in Sources */,
 			);
