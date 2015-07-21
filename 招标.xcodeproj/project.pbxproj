@@ -60,7 +60,6 @@
 		AFD2D41B1B5D5402003B8D9A /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD2D41A1B5D5402003B8D9A /* Empty.xib */; };
 		AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */; };
 		AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48B1B50BBE400AC7977 /* MyButton.m */; };
-		AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */; };
 		AFE0E4961B50BCD200AC7977 /* TTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */; };
 		AFE0E49E1B53542B00AC7977 /* DHLandscapeMenuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4991B53542B00AC7977 /* DHLandscapeMenuScrollView.m */; };
 		AFE0E49F1B53542B00AC7977 /* DHLandscapeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E49B1B53542B00AC7977 /* DHLandscapeTableView.m */; };
@@ -212,8 +211,6 @@
 		AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRootViewController.m; sourceTree = "<group>"; };
 		AFE0E48A1B50BBE400AC7977 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		AFE0E48B1B50BBE400AC7977 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
-		AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiddingListWinViewController.h; sourceTree = "<group>"; };
-		AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiddingListWinViewController.m; sourceTree = "<group>"; };
 		AFE0E4941B50BCD200AC7977 /* TTMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMineViewController.h; sourceTree = "<group>"; };
 		AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMineViewController.m; sourceTree = "<group>"; };
 		AFE0E4981B53542B00AC7977 /* DHLandscapeMenuScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLandscapeMenuScrollView.h; sourceTree = "<group>"; };
@@ -602,8 +599,6 @@
 				AFC61FCB1B46288E00E11040 /* BiddingListViewController.m */,
 				AFE3B0691B4B6FBC002ACA1F /* DetialBiddingViewController.h */,
 				AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */,
-				AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */,
-				AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1046,7 +1041,6 @@
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFE0E5091B5393EE00AC7977 /* UIView+REFrostedViewController.m in Sources */,
 				AFE0E49E1B53542B00AC7977 /* DHLandscapeMenuScrollView.m in Sources */,
-				AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
 				AF93D9571B5512DC00B96EFD /* SDRefreshView.m in Sources */,
 				68DB730F1B59EDFC009FE618 /* PPResultViewController.m in Sources */,

@@ -108,35 +108,35 @@
         switch (indexPath.row) {
             case 0:
                 biddingcell.infoLab.text = _biddingModel.title_name;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
                 break;
             case 1:
                 biddingcell.infoLab.text = _biddingModel.project_id;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
                 break;
             case 2:
                 biddingcell.infoLab.text = _biddingModel.project_name;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+               
                 break;
             case 3:
                 biddingcell.infoLab.text = _biddingModel.project_situation;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+              
                 break;
             case 4:
                 biddingcell.infoLab.text = _biddingModel.oppen_time;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
                 break;
             case 5:
                 biddingcell.infoLab.text = _biddingModel.address;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       
                 break;
             case 6:
                 biddingcell.infoLab.text = _biddingModel.contact_name;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+             
                 break;
             case 7:
                 biddingcell.infoLab.text = _biddingModel.contact_info;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
                 break;
             case 8:
                 biddingcell.infoLab.text = _biddingModel.url;
@@ -153,47 +153,46 @@
         switch (indexPath.row) {
             case 0:
                 biddingcell.infoLab.text = _winBiddingModel.title_name;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
                 break;
             case 1:
                 biddingcell.infoLab.text = _winBiddingModel.caigourenName;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+             
                 break;
             case 2:
                 biddingcell.infoLab.text = _winBiddingModel.xiangmuName;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+               
                 break;
             case 3:
                 biddingcell.infoLab.text = _winBiddingModel.xiangmuNum;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       
                 break;
             case 4:
                 biddingcell.infoLab.text = _winBiddingModel.xiangmuxulieNum;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
                 break;
             case 5:
                 biddingcell.infoLab.text = _winBiddingModel.caigoufangshi;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
                 break;
             case 6:
                 biddingcell.infoLab.text = _winBiddingModel.caigougonggaoriqijiMeiti;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+           
                 break;
             case 7:
                 biddingcell.infoLab.text = _winBiddingModel.pingshenxinxi;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+           
                 break;
             case 8:
                 biddingcell.infoLab.text = _winBiddingModel.dingbiaoriqi;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
                 break;
             case 9:
                 biddingcell.infoLab.text = _winBiddingModel.zhongbiaoxinxi;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
                 break;
             case 10:
                 biddingcell.infoLab.text = _winBiddingModel.lianxishixiang;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;
             case 11:
                 biddingcell.infoLab.text = _winBiddingModel.url;

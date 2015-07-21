@@ -220,7 +220,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return TTScreenWith*100/320;
+    return TTScreenWith*130/320;
     
 }
 

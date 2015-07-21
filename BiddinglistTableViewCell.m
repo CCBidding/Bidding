@@ -49,7 +49,7 @@
      
         
     }];
-    _infoLab.font = [UIFont systemFontOfSize:24*TTScreenWith/640];
+    _infoLab.font = [UIFont fontWithName:@"TaiLeb.ttf" size:22*TTScreenWith/640];
 
     _addressLab.font=[UIFont fontWithName:nil size:10];
     _addressLab.textColor = [UIColor whiteColor];
@@ -58,12 +58,12 @@
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
         make.left.equalTo(self.contentView.mas_left).with.offset(10);
         make.right.equalTo(_timeLab.mas_left).with.offset(-20);
-        make.width.equalTo(@200);
+        make.width.equalTo(@150);
     }];
 
      _timeLab.font = [UIFont fontWithName:nil size:12];
-     _timeLab.textAlignment = NSTextAlignmentRight;
-    _timeLab.numberOfLines = 0;
+    // _timeLab.textAlignment = NSTextAlignmentRight;
+     _timeLab.numberOfLines = 0;
     _timeLab.textColor = [UIColor whiteColor];
     [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(_addressLab.mas_centerY);
