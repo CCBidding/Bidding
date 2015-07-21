@@ -11,7 +11,6 @@
 @interface PPRegistViewController ()<IGLDropDownMenuDelegate,UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate>{
 
     UITableView *myTableView;
-    NSArray     *dataArr;
     CustomField *nameTextField;
     CustomField *pwdTextField;
     IGLDropDownMenu *companyCategory;
@@ -29,7 +28,11 @@
     UIButton *headInfoBtn;
     UILabel *surePwdLabel;
     
-    NSArray *pidArr;
+   
+    PPGuideUserView *guidView;  //引导动画界面
+    NSArray   *getArr;
+    NSArray   *companySelectArr;
+    NSArray    *headSelectArr;
 }
 
 @end
@@ -45,7 +48,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.title=@"注册";
-    pidArr = [[NSArray alloc]init];
+    getArr = [[NSArray alloc]init];
     NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
     [noti addObserver:self selector:@selector(changeTitle:) name:@"isSelectArr" object:nil];
  
@@ -56,22 +59,65 @@
   
     NSArray *arr = dic[@"arr"];
     NSString *isCom = dic[@"isCompany"];
-    pidArr = dic[@"pidArr"];
+   
     
+   
     if (arr.count > 0 && [isCom isEqualToString:@"isCompany"]) {
+        
+       // [self createAnimalGradeUserAction];
+        companySelectArr = arr;
+        [self createAnimalGradeUserActionToView:infomationBtn];
         NSString *title = [NSString stringWithFormat:@"您一共选择%lu种资质",(unsigned long)arr.count];
         [infomationBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [infomationBtn setTitle:title forState:UIControlStateNormal];
 
     }else if (arr.count>0 && [isCom isEqualToString:@"noCompany"]){
     
+         [self createAnimalGradeUserActionToView:headInfoBtn];
         NSString *title = [NSString stringWithFormat:@"您一共选择%lu种资质",(unsigned long)arr.count];
         [headInfoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [headInfoBtn setTitle:title forState:UIControlStateNormal];
     
+        headSelectArr = arr;
     }
    
 }
+/**
+ *  在一个视图上创建一个引导动画
+ */
+
+- (void)createAnimalGradeUserActionToView:(UIView *)view{
+    
+    
+
+    CGRect rect = CGRectMake(view.frame.origin.x+20, view.frame.origin.y+20, 150.0f, 35.0f);
+
+    guidView = [[PPGuideUserView alloc]initWithFrame:rect backImage:[UIImage imageNamed:@"change_search_tip.png"] msgStr:@"长按显示已选择数据" txtColor:[colorTurn RGBColorFromHexString:@"#ffffff" alpha:1.0f]];
+    
+    [myScrollView addSubview:guidView];
+
+    CABasicAnimation *jumpAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    jumpAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    jumpAnimation.toValue = [NSNumber numberWithFloat:10.0f];
+    
+    jumpAnimation.duration = 0.5f;//动画持续时间
+    jumpAnimation.repeatCount = 10;//动画重复次数
+    jumpAnimation.autoreverses = YES;//是否自动重复
+    [guidView.layer addAnimation:jumpAnimation forKey:@"animateLayer"];
+    
+    [self performSelector:@selector(removeViewWithView) withObject:self afterDelay:5];
+    
+    
+}
+
+- (void)removeViewWithView {
+    
+    [guidView removeFromSuperview];
+    
+}
+
+
+
 - (void)createUI{
 
 //    [self.view bk_whenTapped:^{
@@ -89,11 +135,11 @@
     labelBackgroundView.autoresizingMask = YES;
     labelBackgroundView.backgroundColor = [UIColor grayColor];
     labelBackgroundView.alpha = 0.3;
-    [self.view addSubview:labelBackgroundView];
+    [myScrollView addSubview:labelBackgroundView];
     [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:64];
+    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [labelBackgroundView autoSetDimension:ALDimensionWidth toSize:TTScreenWith*114/320];
-    [labelBackgroundView autoSetDimension:ALDimensionHeight toSize:340];
+    [labelBackgroundView autoSetDimension:ALDimensionHeight toSize:TTScreenHeight * 360/568];
     labelBackgroundView.backgroundColor = [UIColor grayColor];
     
     UILabel *nameLable = [UILabel newAutoLayoutView];
@@ -105,13 +151,16 @@
     nameLable.layer.cornerRadius = 5;
     nameLable.layer.masksToBounds = YES;
     [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*4/320];
+    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*15/320];
     
     
     nameTextField = [CustomField newAutoLayoutView];
+    [nameTextField setNeedsLayout ];
+    [nameTextField setNeedsUpdateConstraints];
+    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*4/320];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*15/320];
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
     [nameTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320 relation:NSLayoutRelationGreaterThanOrEqual];
 
@@ -128,6 +177,7 @@
 
     userTextField = [CustomField newAutoLayoutView];
     userTextField.delegate = self;
+    userTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:userTextField];
     [userTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
     [userTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
@@ -147,6 +197,7 @@
  
     pwdTextField = [CustomField newAutoLayoutView];
     pwdTextField.delegate = self;
+    pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:pwdTextField];
     [pwdTextField setSecureTextEntry:YES];
     [pwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
@@ -166,6 +217,7 @@
     [surePwdLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
    
     surePwdTextField  = [CustomField newAutoLayoutView];
+    surePwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:surePwdTextField];
     surePwdTextField.secureTextEntry = YES;
     [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
@@ -226,40 +278,22 @@
     [infomationBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
     
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
+    infomationBtn.tag = 10010;
     [infomationBtn bk_whenTapped:^{
-//        if (infomationBtn.titleLabel.text && ![infomationBtn.titleLabel.text isEqualToString:@"请选择"]) {
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
-//            alert.tag = 1004;
-//            [alert show];
-//            
-//        }
-//        else{
-//            
-//            //显示
-//            [menuLevel showFromView:infomationBtn toView:myScrollView];
-//            
-//            [menuLevel2 disMiss];
-//            //block回调
-//            [menuLevel selectAtMenu:^(NSMutableArray *selectedMenuArray) {
-//                
-//                NSMutableString *title = [NSMutableString string];
-//                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
-//                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
-//                }
-//                
-//                [infomationBtn setTitle:title forState:UIControlStateNormal];
-//            }];
-//            
-//        }
         
         PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
         choose.showNavi = YES;
         choose.haveBack = YES;
         choose.isCompany = @"isCompany";
+    
         [self.navigationController pushViewController:choose animated:YES];
+
         
     }];
+    
+    UILongPressGestureRecognizer  *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(showData)];
+    [infomationBtn addGestureRecognizer:press];
+    
     
     UILabel *headLabel = [UILabel newAutoLayoutView];
     headLabel.text = @" * 负责人";
@@ -273,6 +307,7 @@
     [headLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
 
     headTextField = [CustomField newAutoLayoutView];
+    headTextField.borderStyle = UITextBorderStyleRoundedRect;
     headTextField.delegate = self;
     [myScrollView addSubview:headTextField];
     [headTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
@@ -298,33 +333,9 @@
     [headInfoBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith *115/320];
     [headInfoBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headLabel withOffset:20];
     [headInfoBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
-  
+    headInfoBtn.tag = 10011;
     [headInfoBtn bk_whenTapped:^{
-//        if (headInfoBtn.titleLabel.text && ![headInfoBtn.titleLabel.text isEqualToString:@"请选择"]) {
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的选择是？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"修改", nil];
-//            alert.tag = 1003;
-//            [alert show];
-//           
-//        }
-//        else{
-//        
-//            //显示
-//            [menuLevel2 showFromView:headInfoBtn toView:myScrollView];
-//            
-//            [menuLevel disMiss];
-//            //block回调
-//            [menuLevel2 selectAtMenu:^(NSMutableArray *selectedMenuArray) {
-//                
-//                NSMutableString *title = [NSMutableString string];
-//                for (TYGSelectMenuEntity *tempMenu in selectedMenuArray) {
-//                    [title appendString:[NSString stringWithFormat:@"%ld",(long)tempMenu.id]];
-//                }
-//                
-//                [headInfoBtn setTitle:title forState:UIControlStateNormal];
-//            }];
-//        
-//        }
+
         
         PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
         choose.showNavi = YES;
@@ -334,7 +345,8 @@
        
     }];
     
-    
+    UILongPressGestureRecognizer *pressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(showDataWithHeadBtn)];
+    [headInfoBtn addGestureRecognizer:pressGesture];
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [registBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -350,40 +362,45 @@
         [self registuser];
     }];
     
+   
     
 }
+/**
+ *  显示选择的资质
+ */
+
+- (void)showData{
+  
+        //双击显示选择数据
+        PPSelectedViewController *selectVC = [[PPSelectedViewController alloc]init];
+        selectVC.showNavi = YES;
+        selectVC.haveBack = NO;
+        selectVC.dataArr = companySelectArr;
+        [self.navigationController presentViewController:selectVC animated:YES completion:nil];
+        
+   
+
+}
+
+- (void)showDataWithHeadBtn{
+
+    //长按显示选择数据
+    PPSelectedViewController *selectVC = [[PPSelectedViewController alloc]init];
+    selectVC.showNavi = YES;
+    selectVC.haveBack = YES;
+    selectVC.dataArr = headSelectArr;
+    [self.navigationController presentViewController:selectVC animated:YES completion:nil];
+
+
+}
+
 - (void)createData{
 
-    dataArr = @[@"公司名称",@"用户名",@"密码",@"公司类别",@"公司资制",@"机构代码",@"负责人",@"负责人资制",@"联系电话",@"主要业绩"];
-    menuLevel = [[TYGSelectMenu alloc] init];
-    for (int i = 0; i < 10; i++) {
-        TYGSelectMenuEntity *menu1 = [[TYGSelectMenuEntity alloc] init];
-        menu1.title = [NSString stringWithFormat:@"%d",i];
-        [menuLevel addChildSelectMenu:menu1 forParent:nil];
-        
-        for (int j = 0; j < 15; j++) {
-            TYGSelectMenuEntity *menu2 = [[TYGSelectMenuEntity alloc] init];
-            menu2.title = [NSString stringWithFormat:@"%@-%d",menu1.title,j];
-            [menuLevel addChildSelectMenu:menu2 forParent:menu1];
-            
-        }
-    }
-    
-    menuLevel2 = [[TYGSelectMenu alloc] init];
-    for (int i = 0; i < 5; i++) {
-        TYGSelectMenuEntity *menu1 = [[TYGSelectMenuEntity alloc] init];
-        menu1.title = [NSString stringWithFormat:@"%d",i];
-        [menuLevel2 addChildSelectMenu:menu1 forParent:nil];
-        
-        for (int j = 0; j < 10; j++) {
-            TYGSelectMenuEntity *menu2 = [[TYGSelectMenuEntity alloc] init];
-            menu2.title = [NSString stringWithFormat:@"%@-%d",menu1.title,j];
-            [menuLevel2 addChildSelectMenu:menu2 forParent:menu1];
-            
-        }
-    }
+  
 
 }
+
+
 
 #pragma -mark alertDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -477,7 +494,10 @@
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-        AFHTTPRequestOperation *op = [manager POST:TTRegistUrl parameters:@{@"username":userTextField.text,@"password":pwdTextField.text} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //http://localhost:8080/GyBid/appReg/regedit.do?type=onlinedo&cname=weniter&username=wxiagn&password=123456&pro_id=2&gr_id=2&duty_name=wangwu&dpro_id=1&dqu_id=2
+        NSDictionary *dic = @{@"cname":nameTextField.text,@"username":userTextField.text,@"password":pwdTextField.text,@"pro_id":companySelectArr[0][@"pro_id"],@"gr_id":companySelectArr[0][@"gr_id"],@"duty_name":headTextField.text,@"dpro_id":headSelectArr[0][@"pro_id"],@"dqu_id":headSelectArr[0][@"gr_id"]};
+        
+        AFHTTPRequestOperation *op = [manager POST:TTRegistUrl parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {
                 [TTUserDefaultTool setObject:responseObject[@"datas"][0][@"sessionid"] forKey:TTsessinid];
                 [MBProgressHUD showSuccess:@"注册成功" toView:myScrollView];

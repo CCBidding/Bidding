@@ -51,4 +51,5 @@
 #import "PinyinHelper.h"
 #import "PPGuideUserView.h"
 #import "PPGadeViewController.h"
+#import "PPSelectedViewController.h"
 #endif

@@ -9,7 +9,7 @@
 #import "PPChooseInfoViewController.h"
 #import "PinyinHelper.h"
 #import "PPResultViewController.h"
-@interface PPChooseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchControllerDelegate,UISearchResultsUpdating>
+@interface PPChooseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchControllerDelegate>
 {
 
     UITableView          *myTableView;
@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"资质选择";
 }
 - (void)createUI{
 
@@ -45,7 +46,7 @@
     myTableView.allowsSelection = YES;
     myTableView.showsHorizontalScrollIndicator = NO;
     myTableView.showsVerticalScrollIndicator = NO;
-    myTableView.allowsMultipleSelection = YES;
+    myTableView.editing = NO;
     //设置索引列表文本的颜色
     myTableView.sectionIndexColor = [UIColor blueColor];
     
@@ -171,7 +172,7 @@
             [dic removeObjectForKey:key];
         }
     }
-    NSLog(@"count:%lu",(unsigned long)dic.allKeys.count);
+   
     keys = [dic.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSString *number1 = obj1;
         NSString *number2 = obj2;
@@ -227,7 +228,15 @@
     
     
         [myTableView setEditing:NO animated:YES];
-        [self dissmisController];
+        //当选择对象时，才跳转到下一个界面
+        if (isSelectArr.count>0) {
+            [self dissmisController];
+        }else{
+        
+            [MBProgressHUD showError:@"请至少选择一个资质" toView:myTableView];
+        
+        }
+        
         [item setTitle:@"选择"];
     }
     
@@ -246,7 +255,7 @@
     gradeVC.stringArr = isSelectArr;
     gradeVC.isCompany = self.isCompany;
     [self.navigationController pushViewController:gradeVC animated:YES];
-  //  [self.navigationController popViewControllerAnimated:YES];
+  
 
     
 }
@@ -283,18 +292,24 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     tableView.allowsMultipleSelectionDuringEditing = YES;
-    return  UITableViewCellEditingStyleDelete;
+    return  UITableViewCellEditingStyleDelete ;
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *arr = [titleDic objectForKey:keys[indexPath.section]];
-    
-    NSString *string = arr[indexPath.row];
+  
+    if (myTableView.allowsMultipleSelectionDuringEditing) {
+        
+        NSArray *arr = [titleDic objectForKey:keys[indexPath.section]];
+        
+        NSString *string = arr[indexPath.row];
+        
+        NSString *pidStr = [pidDic objectForKey:string];
+        [isSelectPidArr addObject:pidStr];
+        [isSelectArr addObject:arr[indexPath.row]];
+        
+    }
    
-    NSString *pidStr = [pidDic objectForKey:string];
-    [isSelectPidArr addObject:pidStr];
-    [isSelectArr addObject:arr[indexPath.row]];
 
 }
 #pragma -mark 添加索引列
