@@ -31,6 +31,8 @@
     _myTableview.delegate=self;
     _myTableview.dataSource=self;
     _myTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _myTableview.rowHeight = UITableViewAutomaticDimension;
+    _myTableview.estimatedRowHeight = TTScreenWith*60/320; // 设置为一个接近“平均”行高的值
     [self.view addSubview:_myTableview];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
@@ -54,6 +56,8 @@
     if (!cell) {
         cell=[[DetailBiddingTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     [self configureCell:cell withIndexPath:indexPath];
     
     
@@ -115,5 +119,6 @@
             break;
     }
 }
+
 
 @end
