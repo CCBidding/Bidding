@@ -21,9 +21,13 @@
 -(void)createUI{
     
     _titleLab = [UILabel new];
+ 
+    
     [self.contentView addSubview:_titleLab];
+   
     
     _infoLab  = [UILabel new];
+  
     [self.contentView addSubview:_infoLab];
     
     
@@ -33,25 +37,23 @@
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
-        make.right.equalTo(_infoLab.mas_left).with.offset(-20);
-       
+        make.right.equalTo(self.infoLab.mas_left).with.offset(-15);
+      
 
     }];
     
+   
 
     _infoLab.numberOfLines = 0;
     _infoLab.lineBreakMode = NSLineBreakByCharWrapping;
     _infoLab.font          = [UIFont systemFontOfSize:24*TTScreenWith/640];
     [_infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(_titleLab.mas_centerY);
-        make.left.equalTo(_titleLab.mas_right).with.offset(20);
+        make.centerY.mas_equalTo(self.contentView.mas_centerY);
+        make.left.equalTo(self.titleLab.mas_right).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-       
-    }];
-
-    
+           }];
     
     
     
@@ -61,9 +63,7 @@
     [super layoutSubviews];
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
-    // _infoLab.preferredMaxLayoutWidth  = CGRectGetWidth(_infoLab.frame);
-    //_titleLab.preferredMaxLayoutWidth = CGRectGetWidth(_titleLab.frame);
-    _infoLab.preferredMaxLayoutWidth = CGRectGetWidth(_infoLab.frame);
+   _infoLab.preferredMaxLayoutWidth = CGRectGetWidth(_infoLab.frame);
     
 }
 

@@ -57,6 +57,7 @@
 		AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FCC1B46288E00E11040 /* BiddingListViewController.xib */; };
 		AFC61FD51B464C7E00E11040 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD21B464C7E00E11040 /* MBProgressHUD+Add.m */; };
 		AFC61FD61B464C7E00E11040 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */; };
+		AFD2D41B1B5D5402003B8D9A /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD2D41A1B5D5402003B8D9A /* Empty.xib */; };
 		AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */; };
 		AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48B1B50BBE400AC7977 /* MyButton.m */; };
 		AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */; };
@@ -204,6 +205,7 @@
 		AFC61FD21B464C7E00E11040 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		AFC61FD31B464C7E00E11040 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		AFC61FD41B464C7E00E11040 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		AFD2D41A1B5D5402003B8D9A /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		AFE0E4871B50BB8700AC7977 /* TTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRootViewController.h; sourceTree = "<group>"; };
 		AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRootViewController.m; sourceTree = "<group>"; };
 		AFE0E48A1B50BBE400AC7977 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				AFE3B0671B4B6A12002ACA1F /* BiddinglistTableViewCell.m */,
 				AFE3B06C1B4B75A1002ACA1F /* DetailBiddingTableViewCell.h */,
 				AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */,
+				AFD2D41A1B5D5402003B8D9A /* Empty.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				AFC61FCE1B46288E00E11040 /* BiddingListViewController.xib in Resources */,
 				AFC61FC01B454D3F00E11040 /* RegistViewController.xib in Resources */,
 				AF97F5551B576871003B10D3 /* index.html in Resources */,
+				AFD2D41B1B5D5402003B8D9A /* Empty.xib in Resources */,
 				AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */,
 				68C6C19C1B539D1A002484DB /* down_dark.png in Resources */,
 			);
