@@ -22,18 +22,22 @@
     [super viewDidLoad];
         // Do any additional setup after loading the view.
     
+    
 }
 
 
 - (void)createUI{
 
     myTableView = [UITableView newAutoLayoutView];
+    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backImage2"]];
+    [self.view addSubview:imageV];
     [self.view addSubview:myTableView];
     [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 0, 0, 0)];
+    myTableView.alpha = 0.55;
     myTableView.delegate = self;
     myTableView.dataSource = self;
-    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backImage2"]];
-    myTableView.backgroundView = imageV;
+    
+    
     myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [myTableView bk_whenTapped:^{
         
