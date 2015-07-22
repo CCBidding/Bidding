@@ -24,6 +24,7 @@
     NSMutableArray  *isSelectArr;
     NSMutableDictionary  *pidDic;
     NSMutableArray  *isSelectPidArr;
+    PPGuideUserView *guidView;  //引导动画界面
 }
 @end
 
@@ -63,8 +64,45 @@
    
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(chanageTableViewEditStyleWithBarItem:)];
     self.navigationItem.rightBarButtonItem = item;
+    
+    [self createAnimalGradeUserActionToView];
 
 }
+/**
+ *  在一个视图上创建一个引导动画
+ */
+
+- (void)createAnimalGradeUserActionToView{
+    
+    
+    
+    CGRect rect = CGRectMake(TTScreenWith-150, 0, 150.0f, 35.0f);
+    
+    guidView = [[PPGuideUserView alloc]initWithFrame:rect backImage:[UIImage imageNamed:@"animalRight.png"] msgStr:@"点击这选择" txtColor:[colorTurn RGBColorFromHexString:@"#ffffff" alpha:1.0f]];
+    
+    [myTableView addSubview:guidView];
+    
+    CABasicAnimation *jumpAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    jumpAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    jumpAnimation.toValue = [NSNumber numberWithFloat:10.0f];
+    
+    jumpAnimation.duration = 0.5f;//动画持续时间
+    jumpAnimation.repeatCount = 10;//动画重复次数
+    jumpAnimation.autoreverses = YES;//是否自动重复
+    [guidView.layer addAnimation:jumpAnimation forKey:@"animateLayer"];
+    
+    [self performSelector:@selector(removeViewWithView) withObject:self afterDelay:3];
+    
+    
+}
+
+- (void)removeViewWithView {
+    
+    [guidView removeFromSuperview];
+    
+}
+
+
 /**
  *  从服务器获取资质数组
  */

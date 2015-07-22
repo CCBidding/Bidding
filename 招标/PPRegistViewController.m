@@ -374,11 +374,14 @@
 - (void)showData{
   
         //双击显示选择数据
-        PPSelectedViewController *selectVC = [[PPSelectedViewController alloc]init];
+        PPSelectedViewController *selectVC;
+    if (!selectVC) {
+        selectVC = [[PPSelectedViewController alloc]init];
+    }
         selectVC.showNavi = YES;
         selectVC.haveBack = YES;
         selectVC.dataArr = companySelectArr;
-    [self.navigationController presentViewController:selectVC animated:YES completion:nil];
+    [self presentViewController:selectVC animated:YES completion:nil];
     
    
 

@@ -17,11 +17,16 @@
 @end
 
 @implementation PPSelectedViewController
+- (void)viewWillAppear:(BOOL)animated{
 
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.hidden = YES;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
         // Do any additional setup after loading the view.
-    
+    self.title = @"您选择的资质";
     
 }
 
@@ -29,8 +34,8 @@
 - (void)createUI{
 
     myTableView = [UITableView newAutoLayoutView];
-    UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backImage2"]];
-    [self.view addSubview:imageV];
+    //UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backImage2"]];
+    //[self.view addSubview:imageV];
     [self.view addSubview:myTableView];
     [myTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 0, 0, 0)];
     myTableView.alpha = 0.55;

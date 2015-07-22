@@ -27,6 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self jPushRegist:launchOptions];
     
     if ([TTUserDefaultTool objectForKey:TTusername ]&&[TTUserDefaultTool objectForKey:TTpassword]) {
@@ -46,6 +47,7 @@
                 
             }
             else{
+              
                 HomeViewController *home = [[HomeViewController alloc]init];
                 self.window.rootViewController = home;
                 
@@ -59,9 +61,8 @@
     }
     else{
 
-        
-
         HomeViewController *home = [[HomeViewController alloc]init];
+        
         self.window.rootViewController = home;
 
     }
