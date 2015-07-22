@@ -19,38 +19,52 @@
 }
 -(void)createUI{
  
+    _backgroundview  = [UIView new];
+    [self.contentView addSubview:_backgroundview];
+    
     _infoLab    = [UILabel new];
-    [self.contentView addSubview:_infoLab];
+    [_backgroundview addSubview:_infoLab];
 
     _addressLab = [UILabel new];
-    [self.contentView addSubview:_addressLab];
+    [_backgroundview addSubview:_addressLab];
 
     _timeLab    = [UILabel new];
-    [self.contentView addSubview:_timeLab];
+    [_backgroundview addSubview:_timeLab];
+    
+    [_backgroundview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).with.offset(0);
+        make.left.equalTo(self.contentView.mas_left).with.offset(0);
+        make.right.equalTo(self.contentView.mas_right).with.offset(0);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(0);
+    }];
     
     _infoLab.numberOfLines = 0;
+    _infoLab.textColor = [UIColor whiteColor];
     _infoLab.lineBreakMode=NSLineBreakByCharWrapping;
     [_infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
         make.left.equalTo(self.contentView.mas_left).with.offset(10);
         make.right.equalTo(self.contentView.mas_right).with.offset(-20);
         make.bottom.equalTo(_addressLab.mas_top).with.offset(-20);
+     
         
     }];
-    _infoLab.font = [UIFont systemFontOfSize:24*TTScreenWith/640];
+    _infoLab.font = [UIFont fontWithName:@"TaiLeb.ttf" size:22*TTScreenWith/640];
 
     _addressLab.font=[UIFont fontWithName:nil size:10];
+    _addressLab.textColor = [UIColor whiteColor];
     [_addressLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_infoLab.mas_bottom).with.offset(20);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
         make.left.equalTo(self.contentView.mas_left).with.offset(10);
         make.right.equalTo(_timeLab.mas_left).with.offset(-20);
-        make.width.equalTo(@200);
+        make.width.equalTo(@150);
     }];
 
      _timeLab.font = [UIFont fontWithName:nil size:12];
      _timeLab.textAlignment = NSTextAlignmentRight;
-    _timeLab.numberOfLines = 0;
+     _timeLab.numberOfLines = 0;
+    _timeLab.textColor = [UIColor whiteColor];
     [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(_addressLab.mas_centerY);
         make.left.equalTo(_addressLab.mas_right).with.offset(20);

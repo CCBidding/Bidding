@@ -60,7 +60,6 @@
 		AFD2D41B1B5D5402003B8D9A /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD2D41A1B5D5402003B8D9A /* Empty.xib */; };
 		AFE0E4891B50BB8700AC7977 /* TTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */; };
 		AFE0E48C1B50BBE400AC7977 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48B1B50BBE400AC7977 /* MyButton.m */; };
-		AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */; };
 		AFE0E4961B50BCD200AC7977 /* TTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */; };
 		AFE0E49E1B53542B00AC7977 /* DHLandscapeMenuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E4991B53542B00AC7977 /* DHLandscapeMenuScrollView.m */; };
 		AFE0E49F1B53542B00AC7977 /* DHLandscapeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE0E49B1B53542B00AC7977 /* DHLandscapeTableView.m */; };
@@ -83,6 +82,8 @@
 		AFE3B06B1B4B6FBC002ACA1F /* DetialBiddingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */; };
 		AFE3B06E1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */; };
 		AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */; };
+		AFE762241B5E319A00F5E9AE /* TTWinBiddingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762231B5E319A00F5E9AE /* TTWinBiddingModel.m */; };
+		AFE762271B5E456E00F5E9AE /* TTBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762261B5E456E00F5E9AE /* TTBaseWebViewController.m */; };
 		AFF8F62E1B5643170075DB60 /* libPushSDK-1.8.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6111B5643170075DB60 /* libPushSDK-1.8.3.a */; };
 		AFF8F6341B5643820075DB60 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6331B5643820075DB60 /* CFNetwork.framework */; };
 		AFF8F6361B5643970075DB60 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6351B5643970075DB60 /* CoreFoundation.framework */; };
@@ -210,8 +211,6 @@
 		AFE0E4881B50BB8700AC7977 /* TTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRootViewController.m; sourceTree = "<group>"; };
 		AFE0E48A1B50BBE400AC7977 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		AFE0E48B1B50BBE400AC7977 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
-		AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiddingListWinViewController.h; sourceTree = "<group>"; };
-		AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiddingListWinViewController.m; sourceTree = "<group>"; };
 		AFE0E4941B50BCD200AC7977 /* TTMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMineViewController.h; sourceTree = "<group>"; };
 		AFE0E4951B50BCD200AC7977 /* TTMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMineViewController.m; sourceTree = "<group>"; };
 		AFE0E4981B53542B00AC7977 /* DHLandscapeMenuScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLandscapeMenuScrollView.h; sourceTree = "<group>"; };
@@ -255,6 +254,10 @@
 		AFE3B06D1B4B75A1002ACA1F /* DetailBiddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBiddingTableViewCell.m; sourceTree = "<group>"; };
 		AFE3B06F1B4B75F9002ACA1F /* TTBiddingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBiddingModel.h; sourceTree = "<group>"; };
 		AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBiddingModel.m; sourceTree = "<group>"; };
+		AFE762221B5E319A00F5E9AE /* TTWinBiddingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWinBiddingModel.h; sourceTree = "<group>"; };
+		AFE762231B5E319A00F5E9AE /* TTWinBiddingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWinBiddingModel.m; sourceTree = "<group>"; };
+		AFE762251B5E456E00F5E9AE /* TTBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBaseWebViewController.h; sourceTree = "<group>"; };
+		AFE762261B5E456E00F5E9AE /* TTBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBaseWebViewController.m; sourceTree = "<group>"; };
 		AFF8F6101B5643170075DB60 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		AFF8F6111B5643170075DB60 /* libPushSDK-1.8.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.3.a"; sourceTree = "<group>"; };
 		AFF8F6331B5643820075DB60 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -297,15 +300,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		68634EEE1B4E720F004C1249 /* PPBaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				68634EEF1B4E7256004C1249 /* PPBaseViewController.h */,
-				68634EF01B4E7256004C1249 /* PPBaseViewController.m */,
-			);
-			name = PPBaseViewController;
-			sourceTree = "<group>";
-		};
 		68C6C1971B539CD6002484DB /* PPDownListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				AFC61F741B44CF9C00E11040 /* 招标 */,
+				AFE7621E1B5DEE2200F5E9AE /* Base */,
 				AFE0E4901B50BC9800AC7977 /* Mine */,
 				AFE0E4861B50BB6100AC7977 /* common */,
 				AFC61FC61B4627CF00E11040 /* Main */,
@@ -508,7 +503,6 @@
 			isa = PBXGroup;
 			children = (
 				AFE3B0531B4A2F72002ACA1F /* MBProgressHUD */,
-				68634EEE1B4E720F004C1249 /* PPBaseViewController */,
 				AFC61FAC1B44EBE300E11040 /* UIimageview */,
 			);
 			name = category;
@@ -592,6 +586,8 @@
 			children = (
 				AFE3B06F1B4B75F9002ACA1F /* TTBiddingModel.h */,
 				AFE3B0701B4B75F9002ACA1F /* TTBiddingModel.m */,
+				AFE762221B5E319A00F5E9AE /* TTWinBiddingModel.h */,
+				AFE762231B5E319A00F5E9AE /* TTWinBiddingModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -603,8 +599,6 @@
 				AFC61FCB1B46288E00E11040 /* BiddingListViewController.m */,
 				AFE3B0691B4B6FBC002ACA1F /* DetialBiddingViewController.h */,
 				AFE3B06A1B4B6FBC002ACA1F /* DetialBiddingViewController.m */,
-				AFE0E48D1B50BC3200AC7977 /* BiddingListWinViewController.h */,
-				AFE0E48E1B50BC3200AC7977 /* BiddingListWinViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -762,6 +756,41 @@
 				AFE3B0551B4A2F92002ACA1F /* MBProgressHUD+Simple.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		AFE7621E1B5DEE2200F5E9AE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AFE762211B5DEE5100F5E9AE /* Model */,
+				AFE762201B5DEE2F00F5E9AE /* Controller */,
+				AFE7621F1B5DEE2900F5E9AE /* View */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		AFE7621F1B5DEE2900F5E9AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AFE762201B5DEE2F00F5E9AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				68634EEF1B4E7256004C1249 /* PPBaseViewController.h */,
+				68634EF01B4E7256004C1249 /* PPBaseViewController.m */,
+				AFE762251B5E456E00F5E9AE /* TTBaseWebViewController.h */,
+				AFE762261B5E456E00F5E9AE /* TTBaseWebViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AFE762211B5DEE5100F5E9AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		AFF8F60F1B5643170075DB60 /* lib */ = {
@@ -960,6 +989,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF93D9581B5512DC00B96EFD /* UIView+SDExtension.m in Sources */,
+				AFE762241B5E319A00F5E9AE /* TTWinBiddingModel.m in Sources */,
 				AFE3B0521B4A24BC002ACA1F /* TTUserDefaultTool.m in Sources */,
 				AFE0E5071B5393EE00AC7977 /* REFrostedViewController.m in Sources */,
 				AFE3B0711B4B75F9002ACA1F /* TTBiddingModel.m in Sources */,
@@ -976,6 +1006,7 @@
 				68C6C1AD1B53AC86002484DB /* TYGSelectMenu.m in Sources */,
 				6838CA5C1B5CD46900292A0A /* PPGuideUserView.m in Sources */,
 				AFC61FCD1B46288E00E11040 /* BiddingListViewController.m in Sources */,
+				AFE762271B5E456E00F5E9AE /* TTBaseWebViewController.m in Sources */,
 				AF93D9551B5512DC00B96EFD /* SDRefreshFooterView.m in Sources */,
 				AFE0E4A01B53542B00AC7977 /* DHMenuPagerViewController.m in Sources */,
 				AFC61FBF1B454D3F00E11040 /* RegistViewController.m in Sources */,
@@ -1010,7 +1041,6 @@
 				AFC61FA51B44D19000E11040 /* HomeViewController.m in Sources */,
 				AFE0E5091B5393EE00AC7977 /* UIView+REFrostedViewController.m in Sources */,
 				AFE0E49E1B53542B00AC7977 /* DHLandscapeMenuScrollView.m in Sources */,
-				AFE0E48F1B50BC3200AC7977 /* BiddingListWinViewController.m in Sources */,
 				AFC61FC51B46239D00E11040 /* CustomField.m in Sources */,
 				AF93D9571B5512DC00B96EFD /* SDRefreshView.m in Sources */,
 				68DB730F1B59EDFC009FE618 /* PPResultViewController.m in Sources */,

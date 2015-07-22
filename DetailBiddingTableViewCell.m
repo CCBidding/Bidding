@@ -21,28 +21,21 @@
 -(void)createUI{
     
     _titleLab = [UILabel new];
- 
-    
     [self.contentView addSubview:_titleLab];
-   
-    
     _infoLab  = [UILabel new];
   
     [self.contentView addSubview:_infoLab];
     
-    
-    _titleLab.font = [UIFont systemFontOfSize:28*TTScreenWith/640];
+    _titleLab.numberOfLines = 0;
+    _titleLab.lineBreakMode = NSLineBreakByCharWrapping;
+    _titleLab.font = [UIFont systemFontOfSize:24*TTScreenWith/640];
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.contentView.mas_centerY);
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
-        make.right.equalTo(self.infoLab.mas_left).with.offset(-15);
-      
-
+        make.width.equalTo(@80);
     }];
-    
-   
 
     _infoLab.numberOfLines = 0;
     _infoLab.lineBreakMode = NSLineBreakByCharWrapping;

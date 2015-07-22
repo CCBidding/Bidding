@@ -15,6 +15,7 @@
 {
     NSMutableArray  *dataSource;  //获取招标列表
     NSString        *requestUrl;  //请求URL
+    NSArray         *colorArr;    //颜色数组
     
 }
 @property (nonatomic, weak) SDRefreshFooterView *refreshFooter;
@@ -36,7 +37,7 @@
     else{
         self.title = @"中标";
     }
-
+   
 }
 
 -(void)createUI{
@@ -57,6 +58,16 @@
 }
 
 -(void)createData{
+    UIColor *color1 = TTColor(251, 43 , 74 , 1);
+    UIColor *color2 = TTColor(248, 85 , 72 , 1);
+    UIColor *color3 = TTColor(253, 133, 74 , 1);
+    UIColor *color4 = TTColor(252, 173, 72 , 1);
+    UIColor *color5 = TTColor(206, 205, 94 , 1);
+    UIColor *color6 = TTColor(92 , 173, 125, 1);
+    
+    colorArr=@[color1,color2,color3,color4,color5,color6];
+    
+    
     if (_bidsType==bidTypeBidding) {
         requestUrl=TTBiddingLsitUrl;
     }
@@ -75,8 +86,15 @@
         }
         
         for (NSDictionary *dic in arr) {
-            _biddingModel=[MTLJSONAdapter modelOfClass:[TTBiddingModel class] fromJSONDictionary:dic error:nil];
-            [dataSource addObject:_biddingModel];
+             if (_bidsType == bidTypeBidding) {
+                 _biddingModel = [MTLJSONAdapter modelOfClass:[TTBiddingModel class] fromJSONDictionary:dic error:nil];
+                 [dataSource addObject:_biddingModel];
+            }
+            else{
+                _winBiddingModel = [MTLJSONAdapter modelOfClass:[TTWinBiddingModel class] fromJSONDictionary:dic error:nil];
+                 [dataSource  addObject:_winBiddingModel];
+            }
+          
         
         }
         [_myTableview reloadData];
@@ -184,30 +202,14 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView.tag == 1001) {
+    
         return 1;
-    }
-    else{
-    return 2;
-    }
+  
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView.tag == 1001) {
         return dataSource.count;
-    }
-    else{
-    if (section == 0) {
-        return 1;
-    } else if (section == 1)
-    {
-        return 2;
-    }
-    
-    }
-    return 0;
-   
         
 }
 
@@ -218,13 +220,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 80;
+    return TTScreenWith*130/320;
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DetialBiddingViewController *detailVC = [[DetialBiddingViewController alloc]init];
+    if (_bidsType == bidTypeBidding) {
+        detailVC.detailBidType = detailbidTypeBidding;
+        detailVC.biddingModel=dataSource[indexPath.row];
+    }
+    else{
+        detailVC.detailBidType = detailbidTypeWinBidding;
+        detailVC.winBiddingModel=dataSource[indexPath.row];
+    }
     detailVC.showNavi = YES;
     detailVC.haveBack = YES;
     static NSString *cellID = @"biddingcell";
@@ -232,7 +242,8 @@
     if (!cell) {
         cell=[[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    detailVC.biddingModel=dataSource[indexPath.row];
+    
+    
     [self.navigationController pushViewController:detailVC animated:YES];
     
     
@@ -246,6 +257,7 @@
         if (!cell) {
             cell = [[BiddinglistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
+    
        [self configureCell:cell withIndexPath:indexPath];
     
         return cell;
@@ -256,10 +268,22 @@
 - (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
    
         BiddinglistTableViewCell *biddingcell = (BiddinglistTableViewCell *)cell;
+        biddingcell.backgroundview.backgroundColor = colorArr[indexPath.row%6];
+    if(_bidsType == bidTypeBidding){
         biddingcell.biddingModel              = dataSource[indexPath.row];
-        biddingcell.infoLab.text              = biddingcell.biddingModel.title_name;
-        biddingcell.addressLab.text           = biddingcell.biddingModel.address;
-        biddingcell.timeLab.text              = biddingcell.biddingModel.oppen_time  ;
+        biddingcell.infoLab.text              = biddingcell.biddingModel.bid_title;
+        biddingcell.addressLab.text           = biddingcell.biddingModel.org_name;
+        biddingcell.timeLab.text              = biddingcell.biddingModel.ref_date  ;
+    }
+    else
+    {
+        biddingcell.winBiddingModel              = dataSource[indexPath.row];
+        biddingcell.infoLab.text              = biddingcell.winBiddingModel.title_name;
+        biddingcell.addressLab.text           = biddingcell.winBiddingModel.caigourenName;
+        biddingcell.timeLab.text              = biddingcell.winBiddingModel.dingbiaoriqi  ;
+    
+    }
+    
   
 }
 
