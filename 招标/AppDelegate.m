@@ -126,7 +126,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
     //    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241.0/255.0 green:94.0/255.0 blue:141.0/255.0 alpha:.95]];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bg_navigation"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bg_nav.jpg"] forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     

@@ -9,7 +9,6 @@
 #import "TTRootViewController.h"
 #import "TTMineViewController.h"
 #import "BiddingListViewController.h"
-#import "BiddingListWinViewController.h"
 #import "NTSlidingViewController.h"
 #import "DHMenuPagerViewController.h"
 #import "NavParentController.h"

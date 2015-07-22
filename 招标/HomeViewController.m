@@ -90,7 +90,7 @@
     
     Icon=[UIImageView newAutoLayoutView];
     //[Icon setAutoresizingMask:UIViewAutoresizingNone];
-    Icon.image=[UIImage imageNamed:@"31.png"];
+    Icon.image=[UIImage imageNamed:@"31"];
     Icon.layer.cornerRadius = 50;
     [Icon.layer setMasksToBounds:YES];
     [self.view addSubview:Icon];
