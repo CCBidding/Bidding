@@ -28,6 +28,7 @@
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self jPushRegist:launchOptions];
+ 
     
     if ([TTUserDefaultTool objectForKey:TTusername ]&&[TTUserDefaultTool objectForKey:TTpassword]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -59,13 +60,11 @@
     }
     else{
 
-        
-
         HomeViewController *home = [[HomeViewController alloc]init];
         self.window.rootViewController = home;
 
     }
-   
+    [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyAndVisible];
     return YES;
 }

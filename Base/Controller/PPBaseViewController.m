@@ -73,14 +73,12 @@
 
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor=TTColor(255, 48, 48, 1);
     if (_haveBack) {
         self.navigationItem.leftBarButtonItem = [self itemWithImage:[UIImage imageNamed:@"Icon_back.png"] action:^(id sender){
-        
             [self returenBtnTapped:sender];
         }];
         
@@ -104,7 +102,6 @@
             
             [self willShowMenu];
         }];
-        
         
     }
 }
