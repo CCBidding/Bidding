@@ -29,6 +29,7 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self jPushRegist:launchOptions];
+ 
     
     if ([TTUserDefaultTool objectForKey:TTusername ]&&[TTUserDefaultTool objectForKey:TTpassword]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -47,9 +48,10 @@
                 
             }
             else{
-              
                 HomeViewController *home = [[HomeViewController alloc]init];
-                self.window.rootViewController = home;
+                home.showNavi = NO;
+                UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
+                self.window.rootViewController = nav;
                 
             }
             
@@ -62,11 +64,12 @@
     else{
 
         HomeViewController *home = [[HomeViewController alloc]init];
-        
-        self.window.rootViewController = home;
+        home.showNavi = NO;
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
+        self.window.rootViewController = nav;
 
     }
-   
+    [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyAndVisible];
     return YES;
 }

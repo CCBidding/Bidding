@@ -7,7 +7,9 @@
 //
 
 #import "PPBaseViewController.h"
+#import "RCAnimatedImagesView.h"
 
-@interface PPRegistViewController : PPBaseViewController
+@interface PPRegistViewController : PPBaseViewController<RCAnimatedImagesViewDelegate>
 
++(PPRegistViewController *)shareInstance;
 @end

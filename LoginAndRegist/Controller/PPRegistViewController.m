@@ -26,6 +26,7 @@
     CustomField   *mailTextField;
     CustomField   *detailTextField;
     UIButton *headInfoBtn;
+    UIButton *backLogin;     //返回登录按钮
     UILabel *surePwdLabel;
     
    
@@ -34,14 +35,23 @@
     NSArray   *companySelectArr;
     NSArray    *headSelectArr;
 }
-
+@property (nonatomic, strong)  RCAnimatedImagesView *animatedImageView;
 @end
 
 @implementation PPRegistViewController
 
--(void)viewWillAppear:(BOOL)animated{
 
-  //  self.navigationController.navigationBarHidden = NO;
++ (PPRegistViewController *)shareInstance{
+    
+    static PPRegistViewController *registVC = nil ;
+    if (!registVC) {
+        registVC = [[PPRegistViewController alloc]init];
+    }
+    return registVC;
+}
+-(void)viewWillAppear:(BOOL)animated{
+ [_animatedImageView startAnimating];
+  self.navigationController.navigationBarHidden = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,157 +136,74 @@
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[colorTurn colorTurnWithRed:255 greed:255 blue:255 alpa:1], NSForegroundColorAttributeName,[UIFont fontWithName:@"STHeitiSC-Light" size:20.0], NSFontAttributeName, nil]];
     
 
+    _animatedImageView = [RCAnimatedImagesView newAutoLayoutView];
+    _animatedImageView.delegate = self;
+    [self.view addSubview:_animatedImageView];
+    [_animatedImageView bk_whenTapped:^{
+        [self.view endEditing:YES];
+    }];
+    [_animatedImageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
     myScrollView = [UIScrollView newAutoLayoutView];
     myScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     myScrollView.showsHorizontalScrollIndicator = YES;
     myScrollView.delegate = self;
    
-    [self.view addSubview:myScrollView];
+    [_animatedImageView addSubview:myScrollView];
     [myScrollView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
-    UIView *labelBackgroundView = [UIView newAutoLayoutView];
-    labelBackgroundView.autoresizingMask = YES;
-    labelBackgroundView.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    labelBackgroundView.alpha = 0.78;
-    labelBackgroundView.layer.cornerRadius = 5;
-    [myScrollView addSubview:labelBackgroundView];
-    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [labelBackgroundView autoSetDimension:ALDimensionWidth toSize:TTScreenWith*114/320];
-    [labelBackgroundView autoSetDimension:ALDimensionHeight toSize:TTScreenHeight * 360/568];
-    UILabel *nameLable = [UILabel newAutoLayoutView];
-    nameLable.text = @" * 公司名称";
-    nameLable.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    [myScrollView addSubview:nameLable];
-    [nameLable autoSetDimension:ALDimensionHeight toSize:30];
-    [nameLable autoSetDimension:ALDimensionWidth toSize:90];
-    nameLable.layer.cornerRadius = 5;
-    nameLable.layer.masksToBounds = YES;
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [nameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*15/320];
-    
+
     
     nameTextField = [CustomField newAutoLayoutView];
+    nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 公司名称" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     [nameTextField setNeedsLayout ];
     [nameTextField setNeedsUpdateConstraints];
-    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:TTScreenHeight*15/320];
-    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:50];
+    [nameTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [nameTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320 relation:NSLayoutRelationGreaterThanOrEqual];
 
-    UILabel *userLabel = [UILabel newAutoLayoutView];
-    [myScrollView addSubview:userLabel];
-    userLabel.layer.cornerRadius =5;
-    userLabel.layer.masksToBounds = YES;
-    userLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    userLabel.text = @" * 用户名";
-    [userLabel autoSetDimension:ALDimensionHeight toSize:30];
-    [userLabel autoSetDimension:ALDimensionWidth toSize:90];
-    [userLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [userLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
 
     userTextField = [CustomField newAutoLayoutView];
+    userTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 用户名" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     userTextField.delegate = self;
-    userTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:userTextField];
     [userTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
-    [userTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [userTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [userTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
     
     
-    UILabel *pwdLable = [UILabel newAutoLayoutView];
-    pwdLable.text = @" * 密码";
-    pwdLable.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    pwdLable.layer.cornerRadius = 5;
-    pwdLable.layer.masksToBounds = YES;
-    [myScrollView addSubview:pwdLable];
-    [pwdLable autoSetDimension:ALDimensionWidth toSize:90];
-    [pwdLable autoSetDimension:ALDimensionHeight toSize:30];
-    [pwdLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [pwdLable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
  
     pwdTextField = [CustomField newAutoLayoutView];
+    pwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     pwdTextField.delegate = self;
-    pwdTextField.borderStyle = UITextBorderStyleRoundedRect;
     [myScrollView addSubview:pwdTextField];
     [pwdTextField setSecureTextEntry:YES];
-    [pwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userLabel withOffset:20];
-    [pwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [pwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:userTextField withOffset:20];
+    [pwdTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [pwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
    
     
-    surePwdLabel = [UILabel newAutoLayoutView];
-    surePwdLabel.text = @" * 确认密码";
-    surePwdLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    surePwdLabel.layer.cornerRadius = 5;
-    surePwdLabel.layer.masksToBounds = YES;
-    [myScrollView addSubview:surePwdLabel];
-    [surePwdLabel autoSetDimension:ALDimensionHeight toSize:30];
-    [surePwdLabel autoSetDimension:ALDimensionWidth toSize:90];
-    [surePwdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [surePwdLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
+
    
     surePwdTextField  = [CustomField newAutoLayoutView];
-    surePwdTextField.borderStyle = UITextBorderStyleRoundedRect;
+    surePwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 确认密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     [myScrollView addSubview:surePwdTextField];
     surePwdTextField.secureTextEntry = YES;
-    [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdLable withOffset:20];
-    [surePwdTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
+    [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdTextField withOffset:20];
+    [surePwdTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [surePwdTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
    ;
-    
-//    UILabel *categoryLabel = [UILabel newAutoLayoutView];
-//    categoryLabel.text = @"公司类别";
-//    [scrollView addSubview:categoryLabel];
-//    [categoryLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:15];
-//    [categoryLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:170];
-//    [categoryLabel autoSetDimension:ALDimensionWidth toSize:100];
-//    [categoryLabel autoSetDimension:ALDimensionHeight toSize:30];
-//    
-//    companyCategory = [[IGLDropDownMenu alloc]init];
-//    companyCategory.menuText = @"请选择公司类别";
-//    NSArray *itemsData = @[@{@"image":@"sun.png",@"title":@"Sun"},
-//                             @{@"image":@"clouds.png",@"title":@"Clouds"},];
-//    
-//    NSMutableArray *dropdownItems = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < itemsData.count; i++) {
-//        NSDictionary *dict = itemsData[i];
-//        
-//        IGLDropDownItem *item = [[IGLDropDownItem alloc] init];
-//        [item setIconImage:[UIImage imageNamed:dict[@"image"]]];
-//        [item setText:dict[@"title"]];
-//        [dropdownItems addObject:item];
-//    }
-//    
-//    companyCategory.dropDownItems = dropdownItems;
-//    companyCategory.paddingLeft = 15;
-//    companyCategory.delegate = self;
-//    [companyCategory setFrame:CGRectMake(110, 170, 200, 30)];
-//    companyCategory.type = IGLDropDownMenuTypeStack;
-//    companyCategory.flipWhenToggleView = YES;
-//    [companyCategory reloadView];
-//    [scrollView addSubview:companyCategory];
-//    
-    
-    UILabel *companyInfoLabel = [UILabel newAutoLayoutView];
-    companyInfoLabel.text = @" * 公司资质";
-    companyInfoLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    companyInfoLabel.layer.cornerRadius = 5;
-    companyInfoLabel.layer.masksToBounds = YES;
-    [myScrollView addSubview:companyInfoLabel];
-    [companyInfoLabel autoSetDimension:ALDimensionWidth toSize:90];
-    [companyInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
-    [companyInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [companyInfoLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdLabel withOffset:20];
+  
 
     
     infomationBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [infomationBtn setTitle:@"请选择" forState:UIControlStateNormal];
+    [infomationBtn setTitle:@"请选择公司资质" forState:UIControlStateNormal];
     [myScrollView addSubview:infomationBtn];
-    [infomationBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*115/320];
-    [infomationBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdLabel withOffset:20];
+    infomationBtn.layer.cornerRadius = 10;
+    [infomationBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [infomationBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:surePwdTextField withOffset:20];
     [infomationBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
     
     [infomationBtn setBackgroundColor:[UIColor whiteColor]];
@@ -285,7 +212,7 @@
         
         PPChooseInfoViewController *choose = [[PPChooseInfoViewController alloc]init];
         choose.showNavi = YES;
-        choose.haveBack = YES;
+        choose.haveBack = NO;
         choose.isCompany = @"isCompany";
     
         [self.navigationController pushViewController:choose animated:YES];
@@ -296,44 +223,25 @@
     UILongPressGestureRecognizer  *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(showData)];
     [infomationBtn addGestureRecognizer:press];
     
-    
-    UILabel *headLabel = [UILabel newAutoLayoutView];
-    headLabel.text = @" * 负责人";
-    headLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    [myScrollView addSubview:headLabel];
-    headLabel.layer.cornerRadius = 5;
-    headLabel.layer.masksToBounds = YES;
-    [headLabel autoSetDimension:ALDimensionHeight toSize:30];
-    [headLabel autoSetDimension:ALDimensionWidth toSize:90];
-    [headLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [headLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
 
     headTextField = [CustomField newAutoLayoutView];
-    headTextField.borderStyle = UITextBorderStyleRoundedRect;
+    headTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 负责人" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     headTextField.delegate = self;
     [myScrollView addSubview:headTextField];
     [headTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
-    [headTextField autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith *115/320];
+    [headTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [headTextField autoSetDimension:ALDimensionWidth toSize:TTScreenWith*180/320];
-    
-    UILabel *headInfoLabel = [UILabel newAutoLayoutView];
-    headInfoLabel.text = @"*负责人资质";
-    headInfoLabel.font = [UIFont fontWithName:nil size:15];
-    [headInfoLabel autoSetDimension:ALDimensionWidth toSize:90];
-    [headInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
-    headInfoLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
-    headInfoLabel.layer.cornerRadius = 5;
-    headInfoLabel.layer.masksToBounds = YES;
-    [myScrollView addSubview:headInfoLabel];
-    [headInfoLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith*15/320];
-    [headInfoLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headLabel withOffset:20];
    
     
     headInfoBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [headInfoBtn setTitle:@"请选择" forState:UIControlStateNormal];
+    
+    [headInfoBtn setTitle:@"请选择负责人资质" forState:UIControlStateNormal];
+    [headInfoBtn setBackgroundColor:[UIColor whiteColor]];
+    headInfoBtn.layer.cornerRadius = 10;
+    
     [myScrollView addSubview:headInfoBtn];
-    [headInfoBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith *115/320];
-    [headInfoBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headLabel withOffset:20];
+    [headInfoBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [headInfoBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headTextField withOffset:20];
     [headInfoBtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith *180/320];
     headInfoBtn.tag = 10011;
     [headInfoBtn bk_whenTapped:^{
@@ -346,6 +254,20 @@
         [self.navigationController pushViewController:choose animated:YES];
        
     }];
+    
+    backLogin=[UIButton newAutoLayoutView];
+    [backLogin setTitle:@"返回" forState:UIControlStateNormal];
+    backLogin.titleLabel.font = [UIFont fontWithName:nil size:18];
+    [_animatedImageView addSubview:backLogin];
+    [backLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_animatedImageView addSubview:backLogin];
+    backLogin.layer.cornerRadius=5;
+    [backLogin autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
+    [backLogin autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
+    [backLogin autoSetDimension:ALDimensionHeight toSize:30];
+    [backLogin autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
+    [backLogin addTarget:self action:@selector(backLoginVC) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UILongPressGestureRecognizer *pressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(showDataWithHeadBtn)];
     [headInfoBtn addGestureRecognizer:pressGesture];
@@ -366,6 +288,17 @@
     
    
     
+}
+
+
+- (NSUInteger)animatedImagesNumberOfImages:(RCAnimatedImagesView*)animatedImagesView
+{
+    return 3;
+}
+
+- (UIImage*)animatedImagesView:(RCAnimatedImagesView*)animatedImagesView imageAtIndex:(NSUInteger)index
+{
+    return [UIImage imageNamed:@"AnimatedImage"];
 }
 /**
  *  显示选择的资质
@@ -405,6 +338,10 @@
 
 }
 
+-(void)backLoginVC{
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
 #pragma -mark alertDelegate
@@ -573,8 +510,17 @@
 
     [menuLevel disMiss];
     [menuLevel2 disMiss];
+    [_animatedImageView stopAnimating];
 
 }
+
+- (void)viewDidUnload
+{
+    _animatedImageView=nil;
+    
+    [super viewDidUnload];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

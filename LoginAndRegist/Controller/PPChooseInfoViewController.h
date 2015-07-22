@@ -10,4 +10,6 @@
 
 @interface PPChooseInfoViewController : PPBaseViewController
 @property(strong,nonatomic)NSString * isCompany;
+
+
 @end
