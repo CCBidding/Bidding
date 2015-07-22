@@ -303,6 +303,7 @@
        
     }
     registVC.haveBack=YES;
+    registVC.showNavi = YES;
     registVC.isShowModal=YES;
      UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:registVC];
     [self presentViewController:nav animated:YES completion:nil];

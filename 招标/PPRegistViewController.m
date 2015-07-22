@@ -41,7 +41,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    self.navigationController.navigationBarHidden = NO;
+  //  self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,6 +123,9 @@
 //    [self.view bk_whenTapped:^{
 //        [self.view endEditing:YES];
 //    }];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[colorTurn colorTurnWithRed:255 greed:255 blue:255 alpa:1], NSForegroundColorAttributeName,[UIFont fontWithName:@"STHeitiSC-Light" size:20.0], NSFontAttributeName, nil]];
+    
+
     myScrollView = [UIScrollView newAutoLayoutView];
     myScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     myScrollView.showsHorizontalScrollIndicator = YES;
@@ -133,18 +136,17 @@
     
     UIView *labelBackgroundView = [UIView newAutoLayoutView];
     labelBackgroundView.autoresizingMask = YES;
-    labelBackgroundView.backgroundColor = [UIColor grayColor];
-    labelBackgroundView.alpha = 0.3;
+    labelBackgroundView.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
+    labelBackgroundView.alpha = 0.78;
+    labelBackgroundView.layer.cornerRadius = 5;
     [myScrollView addSubview:labelBackgroundView];
     [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [labelBackgroundView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [labelBackgroundView autoSetDimension:ALDimensionWidth toSize:TTScreenWith*114/320];
     [labelBackgroundView autoSetDimension:ALDimensionHeight toSize:TTScreenHeight * 360/568];
-    labelBackgroundView.backgroundColor = [UIColor grayColor];
-    
     UILabel *nameLable = [UILabel newAutoLayoutView];
     nameLable.text = @" * 公司名称";
-    nameLable.backgroundColor = [UIColor grayColor];
+    nameLable.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     [myScrollView addSubview:nameLable];
     [nameLable autoSetDimension:ALDimensionHeight toSize:30];
     [nameLable autoSetDimension:ALDimensionWidth toSize:90];
@@ -168,7 +170,7 @@
     [myScrollView addSubview:userLabel];
     userLabel.layer.cornerRadius =5;
     userLabel.layer.masksToBounds = YES;
-    userLabel.backgroundColor = [UIColor grayColor];
+    userLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     userLabel.text = @" * 用户名";
     [userLabel autoSetDimension:ALDimensionHeight toSize:30];
     [userLabel autoSetDimension:ALDimensionWidth toSize:90];
@@ -186,7 +188,7 @@
     
     UILabel *pwdLable = [UILabel newAutoLayoutView];
     pwdLable.text = @" * 密码";
-    pwdLable.backgroundColor = [UIColor grayColor];
+    pwdLable.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     pwdLable.layer.cornerRadius = 5;
     pwdLable.layer.masksToBounds = YES;
     [myScrollView addSubview:pwdLable];
@@ -207,7 +209,7 @@
     
     surePwdLabel = [UILabel newAutoLayoutView];
     surePwdLabel.text = @" * 确认密码";
-    surePwdLabel.backgroundColor = [UIColor grayColor];
+    surePwdLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     surePwdLabel.layer.cornerRadius = 5;
     surePwdLabel.layer.masksToBounds = YES;
     [myScrollView addSubview:surePwdLabel];
@@ -260,7 +262,7 @@
     
     UILabel *companyInfoLabel = [UILabel newAutoLayoutView];
     companyInfoLabel.text = @" * 公司资质";
-    companyInfoLabel.backgroundColor = [UIColor grayColor];
+    companyInfoLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     companyInfoLabel.layer.cornerRadius = 5;
     companyInfoLabel.layer.masksToBounds = YES;
     [myScrollView addSubview:companyInfoLabel];
@@ -297,7 +299,7 @@
     
     UILabel *headLabel = [UILabel newAutoLayoutView];
     headLabel.text = @" * 负责人";
-    headLabel.backgroundColor = [UIColor grayColor];
+    headLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     [myScrollView addSubview:headLabel];
     headLabel.layer.cornerRadius = 5;
     headLabel.layer.masksToBounds = YES;
@@ -319,7 +321,7 @@
     headInfoLabel.font = [UIFont fontWithName:nil size:15];
     [headInfoLabel autoSetDimension:ALDimensionWidth toSize:90];
     [headInfoLabel autoSetDimension:ALDimensionHeight toSize:30];
-    headInfoLabel.backgroundColor = [UIColor grayColor];
+    headInfoLabel.backgroundColor = [colorTurn colorTurnWithRed:199 greed:200 blue:202 alpa:1];
     headInfoLabel.layer.cornerRadius = 5;
     headInfoLabel.layer.masksToBounds = YES;
     [myScrollView addSubview:headInfoLabel];
@@ -351,7 +353,7 @@
     [registBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     registBtn.layer.cornerRadius = 10;
-    [registBtn setBackgroundColor:[colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1]];
+    [registBtn setBackgroundColor:[colorTurn colorTurnWithRed:175 greed:9 blue:35 alpa:1]];
     [myScrollView addSubview:registBtn];
     [registBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [registBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:headInfoBtn withOffset:TTScreenHeight*80/568];
@@ -374,10 +376,10 @@
         //双击显示选择数据
         PPSelectedViewController *selectVC = [[PPSelectedViewController alloc]init];
         selectVC.showNavi = YES;
-        selectVC.haveBack = NO;
+        selectVC.haveBack = YES;
         selectVC.dataArr = companySelectArr;
-        [self.navigationController presentViewController:selectVC animated:YES completion:nil];
-        
+    [self.navigationController presentViewController:selectVC animated:YES completion:nil];
+    
    
 
 }
@@ -490,7 +492,7 @@
 }
 #pragma -mark 注册方法
 -(void)registuser{
-    if (userTextField.text && pwdTextField.text && surePwdTextField.text) {
+    if (userTextField.text && pwdTextField.text && companySelectArr.count > 0  && headSelectArr.count > 0) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -515,7 +517,7 @@
     }else{
     
     
-        [MBProgressHUD showError:@"请输入用户名！" toView:myScrollView];
+        [MBProgressHUD showError:@"请完善信息再注册！" toView:myScrollView];
     
     }
     
