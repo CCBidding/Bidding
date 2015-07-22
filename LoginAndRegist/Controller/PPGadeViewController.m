@@ -147,7 +147,9 @@
     NSDictionary *dic = @{@"arr":arr,@"isCompany":self.isCompany,@"string":_stringArr};
     [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
 
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    PPRegistViewController *regist = [PPRegistViewController shareInstance];
+    
+    [ self.navigationController popToViewController:regist animated:YES];
     
 
 }

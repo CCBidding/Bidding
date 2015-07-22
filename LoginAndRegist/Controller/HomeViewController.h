@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCAnimatedImagesView.h"
 
-@interface HomeViewController : PPBaseViewController
+@interface HomeViewController : PPBaseViewController<RCAnimatedImagesViewDelegate>
 
 
 @end

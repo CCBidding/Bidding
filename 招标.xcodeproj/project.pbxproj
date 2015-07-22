@@ -29,7 +29,6 @@
 		AFE762A41B5FD53E00F5E9AE /* BiddingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE7629B1B5FD53E00F5E9AE /* BiddingListViewController.xib */; };
 		AFE762A51B5FD53E00F5E9AE /* DetailBiddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE7629D1B5FD53E00F5E9AE /* DetailBiddingTableViewCell.m */; };
 		AFE762A61B5FD53E00F5E9AE /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE7629E1B5FD53E00F5E9AE /* Empty.xib */; };
-		AFE762C11B5FD54D00F5E9AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762AA1B5FD54D00F5E9AE /* HomeViewController.m */; };
 		AFE762C21B5FD54D00F5E9AE /* PPChooseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762AC1B5FD54D00F5E9AE /* PPChooseInfoViewController.m */; };
 		AFE762C31B5FD54D00F5E9AE /* PPGadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762AE1B5FD54D00F5E9AE /* PPGadeViewController.m */; };
 		AFE762C41B5FD54D00F5E9AE /* PPRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762B01B5FD54D00F5E9AE /* PPRegistViewController.m */; };
@@ -85,6 +84,7 @@
 		AFE763751B5FD73300F5E9AE /* DHSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE7636D1B5FD73300F5E9AE /* DHSlideMenuController.m */; };
 		AFE763761B5FD73300F5E9AE /* NavParentController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE7636F1B5FD73300F5E9AE /* NavParentController.m */; };
 		AFE763771B5FD73300F5E9AE /* ParentCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE763711B5FD73300F5E9AE /* ParentCellViewController.m */; };
+		AFE763791B5FE5D500F5E9AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE763781B5FE5D500F5E9AE /* HomeViewController.m */; };
 		AFF8F6341B5643820075DB60 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6331B5643820075DB60 /* CFNetwork.framework */; };
 		AFF8F6361B5643970075DB60 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6351B5643970075DB60 /* CoreFoundation.framework */; };
 		AFF8F6381B5643A30075DB60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF8F6371B5643A30075DB60 /* CoreTelephony.framework */; };
@@ -152,7 +152,6 @@
 		AFE7629D1B5FD53E00F5E9AE /* DetailBiddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBiddingTableViewCell.m; sourceTree = "<group>"; };
 		AFE7629E1B5FD53E00F5E9AE /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		AFE762A91B5FD54D00F5E9AE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		AFE762AA1B5FD54D00F5E9AE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AFE762AB1B5FD54D00F5E9AE /* PPChooseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPChooseInfoViewController.h; sourceTree = "<group>"; };
 		AFE762AC1B5FD54D00F5E9AE /* PPChooseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPChooseInfoViewController.m; sourceTree = "<group>"; };
 		AFE762AD1B5FD54D00F5E9AE /* PPGadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGadeViewController.h; sourceTree = "<group>"; };
@@ -261,6 +260,7 @@
 		AFE7636F1B5FD73300F5E9AE /* NavParentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavParentController.m; sourceTree = "<group>"; };
 		AFE763701B5FD73300F5E9AE /* ParentCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentCellViewController.h; sourceTree = "<group>"; };
 		AFE763711B5FD73300F5E9AE /* ParentCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentCellViewController.m; sourceTree = "<group>"; };
+		AFE763781B5FE5D500F5E9AE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AFF8F6331B5643820075DB60 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AFF8F6351B5643970075DB60 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		AFF8F6371B5643A30075DB60 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -511,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE762A91B5FD54D00F5E9AE /* HomeViewController.h */,
-				AFE762AA1B5FD54D00F5E9AE /* HomeViewController.m */,
+				AFE763781B5FE5D500F5E9AE /* HomeViewController.m */,
 				AFE762AB1B5FD54D00F5E9AE /* PPChooseInfoViewController.h */,
 				AFE762AC1B5FD54D00F5E9AE /* PPChooseInfoViewController.m */,
 				AFE762AD1B5FD54D00F5E9AE /* PPGadeViewController.h */,
@@ -977,6 +977,7 @@
 				AFE7628B1B5FD52A00F5E9AE /* MyButton.m in Sources */,
 				AFE763341B5FD58A00F5E9AE /* HanyuPinyinOutputFormat.m in Sources */,
 				AFE762A01B5FD53E00F5E9AE /* DetialBiddingViewController.m in Sources */,
+				AFE763791B5FE5D500F5E9AE /* HomeViewController.m in Sources */,
 				AFE762851B5FD51600F5E9AE /* TTMineViewController.m in Sources */,
 				AFE762C21B5FD54D00F5E9AE /* PPChooseInfoViewController.m in Sources */,
 				AFE7629F1B5FD53E00F5E9AE /* BiddingListViewController.m in Sources */,
@@ -1031,7 +1032,6 @@
 				AFE763601B5FD69200F5E9AE /* REFrostedContainerViewController.m in Sources */,
 				AFE763621B5FD69200F5E9AE /* UIImage+REFrostedViewController.m in Sources */,
 				AFE762C71B5FD54D00F5E9AE /* RegistViewController.m in Sources */,
-				AFE762C11B5FD54D00F5E9AE /* HomeViewController.m in Sources */,
 				AFE763451B5FD58A00F5E9AE /* SDRefreshHeaderView.m in Sources */,
 				AFE763421B5FD58A00F5E9AE /* RCAnimatedImagesView.m in Sources */,
 				AFE7633B1B5FD58A00F5E9AE /* DropDownListView.m in Sources */,

@@ -48,9 +48,10 @@
                 
             }
             else{
-              
                 HomeViewController *home = [[HomeViewController alloc]init];
-                self.window.rootViewController = home;
+                home.showNavi = NO;
+                UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
+                self.window.rootViewController = nav;
                 
             }
             
@@ -63,8 +64,9 @@
     else{
 
         HomeViewController *home = [[HomeViewController alloc]init];
-        
-        self.window.rootViewController = home;
+        home.showNavi = NO;
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
+        self.window.rootViewController = nav;
 
     }
     [NSThread sleepForTimeInterval:1.0];
