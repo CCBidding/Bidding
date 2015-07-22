@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"关于我";
-    self.navigationController.navigationBar.barTintColor=TTColor(255, 48, 48, 1);
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
     dataArr = @[@"密码修改",@"资料修改",@"关于我们",@"退出登录"];
     // Do any additional setup after loading the view.

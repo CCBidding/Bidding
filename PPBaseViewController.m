@@ -77,6 +77,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor=TTColor(255, 48, 48, 1);
     if (_haveBack) {
         self.navigationItem.leftBarButtonItem = [self itemWithImage:[UIImage imageNamed:@"Icon_back.png"] action:^(id sender){
         
@@ -93,6 +94,7 @@
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     }
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
     
     [self createUI];
@@ -103,6 +105,7 @@
             [self willShowMenu];
         }];
         
+        
     }
 }
 -(void)returenBtnTapped:(id)sender{
@@ -110,7 +113,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else{
-    [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
