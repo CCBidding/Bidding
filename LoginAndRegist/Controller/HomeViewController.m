@@ -40,7 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:YES];
-    self.showNavi=NO;
+    self.showNavi=YES;
 
 //    //友盟统计
 //    [MobClick beginLogPageView:@"PageOne"];
@@ -80,6 +80,7 @@
     
     bgIconView = [UIView newAutoLayoutView];
     bgIconView.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
+   // bgIconView.backgroundColor = [UIColor whiteColor];
     [bgIconView.layer setMasksToBounds:YES];
     [self.view addSubview:bgIconView];
     [bgIconView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
@@ -88,16 +89,16 @@
     [bgIconView autoSetDimension:ALDimensionHeight toSize:TTScreenHeight*1/2];
     
     
-    Icon=[UIImageView newAutoLayoutView];
+    Icon=[UIImageView new];
     //[Icon setAutoresizingMask:UIViewAutoresizingNone];
-    Icon.image=[UIImage imageNamed:@"31.png"];
-    Icon.layer.cornerRadius = 50;
-    [Icon.layer setMasksToBounds:YES];
-    [self.view addSubview:Icon];
+    Icon.image=[UIImage imageNamed:@"logo"];
+    Icon.layer.cornerRadius = TTScreenWith * 80/640;
+    [bgIconView addSubview:Icon];
     [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100];
-    [Icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-50];
-    [Icon autoSetDimension:ALDimensionHeight toSize:100];
-    [Icon autoSetDimension:ALDimensionWidth toSize:100];
+    [Icon autoAlignAxis:ALAxisVertical toSameAxisOfView:bgIconView];
+    [Icon autoSetDimension:ALDimensionHeight toSize:TTScreenWith * 80/320];
+    [Icon autoSetDimension:ALDimensionWidth toSize:TTScreenWith * 80/320];
+      [Icon.layer setMasksToBounds:YES];
     
     
     
@@ -241,9 +242,9 @@
     //设置渐变层的颜色，颜色随机改变
     gradienLayer.colors = @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor,(id)[self randomColor].CGColor];
     [bottomView.layer addSublayer:gradienLayer];
-    gradienLayer.mask = bottomLable.layer;
-    bottomLable.frame = gradienLayer.frame;
-    //利用定时器，快速切换渐变颜色，就有文字颜色变化的效果
+    
+   
+//利用定时器，快速切换渐变颜色，就有文字颜色变化的效果
     CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(textColorChange)];
     [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     
