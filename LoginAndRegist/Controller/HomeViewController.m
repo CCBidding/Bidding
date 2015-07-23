@@ -40,20 +40,16 @@
 
 - (void)viewWillAppear:(BOOL)animated{
 
-    [super viewWillAppear:YES];
-    self.showNavi=YES;
+    [super viewWillAppear:animated];
     [_animatedImageView startAnimating];
 
 //    //友盟统计
 //    [MobClick beginLogPageView:@"PageOne"];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
 
-    [super viewWillDisappear:YES];
-    [_animatedImageView stopAnimating];
-//    [MobClick endLogPageView:@"PageOne"];
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
 
 }
 
@@ -73,11 +69,11 @@
 
 -(void)createUI{
 
+
     _animatedImageView = [RCAnimatedImagesView newAutoLayoutView];
     _animatedImageView.delegate = self;
     [self.view addSubview:_animatedImageView];
     [_animatedImageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-
     
     Icon=[UIImageView newAutoLayoutView];
     //[Icon setAutoresizingMask:UIViewAutoresizingNone];
@@ -98,7 +94,7 @@
     namefield.textAlignment=NSTextAlignmentLeft;
     [namefield setTintColor:[UIColor blackColor]];
     namefield.leftViewMode=UITextFieldViewModeAlways;
-    [_animatedImageView addSubview:namefield];
+    [self.view addSubview:namefield];
     [namefield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:60];
@@ -110,7 +106,7 @@
     pwfield.textAlignment=NSTextAlignmentLeft;
     
     pwfield.leftViewMode=UITextFieldViewModeAlways;
-    [_animatedImageView addSubview:pwfield];
+    [self.view addSubview:pwfield];
     [pwfield addSubview:pwIcon];
     [pwfield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
     [pwfield autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:namefield withOffset:20];
@@ -125,7 +121,7 @@
     [loginbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     loginbtn.layer.cornerRadius = 5;
     loginbtn.layer.masksToBounds = YES ;
-    [_animatedImageView addSubview:loginbtn];
+    [self.view addSubview:loginbtn];
 
     [loginbtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwfield withOffset:40];
     [loginbtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:TTScreenWith/2-100];
@@ -137,7 +133,7 @@
     
     bottomView = [UIView newAutoLayoutView];
     bottomView.backgroundColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
-    [_animatedImageView addSubview:bottomView];
+    [self.view addSubview:bottomView];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [bottomView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
@@ -146,9 +142,9 @@
     registbtn=[UIButton newAutoLayoutView];
     [registbtn setTitle:@"注册用户" forState:UIControlStateNormal];
     registbtn.titleLabel.font = [UIFont fontWithName:nil size:14];
-    [_animatedImageView addSubview:forgetBtn];
+    [self.view addSubview:forgetBtn];
     [registbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_animatedImageView addSubview:registbtn];
+    [self.view addSubview:registbtn];
     registbtn.layer.cornerRadius=5;
     [registbtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
     [registbtn autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
@@ -160,7 +156,7 @@
     [forgetBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
     [forgetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     forgetBtn.titleLabel.font = [UIFont fontWithName:nil size:14];
-    [_animatedImageView addSubview:forgetBtn];
+    [self.view addSubview:forgetBtn];
     [forgetBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:bottomView withOffset:0];
     [forgetBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20];
     [forgetBtn autoSetDimension:ALDimensionHeight toSize:30];
@@ -180,41 +176,14 @@
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [bottomLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    //创建渐变层
-    gradienLayer = [CAGradientLayer layer];
-    gradienLayer.frame = bottomLable.frame;
-    //设置渐变层的颜色，颜色随机改变
-    gradienLayer.colors = @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor,(id)[self randomColor].CGColor];
-    [bottomView.layer addSublayer:gradienLayer];
     
-   
-//利用定时器，快速切换渐变颜色，就有文字颜色变化的效果
-    CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(textColorChange)];
-    [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     
 }
-#pragma -mark 定时器触发方法
-- (void)textColorChange{
- 
-    gradienLayer.colors =  @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor,(id)[self randomColor].CGColor];
-    
 
-}
-
-#pragma -mark 绘制随机颜色
-- (UIColor *)randomColor{
-
-    CGFloat r = arc4random_uniform(256) / 255.0;
-    CGFloat g = arc4random_uniform(256) / 255.0;
-    CGFloat b = arc4random_uniform(256) / 255.0;
-    return [UIColor colorWithRed:r green:g blue:b alpha:1];
-    
-
-}
 
 - (NSUInteger)animatedImagesNumberOfImages:(RCAnimatedImagesView*)animatedImagesView
 {
-    return 3;
+    return 2;
 }
 
 - (UIImage*)animatedImagesView:(RCAnimatedImagesView*)animatedImagesView imageAtIndex:(NSUInteger)index
@@ -289,7 +258,18 @@
     self.view.frame = CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
  
 }
+- (void)viewDidUnload
+{
+    _animatedImageView = nil;
+    
+    [super viewDidUnload];
+}
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+}
 
 
 

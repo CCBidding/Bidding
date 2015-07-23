@@ -50,7 +50,8 @@
     return registVC;
 }
 -(void)viewWillAppear:(BOOL)animated{
- [_animatedImageView startAnimating];
+    [super viewWillAppear:animated];
+    [_animatedImageView startAnimating];
   self.navigationController.navigationBarHidden = YES;
 }
 - (void)viewDidLoad {
@@ -259,9 +260,8 @@
     backLogin=[UIButton newAutoLayoutView];
     [backLogin setTitle:@"返回" forState:UIControlStateNormal];
     backLogin.titleLabel.font = [UIFont fontWithName:nil size:18];
-    [_animatedImageView addSubview:backLogin];
+    [self.view addSubview:backLogin];
     [backLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_animatedImageView addSubview:backLogin];
     backLogin.layer.cornerRadius=5;
     [backLogin autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
     [backLogin autoSetDimension:ALDimensionWidth toSize:TTScreenWith*10/32];
@@ -294,7 +294,7 @@
 
 - (NSUInteger)animatedImagesNumberOfImages:(RCAnimatedImagesView*)animatedImagesView
 {
-    return 3;
+    return 2;
 }
 
 - (UIImage*)animatedImagesView:(RCAnimatedImagesView*)animatedImagesView imageAtIndex:(NSUInteger)index
@@ -511,15 +511,22 @@
 
     [menuLevel disMiss];
     [menuLevel2 disMiss];
-    [_animatedImageView stopAnimating];
+   
 
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+   // [_animatedImageView stopAnimating];
 }
 
 - (void)viewDidUnload
 {
-    _animatedImageView=nil;
-    
+     _animatedImageView = nil;
     [super viewDidUnload];
+   
+    
+    
 }
 
 #pragma mark - 获取键盘高度
@@ -547,6 +554,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
