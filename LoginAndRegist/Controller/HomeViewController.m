@@ -69,12 +69,7 @@
 }
 
 
-- (void)viewDidUnload
-{
-    _animatedImageView=nil;
-    
-    [super viewDidUnload];
-}
+
 
 -(void)createUI{
 
