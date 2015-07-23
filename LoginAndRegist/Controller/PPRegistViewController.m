@@ -432,7 +432,7 @@
 }
 #pragma -mark 注册方法
 -(void)registuser{
-    if (userTextField.text && pwdTextField.text && companySelectArr.count > 0  && headSelectArr.count > 0) {
+    if (![userTextField.text isEqualToString:@""] && ![pwdTextField.text isEqualToString:@""] && companySelectArr.count > 0  && headSelectArr.count > 0 && ![headTextField.text isEqualToString:@""]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -466,7 +466,7 @@
 
 -(void)dismiss{
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

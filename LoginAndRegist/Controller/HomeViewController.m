@@ -111,7 +111,7 @@
     
     pwfield = [CustomField newAutoLayoutView]; ;
     pwfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
-    
+    pwfield.secureTextEntry = YES;
     pwfield.textAlignment=NSTextAlignmentLeft;
     
     pwfield.leftViewMode=UITextFieldViewModeAlways;
