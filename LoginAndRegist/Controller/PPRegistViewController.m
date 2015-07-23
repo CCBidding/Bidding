@@ -58,6 +58,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.title=@"注册";
+    [self registerForKeyboardNotifications];
     getArr = [[NSArray alloc]init];
     NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
     [noti addObserver:self selector:@selector(changeTitle:) name:@"isSelectArr" object:nil];
@@ -519,6 +520,27 @@
     _animatedImageView=nil;
     
     [super viewDidUnload];
+}
+
+#pragma mark - 获取键盘高度
+
+- (void) registerForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(keyboardWasHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void) keyboardWasShown:(NSNotification *) notif {
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.view.frame = CGRectMake(0.f, -50, self.view.frame.size.width, self.view.frame.size.height);
+        
+    } completion:nil];
+    
+}
+- (void) keyboardWasHidden:(NSNotification *) notif {
+    self.view.frame = CGRectMake(0, 0, TTScreenWith, TTScreenHeight);
+    
 }
 
 - (void)didReceiveMemoryWarning {
