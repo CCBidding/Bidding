@@ -90,6 +90,11 @@
     
     namefield=[CustomField newAutoLayoutView];
     namefield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"用户名" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    namefield.textColor = [UIColor whiteColor];
+    if (namefield.text.length > 0) {
+        [namefield setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    namefield.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     namefield.textAlignment=NSTextAlignmentLeft;
     [namefield setTintColor:[UIColor blackColor]];
@@ -104,6 +109,11 @@
     pwfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     pwfield.secureTextEntry = YES;
     pwfield.textAlignment=NSTextAlignmentLeft;
+    pwfield.textColor = [UIColor whiteColor];
+    if (pwfield.text.length > 0) {
+        [pwfield setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    pwfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];

@@ -160,6 +160,11 @@
     nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 公司名称" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     [nameTextField setNeedsLayout ];
     [nameTextField setNeedsUpdateConstraints];
+    nameTextField.textColor = [UIColor whiteColor];
+    if (nameTextField.text.length > 0) {
+        [nameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [myScrollView addSubview:nameTextField];
     numComTextField.delegate = self;
     [nameTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:50];
@@ -170,6 +175,11 @@
     userTextField = [CustomField newAutoLayoutView];
     userTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 用户名" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     userTextField.delegate = self;
+    userTextField.textColor = [UIColor whiteColor];
+    if (userTextField.text.length > 0) {
+        [userTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [myScrollView addSubview:userTextField];
     [userTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nameTextField withOffset:20];
     [userTextField autoAlignAxisToSuperviewAxis:ALAxisVertical];
@@ -179,6 +189,11 @@
  
     pwdTextField = [CustomField newAutoLayoutView];
     pwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    pwdTextField.textColor = [UIColor whiteColor];
+    if (pwdTextField.text.length > 0) {
+        [pwdTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    pwdTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     pwdTextField.delegate = self;
     [myScrollView addSubview:pwdTextField];
     [pwdTextField setSecureTextEntry:YES];
@@ -191,6 +206,11 @@
    
     surePwdTextField  = [CustomField newAutoLayoutView];
     surePwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 确认密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    surePwdTextField.textColor = [UIColor whiteColor];
+    if (surePwdTextField.text.length > 0) {
+        [surePwdTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    surePwdTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [myScrollView addSubview:surePwdTextField];
     surePwdTextField.secureTextEntry = YES;
     [surePwdTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pwdTextField withOffset:20];
@@ -228,6 +248,11 @@
 
     headTextField = [CustomField newAutoLayoutView];
     headTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 负责人" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    headTextField.textColor = [UIColor whiteColor];
+    if (headTextField.text.length > 0) {
+        [headTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
+    headTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     headTextField.delegate = self;
     [myScrollView addSubview:headTextField];
     [headTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:infomationBtn withOffset:20];
@@ -341,6 +366,7 @@
 
 -(void)backLoginVC{
     [self.navigationController popViewControllerAnimated:YES];
+    
 
 }
 
@@ -550,21 +576,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
