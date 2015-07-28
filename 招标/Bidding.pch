@@ -18,6 +18,7 @@
 #import <AFNetworking.h>
 #import <PureLayout.h>
 #import <Masonry.h>
+#import <SVProgressHUD.h>
 #import "config.h"
 
 #endif

@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, bidType)
     bidTypeWinBidding
 };
 
+
+
 @interface BiddingListViewController : PPBaseViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView       *myTableview;
 @property (nonatomic, strong) TTBiddingModel    *biddingModel;         //招标数据

@@ -128,11 +128,11 @@
 #pragma mark 按钮被点击时调用
 - (void)changeViewController:(MyButton *)sender
 {
-    if(self.selectedIndex != sender.tag){ //wsq®
-        self.selectedIndex = sender.tag; //切换不同控制器的界面
-        previousBtn.selected = ! previousBtn.selected;
-        previousBtn = sender;
-        previousBtn.selected = YES;
+    if(self.selectedIndex != sender.tag){   //wsq®
+       self.selectedIndex   = sender.tag;//切换不同控制器的界面
+       previousBtn.selected = ! previousBtn.selected;
+       previousBtn          = sender;
+       previousBtn.selected = YES;
     }
 }
 

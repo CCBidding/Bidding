@@ -12,7 +12,7 @@
 #define TTScreenWith    [UIScreen mainScreen].bounds.size.width
 #define TTScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define TTIOSUIDevice   [[[UIDevice currentDevice] systemVersion] floatValue]
-#define TTColor(r,g,b,alp)   [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:alp];
+#define TTColor(r,g,b,alp)   [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:alp]
 #import "TTUserDefaultTool.h"
 #import "CustomField.h"
 #import "MBProgressHUD+Add.h"
