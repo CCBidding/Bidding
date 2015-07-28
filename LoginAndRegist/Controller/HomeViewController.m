@@ -50,7 +50,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-
+ [_animatedImageView stopAnimating];
 }
 
 - (void)viewDidLoad {
@@ -202,6 +202,7 @@
 }
 
 -(void)pushloginVC{
+    
      [self.view endEditing:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];

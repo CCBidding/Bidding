@@ -38,6 +38,7 @@
         self.title = @"中标";
     }
    
+   
 }
 
 -(void)createUI{
@@ -58,6 +59,7 @@
 }
 
 -(void)createData{
+    [SVProgressHUD showWithStatus:@"加载中，请稍后。。。"];
     UIColor *color1 = TTColor(251, 43 , 74 , 1);
     UIColor *color2 = TTColor(248, 85 , 72 , 1);
     UIColor *color3 = TTColor(253, 133, 74 , 1);
@@ -98,6 +100,7 @@
         
         }
         [_myTableview reloadData];
+        [SVProgressHUD dismiss];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
