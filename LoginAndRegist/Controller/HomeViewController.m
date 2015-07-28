@@ -50,6 +50,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    [_animatedImageView stopAnimating];
 
 }
 
@@ -77,7 +78,7 @@
     
     Icon=[UIImageView newAutoLayoutView];
     //[Icon setAutoresizingMask:UIViewAutoresizingNone];
-    Icon.image=[UIImage imageNamed:@"logo"];
+    Icon.image=[UIImage imageNamed:@"logo.png"];
     Icon.layer.cornerRadius = TTScreenWith * 80/640;
     [self.view addSubview:Icon];
     [Icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100];
@@ -107,6 +108,7 @@
     
     pwfield = [CustomField newAutoLayoutView]; ;
     pwfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+
     pwfield.secureTextEntry = YES;
     pwfield.textAlignment=NSTextAlignmentLeft;
     pwfield.textColor = [UIColor whiteColor];
@@ -280,7 +282,5 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
-
-
 
 @end
