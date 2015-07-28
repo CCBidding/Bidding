@@ -53,4 +53,6 @@
 #import "TTBaseWebViewController.h"
 #import "PPGadeViewController.h"
 #import "PPSelectedViewController.h"
+#import "FDAlertView.h"
+#import "PPPingYinSearch.h"
 #endif

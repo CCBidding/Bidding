@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68634EF81B4F6B21004C1249 /* QuartzCore.framework */; };
+		68845FD01B676E08007BA4A7 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FCF1B676E08007BA4A7 /* FDAlertView.m */; };
+		68845FD31B6772D3007BA4A7 /* PPPingYinSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */; };
+		68845FD61B67744B007BA4A7 /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FD51B67744B007BA4A7 /* ChineseInclude.m */; };
 		AF97F5541B576871003B10D3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5521B576871003B10D3 /* bootstrap.min.css */; };
 		AF97F5551B576871003B10D3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5531B576871003B10D3 /* index.html */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
@@ -112,6 +115,12 @@
 		29829C2FDBBE7C1C5691DCB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		556F51A9F0429DE857E4B8D6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		68634EF81B4F6B21004C1249 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		68845FCE1B676E08007BA4A7 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FDAlertView.h; path = FDAlertView/FDAlertView.h; sourceTree = "<group>"; };
+		68845FCF1B676E08007BA4A7 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FDAlertView.m; path = FDAlertView/FDAlertView.m; sourceTree = "<group>"; };
+		68845FD11B6772D3007BA4A7 /* PPPingYinSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPingYinSearch.h; sourceTree = "<group>"; };
+		68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPingYinSearch.m; sourceTree = "<group>"; };
+		68845FD41B67744B007BA4A7 /* ChineseInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseInclude.h; sourceTree = "<group>"; };
+		68845FD51B67744B007BA4A7 /* ChineseInclude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseInclude.m; sourceTree = "<group>"; };
 		AF97F5521B576871003B10D3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
 		AF97F5531B576871003B10D3 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +310,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68845FCD1B676DE7007BA4A7 /* FDAlerView */ = {
+			isa = PBXGroup;
+			children = (
+				68845FCE1B676E08007BA4A7 /* FDAlertView.h */,
+				68845FCF1B676E08007BA4A7 /* FDAlertView.m */,
+			);
+			name = FDAlerView;
+			sourceTree = "<group>";
+		};
 		AFC61F691B44CF9C00E11040 = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +604,7 @@
 		AFE762D41B5FD58A00F5E9AE /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				68845FCD1B676DE7007BA4A7 /* FDAlerView */,
 				AFE763651B5FD73300F5E9AE /* DHMenuViewPagerView */,
 				AFE762D51B5FD58A00F5E9AE /* CustomField */,
 				AFE762E31B5FD58A00F5E9AE /* Jpush */,
@@ -646,6 +665,8 @@
 		AFE762F01B5FD58A00F5E9AE /* Pin ying */ = {
 			isa = PBXGroup;
 			children = (
+				68845FD41B67744B007BA4A7 /* ChineseInclude.h */,
+				68845FD51B67744B007BA4A7 /* ChineseInclude.m */,
 				AFE762F11B5FD58A00F5E9AE /* ChineseToPinyinResource.h */,
 				AFE762F21B5FD58A00F5E9AE /* ChineseToPinyinResource.m */,
 				AFE762F31B5FD58A00F5E9AE /* HanyuPinyinOutputFormat.h */,
@@ -660,6 +681,8 @@
 				AFE762FC1B5FD58A00F5E9AE /* PinyinHelper.h */,
 				AFE762FD1B5FD58A00F5E9AE /* PinyinHelper.m */,
 				AFE762FE1B5FD58A00F5E9AE /* unicode_to_hanyu_pinyin.txt */,
+				68845FD11B6772D3007BA4A7 /* PPPingYinSearch.h */,
+				68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */,
 			);
 			path = "Pin ying";
 			sourceTree = "<group>";
@@ -977,6 +1000,7 @@
 				AFE7628B1B5FD52A00F5E9AE /* MyButton.m in Sources */,
 				AFE763341B5FD58A00F5E9AE /* HanyuPinyinOutputFormat.m in Sources */,
 				AFE762A01B5FD53E00F5E9AE /* DetialBiddingViewController.m in Sources */,
+				68845FD01B676E08007BA4A7 /* FDAlertView.m in Sources */,
 				AFE763791B5FE5D500F5E9AE /* HomeViewController.m in Sources */,
 				AFE762851B5FD51600F5E9AE /* TTMineViewController.m in Sources */,
 				AFE762C21B5FD54D00F5E9AE /* PPChooseInfoViewController.m in Sources */,
@@ -1007,6 +1031,7 @@
 				AFE762A11B5FD53E00F5E9AE /* TTBiddingModel.m in Sources */,
 				AFE762841B5FD51600F5E9AE /* PPAboutUsViewController.m in Sources */,
 				AFE762C51B5FD54D00F5E9AE /* PPResultViewController.m in Sources */,
+				68845FD61B67744B007BA4A7 /* ChineseInclude.m in Sources */,
 				AFE763761B5FD73300F5E9AE /* NavParentController.m in Sources */,
 				AFE762A51B5FD53E00F5E9AE /* DetailBiddingTableViewCell.m in Sources */,
 				AFE763331B5FD58A00F5E9AE /* ChineseToPinyinResource.m in Sources */,
@@ -1031,6 +1056,7 @@
 				AFE763731B5FD73300F5E9AE /* DHLandscapeTableView.m in Sources */,
 				AFE763601B5FD69200F5E9AE /* REFrostedContainerViewController.m in Sources */,
 				AFE763621B5FD69200F5E9AE /* UIImage+REFrostedViewController.m in Sources */,
+				68845FD31B6772D3007BA4A7 /* PPPingYinSearch.m in Sources */,
 				AFE762C71B5FD54D00F5E9AE /* RegistViewController.m in Sources */,
 				AFE763451B5FD58A00F5E9AE /* SDRefreshHeaderView.m in Sources */,
 				AFE763421B5FD58A00F5E9AE /* RCAnimatedImagesView.m in Sources */,

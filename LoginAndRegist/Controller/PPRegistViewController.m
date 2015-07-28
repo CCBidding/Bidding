@@ -464,7 +464,7 @@
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
         //http://localhost:8080/GyBid/appReg/regedit.do?type=onlinedo&cname=weniter&username=wxiagn&password=123456&pro_id=2&gr_id=2&duty_name=wangwu&dpro_id=1&dqu_id=2
-        NSDictionary *dic = @{@"cname":nameTextField.text,@"username":userTextField.text,@"password":pwdTextField.text,@"pro_id":companySelectArr[0][@"pro_id"],@"gr_id":companySelectArr[0][@"gr_id"],@"duty_name":headTextField.text,@"dpro_id":headSelectArr[0][@"pro_id"],@"dqu_id":headSelectArr[0][@"gr_id"]};
+        NSDictionary *dic = @{@"cname":nameTextField.text,@"username":userTextField.text,@"password":pwdTextField.text,@"pro_id":companySelectArr[0][@"pro_id"],@"qu_id":companySelectArr[0][@"qu_id"],@"duty_name":headTextField.text,@"dpro_id":headSelectArr[0][@"pro_id"],@"dqu_id":headSelectArr[0][@"qu_id"]};
         
         AFHTTPRequestOperation *op = [manager POST:TTRegistUrl parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (![responseObject[@"datas"][0][@"sessionid"]isEqualToString:@"aperror"]) {

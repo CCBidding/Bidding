@@ -11,11 +11,12 @@
 #import "DHMenuPagerViewController.h"
 #import "DetialBiddingViewController.h"
 
-@interface BiddingListViewController ()
+@interface BiddingListViewController ()<UISearchBarDelegate>
 {
     NSMutableArray  *dataSource;  //获取招标列表
     NSString        *requestUrl;  //请求URL
     NSArray         *colorArr;    //颜色数组
+    
     
 }
 @property (nonatomic, weak) SDRefreshFooterView *refreshFooter;
@@ -23,6 +24,9 @@
 @property (nonatomic, weak) UIImageView *animationView;
 @property (nonatomic, weak) UIImageView *boxView;
 @property (nonatomic, weak) UILabel *label;
+@property (nonatomic,strong) UIBarButtonItem * searchButton;
+@property (nonatomic,strong) UISearchBar     * searchBar;
+@property (nonatomic,strong) NSMutableArray  * originalArray;
 @end
 
 @implementation BiddingListViewController
@@ -56,6 +60,31 @@
     [_myTableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     [self setupHeader];
     [self setupFooter];
+    
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchBtn.frame = CGRectMake(0, 0, 28, 22);
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchButton"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(jumpToSearch) forControlEvents:UIControlEventTouchUpInside];
+    _searchButton= [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
+    self.navigationItem.rightBarButtonItem = _searchButton;
+
+}
+- (void)jumpToSearch
+{
+    self.navigationItem.rightBarButtonItem=nil;
+    _searchBar = [[UISearchBar alloc] init];
+    _searchBar.center = CGPointMake(TTScreenWith/2, 84);
+    _searchBar.frame = CGRectMake(60, 20,TTScreenWith-60, 0);
+    [_searchBar setContentMode:UIViewContentModeBottomLeft];
+    _searchBar.delegate = self;
+    _searchBar.backgroundColor=[UIColor clearColor];
+    _searchBar.searchBarStyle=UISearchBarStyleDefault;
+    _searchBar.showsCancelButton =YES;
+    _searchBar.tag=1000;
+    [self.navigationController.navigationBar addSubview:_searchBar];
+    _searchBar.placeholder = @"关键字搜索";
+    //-------------------------------------------------------------------
+    [_searchBar becomeFirstResponder];
 }
 
 -(void)createData{
@@ -69,6 +98,7 @@
     
     colorArr=@[color1,color2,color3,color4,color5,color6];
     
+    _originalArray = [NSMutableArray array];
     
     if (_bidsType==bidTypeBidding) {
         requestUrl=TTBiddingLsitUrl;
@@ -83,22 +113,23 @@
     AFHTTPRequestOperation *op = [manager POST:requestUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arr;
         arr = responseObject[@"datas"];
-        if (dataSource != 0) {
-            [dataSource removeAllObjects];
+        if (_originalArray != 0) {
+            [_originalArray removeAllObjects];
         }
         
         for (NSDictionary *dic in arr) {
              if (_bidsType == bidTypeBidding) {
                  _biddingModel = [MTLJSONAdapter modelOfClass:[TTBiddingModel class] fromJSONDictionary:dic error:nil];
-                 [dataSource addObject:_biddingModel];
+                 [_originalArray addObject:_biddingModel];
             }
             else{
                 _winBiddingModel = [MTLJSONAdapter modelOfClass:[TTWinBiddingModel class] fromJSONDictionary:dic error:nil];
-                 [dataSource  addObject:_winBiddingModel];
+                 [_originalArray  addObject:_winBiddingModel];
             }
           
         
         }
+        dataSource = [NSMutableArray arrayWithArray:_originalArray];
         [_myTableview reloadData];
         [SVProgressHUD dismiss];
         
@@ -228,6 +259,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self dismissSearchBar];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DetialBiddingViewController *detailVC = [[DetialBiddingViewController alloc]init];
     if (_bidsType == bidTypeBidding) {
@@ -295,7 +328,107 @@
     [self createData];
    
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
+    [self dismissSearchBar];
+}
+
+/**
+ *  取消搜索栏
+ *
+ *
+ */
+
+- (void)dismissSearchBar{
+
+    self.navigationItem.rightBarButtonItem = _searchButton;
+    [_searchBar resignFirstResponder];
+    [_searchBar removeFromSuperview];
+}
+
+#pragma -mark searchBarDelegate
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self dismissSearchBar];
+    [self createData];
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    if ([searchBar.text isEqualToString:@""]) {
+        dataSource = _originalArray;
+        
+    }
+    else{
+// 主要功能，调用方法实现搜索
+        dataSource = [PPPingYinSearch searchWithOriginalArray:_originalArray andSearchText:searchBar.text andSearchByPropertyName:@"bid_title"];
+    }
+    [_myTableview reloadData];
+    self.navigationItem.rightBarButtonItem = _searchButton;
+    [_searchBar resignFirstResponder];
+    [_searchBar removeFromSuperview];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([searchText isEqualToString:@""]) {
+        dataSource = _originalArray;
+    }
+    else{
+  // 主要功能，调用方法实现搜索
+        if (_bidsType == bidTypeBidding) {
+            dataSource = [PPPingYinSearch searchWithOriginalArray:_originalArray andSearchText:searchText andSearchByPropertyName:@"bid_title"];
+            
+        }
+        else{
+        
+         dataSource = [PPPingYinSearch searchWithOriginalArray:_originalArray andSearchText:searchText andSearchByPropertyName:@"title_name"];
+        }
+    }
+    [_myTableview reloadData];
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    //取消按钮 重置
+    UITextField *tf;
+    for (UIView *view in [[_searchBar.subviews objectAtIndex:0] subviews]) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            tf=(UITextField *)view;
+        }
+    }
+    [_searchBar setShowsCancelButton:YES animated:YES];
+    _searchBar.showsCancelButton=YES;
+    for(UIView *subView in searchBar.subviews){
+        if([subView isKindOfClass:UIButton.class]){
+            [(UIButton*)subView setTitle:@"取消" forState:UIControlStateNormal];
+            UIButton *button=(UIButton*)subView;
+            button.titleLabel.textColor=[UIColor whiteColor];
+        }
+    }
+    //取消字体变白
+    UIButton *cancelButton;
+    UIView *topView = _searchBar.subviews[0];
+    for (UIView *subView in topView.subviews) {
+        if ([subView isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
+            cancelButton = (UIButton*)subView;
+        }
+    }
+    if (cancelButton) {
+        NSLog(@"%@",NSStringFromCGRect(cancelButton.frame));
+        //Set the new title of the cancel button
+        [cancelButton setTitle:@"       " forState:UIControlStateNormal];
+        [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        cancelButton.titleLabel.textColor=[UIColor whiteColor];
+        cancelButton.titleLabel.font = [UIFont fontWithName:@"Heiti SC" size:20];
+        [cancelButton removeFromSuperview];
+        UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(-5, -5,40,40)];
+        lable.textAlignment=NSTextAlignmentLeft;
+        lable.text=@"取消";
+        lable.textColor=[UIColor whiteColor];
+        [cancelButton addSubview:lable];
+        lable.font = [UIFont fontWithName:@"Heiti SC" size:16];
+        [cancelButton addSubview:lable];
+        
+    }
+    
+}
 
 
 

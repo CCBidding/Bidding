@@ -94,15 +94,15 @@
             if (arr.count>0) {
                 for (NSDictionary *dicion in arr) {
                     
-                    NSString * grade = dicion[@"id"];
+                    NSString * grade = dicion[@"qu_id"];
                     int fen = grade.intValue;
                     for(int i= 0;i<isSelectGradeArr.count;i++){
                     
-                        NSString *idt = isSelectGradeArr[i][@"id"];
+                        NSString *idt = isSelectGradeArr[i][@"qu_id"];
                         int sum = idt.intValue;
                         if (fen == sum ) {
                             
-                            [dicions setObject:grade forKey:@"gr_id"];
+                            [dicions setObject:grade forKey:@"qu_id"];
                         }
                     }
                 }
