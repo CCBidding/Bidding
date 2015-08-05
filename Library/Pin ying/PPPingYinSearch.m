@@ -27,7 +27,7 @@
         else if([object isKindOfClass:[NSDictionary class]]){
             type = @"dict";
             NSDictionary * dict = originalArray[0];
-            NSLog(@"字典keys：%@",[dict allKeys]);
+           
             BOOL isExit = NO;
             for (NSString * key in dict.allKeys) {
                 if([key isEqualToString:propertyName]){
@@ -53,7 +53,6 @@
                 NSString *propertyName = [NSString stringWithUTF8String:char_f];
                 [props addObject:propertyName];
             }
-            NSLog(@"Model属性列表：%@",props);
             free(properties);
             BOOL isExit = NO;
             for (NSString * property in props) {
@@ -81,14 +80,14 @@
             }
             if ([ChineseInclude isIncludeChineseInString:tempString]) {
                 NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:tempString];
-                NSLog(@"%@",tempPinYinStr);
+             
                 NSRange titleResult=[tempPinYinStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
                 if (titleResult.length>0) {
                     [dataSourceArray addObject:originalArray[i]];
                     continue;
                 }
                 NSString *tempPinYinHeadStr = [PinYinForObjc chineseConvertToPinYinHead:tempString];
-                NSLog(@"%@",tempPinYinHeadStr);
+              
                 NSRange titleHeadResult=[tempPinYinHeadStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
                 if (titleHeadResult.length>0) {
                     [dataSourceArray addObject:originalArray[i]];

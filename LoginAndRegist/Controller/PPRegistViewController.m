@@ -188,7 +188,7 @@
     
  
     pwdTextField = [CustomField newAutoLayoutView];
-    pwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    pwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     pwdTextField.textColor = [UIColor whiteColor];
     if (pwdTextField.text.length > 0) {
         [pwdTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
@@ -205,7 +205,7 @@
 
    
     surePwdTextField  = [CustomField newAutoLayoutView];
-    surePwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 确认密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    surePwdTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 确认密码" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     surePwdTextField.textColor = [UIColor whiteColor];
     if (surePwdTextField.text.length > 0) {
         [surePwdTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
@@ -247,7 +247,7 @@
     
 
     headTextField = [CustomField newAutoLayoutView];
-    headTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"* 负责人" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    headTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" * 负责人" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     headTextField.textColor = [UIColor whiteColor];
     if (headTextField.text.length > 0) {
         [headTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
