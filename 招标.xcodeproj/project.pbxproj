@@ -11,6 +11,9 @@
 		68845FD01B676E08007BA4A7 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FCF1B676E08007BA4A7 /* FDAlertView.m */; };
 		68845FD31B6772D3007BA4A7 /* PPPingYinSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */; };
 		68845FD61B67744B007BA4A7 /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FD51B67744B007BA4A7 /* ChineseInclude.m */; };
+		688B6CA31B788D8200037314 /* httpRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B6CA21B788D8200037314 /* httpRequestViewController.m */; };
+		688B6CAB1B789A0900037314 /* PPRegistTTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B6CAA1B789A0900037314 /* PPRegistTTViewController.m */; };
+		688B6CAE1B79A02C00037314 /* PPPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B6CAD1B79A02C00037314 /* PPPwdViewController.m */; };
 		AF97F5541B576871003B10D3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5521B576871003B10D3 /* bootstrap.min.css */; };
 		AF97F5551B576871003B10D3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AF97F5531B576871003B10D3 /* index.html */; };
 		AFC61F781B44CF9C00E11040 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC61F771B44CF9C00E11040 /* main.m */; };
@@ -121,6 +124,12 @@
 		68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPingYinSearch.m; sourceTree = "<group>"; };
 		68845FD41B67744B007BA4A7 /* ChineseInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseInclude.h; sourceTree = "<group>"; };
 		68845FD51B67744B007BA4A7 /* ChineseInclude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseInclude.m; sourceTree = "<group>"; };
+		688B6CA11B788D8200037314 /* httpRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpRequestViewController.h; sourceTree = "<group>"; };
+		688B6CA21B788D8200037314 /* httpRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httpRequestViewController.m; sourceTree = "<group>"; };
+		688B6CA91B789A0900037314 /* PPRegistTTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPRegistTTViewController.h; sourceTree = "<group>"; };
+		688B6CAA1B789A0900037314 /* PPRegistTTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPRegistTTViewController.m; sourceTree = "<group>"; };
+		688B6CAC1B79A02C00037314 /* PPPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPwdViewController.h; sourceTree = "<group>"; };
+		688B6CAD1B79A02C00037314 /* PPPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPwdViewController.m; sourceTree = "<group>"; };
 		AF97F5521B576871003B10D3 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
 		AF97F5531B576871003B10D3 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		AFC61F721B44CF9C00E11040 /* 招标.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "招标.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,10 +537,16 @@
 		AFE762A81B5FD54D00F5E9AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				688B6CA91B789A0900037314 /* PPRegistTTViewController.h */,
+				688B6CAA1B789A0900037314 /* PPRegistTTViewController.m */,
+				688B6CAC1B79A02C00037314 /* PPPwdViewController.h */,
+				688B6CAD1B79A02C00037314 /* PPPwdViewController.m */,
 				AFE762A91B5FD54D00F5E9AE /* HomeViewController.h */,
 				AFE763781B5FE5D500F5E9AE /* HomeViewController.m */,
 				AFE762AB1B5FD54D00F5E9AE /* PPChooseInfoViewController.h */,
 				AFE762AC1B5FD54D00F5E9AE /* PPChooseInfoViewController.m */,
+				688B6CA11B788D8200037314 /* httpRequestViewController.h */,
+				688B6CA21B788D8200037314 /* httpRequestViewController.m */,
 				AFE762AD1B5FD54D00F5E9AE /* PPGadeViewController.h */,
 				AFE762AE1B5FD54D00F5E9AE /* PPGadeViewController.m */,
 				AFE762AF1B5FD54D00F5E9AE /* PPRegistViewController.h */,
@@ -1004,8 +1019,11 @@
 				AFE763791B5FE5D500F5E9AE /* HomeViewController.m in Sources */,
 				AFE762851B5FD51600F5E9AE /* TTMineViewController.m in Sources */,
 				AFE762C21B5FD54D00F5E9AE /* PPChooseInfoViewController.m in Sources */,
+				688B6CA31B788D8200037314 /* httpRequestViewController.m in Sources */,
+				688B6CAB1B789A0900037314 /* PPRegistTTViewController.m in Sources */,
 				AFE7629F1B5FD53E00F5E9AE /* BiddingListViewController.m in Sources */,
 				AFE7627A1B5FD50200F5E9AE /* PPBaseViewController.m in Sources */,
+				688B6CAE1B79A02C00037314 /* PPPwdViewController.m in Sources */,
 				AFE763741B5FD73300F5E9AE /* DHMenuPagerViewController.m in Sources */,
 				AFE762C31B5FD54D00F5E9AE /* PPGadeViewController.m in Sources */,
 				AFE7628C1B5FD52A00F5E9AE /* TTRootViewController.m in Sources */,
@@ -1169,6 +1187,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1183,6 +1202,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1ddc3fe5-2b5c-4b65-bf23-94d09f97ed92";
+				SWIFT_OBJC_BRIDGING_HEADER = "LoginAndRegist/Controller/招标-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Debug;
@@ -1193,6 +1214,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1207,6 +1229,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1ddc3fe5-2b5c-4b65-bf23-94d09f97ed92";
+				SWIFT_OBJC_BRIDGING_HEADER = "LoginAndRegist/Controller/招标-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Release;

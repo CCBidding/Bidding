@@ -10,7 +10,7 @@
 #import "RegistViewController.h"
 #import "BiddingListViewController.h"
 #import "TTRootViewController.h"
-
+#import "PPRegistTTViewController.h"
 @interface HomeViewController ()
 {
     UIImageView *backgroundImage;//背景图片
@@ -29,7 +29,7 @@
     UIButton    *remenberBtn; //记住密码
     UIButton    *forgetBtn;   //忘记密码
     BOOL         isSave;     //是否记住密码
-    
+    BOOL         isShowNav;  //是否显示导航
     CAGradientLayer *gradienLayer;
 
 }
@@ -43,6 +43,7 @@
     [super viewWillAppear:animated];
     [_animatedImageView startAnimating];
 
+    self.navigationController.navigationBarHidden = YES;
 //    //友盟统计
 //    [MobClick beginLogPageView:@"PageOne"];
 }
@@ -61,6 +62,7 @@
 - (void)createData{
 
     isSave = YES;
+    isShowNav = YES;
 
 }
 
@@ -70,6 +72,9 @@
 -(void)createUI{
 
 
+    self.title = @"用户登录";
+     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationController.navigationBar.barTintColor = [colorTurn colorTurnWithRed:155 greed:36 blue:32 alpa:1];
     _animatedImageView = [RCAnimatedImagesView newAutoLayoutView];
     _animatedImageView.delegate = self;
     [self.view addSubview:_animatedImageView];
@@ -99,6 +104,7 @@
     namefield.textAlignment=NSTextAlignmentLeft;
     [namefield setTintColor:[UIColor blackColor]];
     namefield.leftViewMode=UITextFieldViewModeAlways;
+    namefield.delegate = self;
     [self.view addSubview:namefield];
     [namefield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
     [namefield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
@@ -118,6 +124,7 @@
     pwfield.leftViewMode=UITextFieldViewModeAlways;
     [self.view addSubview:pwfield];
     [pwfield addSubview:pwIcon];
+    pwfield.delegate = self;
     [pwfield autoAlignAxis:ALAxisVertical toSameAxisOfView:self.view];
     [pwfield autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:namefield withOffset:20];
     [pwfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:60];
@@ -191,6 +198,25 @@
 }
 
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+
+    if (isShowNav) {
+        
+        self.navigationController.navigationBarHidden = NO;
+    }else{
+        
+        self.navigationController.navigationBarHidden = YES;
+    }
+   isShowNav = !isShowNav;
+
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+
+    isShowNav = !isShowNav;
+    
+    [self.view reloadInputViews];
+}
+
 - (NSUInteger)animatedImagesNumberOfImages:(RCAnimatedImagesView*)animatedImagesView
 {
     return 2;
@@ -233,8 +259,9 @@
 
 -(void)pushregistVC{
     
-    PPRegistViewController *registVC = [PPRegistViewController shareInstance];
-    registVC.showNavi = NO;
+    PPRegistTTViewController *registVC = [[PPRegistTTViewController alloc]init];
+    registVC.showNavi = YES;
+    registVC.haveBack = NO;
     [self.navigationController pushViewController:registVC animated:YES];
 
 }
@@ -242,10 +269,11 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [namefield endEditing:YES];
     [pwfield endEditing:YES];
+   
+    self.navigationController.navigationBarHidden = YES;
     if (![loginbtn isFirstResponder]||![registbtn isFirstResponder]) {
         [self.view endEditing:YES];
     }
-
 
 }
 

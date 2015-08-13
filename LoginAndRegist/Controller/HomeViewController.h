@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RCAnimatedImagesView.h"
 
-@interface HomeViewController : PPBaseViewController<RCAnimatedImagesViewDelegate>
+@interface HomeViewController : PPBaseViewController<RCAnimatedImagesViewDelegate,UITextFieldDelegate>
 
 
 @end
