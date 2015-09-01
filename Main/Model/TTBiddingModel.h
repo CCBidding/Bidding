@@ -40,5 +40,9 @@
 @property (nonatomic, copy)      NSString  *org_putime;
 @property (nonatomic, copy)      NSString  *bid_url;
 @property (nonatomic, copy)      NSString  *ref_date;
+@property (nonatomic, copy)      NSString  *bt_id;
+@property (nonatomic, assign)      NSString  *pro_id;
+@property (nonatomic, assign)      NSString  *qu_id;
+@property (nonatomic, assign)      NSString  *status;
 
 @end

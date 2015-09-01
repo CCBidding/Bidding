@@ -39,7 +39,7 @@
     }];
     
     _infoLab.numberOfLines = 0;
-    _infoLab.textColor = [UIColor whiteColor];
+    _infoLab.textColor = [UIColor blackColor];
     _infoLab.lineBreakMode=NSLineBreakByCharWrapping;
     [_infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).with.offset(15);
@@ -52,7 +52,7 @@
     _infoLab.font = [UIFont fontWithName:@"TaiLeb.ttf" size:22*TTScreenWith/640];
 
     _addressLab.font=[UIFont fontWithName:nil size:10];
-    _addressLab.textColor = [UIColor whiteColor];
+    _addressLab.textColor = [UIColor blackColor];
     [_addressLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_infoLab.mas_bottom).with.offset(20);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
@@ -64,7 +64,7 @@
      _timeLab.font = [UIFont fontWithName:nil size:12];
      _timeLab.textAlignment = NSTextAlignmentRight;
      _timeLab.numberOfLines = 0;
-    _timeLab.textColor = [UIColor whiteColor];
+    _timeLab.textColor = [UIColor blackColor];
     [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(_addressLab.mas_centerY);
         make.left.equalTo(_addressLab.mas_right).with.offset(20);

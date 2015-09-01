@@ -230,6 +230,7 @@
 -(void)pushloginVC{
     
      [self.view endEditing:YES];
+    [MBProgressHUD showLoading:@"正在登录" toView:self.view];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -238,7 +239,7 @@
             [TTUserDefaultTool setObject:responseObject[@"datas"][0][@"sessionid"] forKey:TTsessinid];
             [TTUserDefaultTool setObject:namefield.text forKey:TTusername];
             [TTUserDefaultTool setObject:pwfield.text   forKey:TTpassword];
-            [MBProgressHUD showMessageThenHide:@"已成功登录" toView:self.view];
+            [MBProgressHUD showSuccess:@"登录成功" toView:self.view];
                 TTRootViewController *rootVC=[[TTRootViewController alloc]init];
                 self.view.window.rootViewController=rootVC;
 

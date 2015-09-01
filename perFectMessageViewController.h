@@ -10,4 +10,5 @@
 
 @interface perFectMessageViewController : PPBaseViewController
 
++ (perFectMessageViewController *)shareInstance;
 @end

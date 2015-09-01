@@ -76,7 +76,6 @@
 - (void)createAnimalGradeUserActionToView{
     
     
-    
     CGRect rect = CGRectMake(TTScreenWith-150, 0, 150.0f, 35.0f);
     
     guidView = [[PPGuideUserView alloc]initWithFrame:rect backImage:[UIImage imageNamed:@"animalRight.png"] msgStr:@"点击这选择" txtColor:[colorTurn RGBColorFromHexString:@"#ffffff" alpha:1.0f]];

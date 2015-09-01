@@ -43,7 +43,8 @@
 - (void)createUI {
 
     self.title = @"注册";
-    self.haveBack = NO;
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+        self.haveBack = NO;
     telPhoneText = [UITextField newAutoLayoutView];
     [self.view addSubview:telPhoneText];
     telPhoneText.placeholder = @"请输入手机号码";
@@ -71,6 +72,7 @@
     
     msgText = [UITextField newAutoLayoutView];
     [self.view addSubview:msgText];
+    msgText.keyboardType = UIKeyboardTypePhonePad;
     msgText.placeholder = @"请输入验证码";
     msgText.tintColor = [colorTurn colorTurnWithRed:251 greed:44 blue:75 alpa:1];
     msgText.textAlignment = NSTextAlignmentCenter;
@@ -280,6 +282,7 @@
 - (void)sendMsg {
 
     if ([self checkTelPhoneNum]) {
+        [msgText becomeFirstResponder];
         sendMsgBtn.userInteractionEnabled = NO;
         timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateBtnTitle) userInfo:nil repeats:YES];
         [timer fire];
@@ -328,7 +331,7 @@
 - (void)updateBtnTitle {
     
     
-    [sendMsgBtn setTitle:[NSString stringWithFormat:@"%d",start] forState:UIControlStateNormal];
+    [sendMsgBtn setTitle:[NSString stringWithFormat:@"%d s",start] forState:UIControlStateNormal];
     if (start < 1) {
         
         [sendMsgBtn setTitle:@"重新获取" forState:UIControlStateNormal];

@@ -8,7 +8,7 @@
 
 #import "PPGadeViewController.h"
 
-@interface PPGadeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface PPGadeViewController ()<UITableViewDataSource,UITableViewDelegate,httpRequestDelegate>
 {
 
     UITableView *myTableView;
@@ -144,12 +144,122 @@
 - (void)dismissVCWith:(NSArray *)arr{
 
     NSNotificationCenter *noti = [NSNotificationCenter defaultCenter];
+  
     NSDictionary *dic = @{@"arr":arr,@"isCompany":self.isCompany,@"string":_stringArr};
     [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
-
-    PPRegistViewController *regist = [PPRegistViewController shareInstance];
     
-    [ self.navigationController popToViewController:regist animated:YES];
+    NSLog(@"stringarr:%@,arr:%@",_stringArr,arr);
+    [self getMessage];
+    //[self modifyMessageWithChoose:arr andIsCompany:self.isCompany];
+  
+
+}
+
+- (void)modifyMessageWithChoose:(NSArray *)arr  andIsCompany :(NSString *)company  withDiction:(NSMutableDictionary*)reqdiction {
+    httpRequestViewController *request = [[httpRequestViewController alloc]init];
+    request.delegate = self;
+  
+    
+    //判断是公司资质修改还是人员资质修改
+    if ([company isEqualToString:@"company"]) {
+        NSString *name = [TTUserDefaultTool objectForKey:TTusername];
+        
+        for (int i=1; i<=arr.count; i++) {
+            
+            NSDictionary *diction = arr[i-1];
+            NSString *pro = [NSString stringWithFormat:@"pro_id%d",i];
+            NSString *qu = [NSString stringWithFormat:@"qu_id%d",i];
+            [reqdiction setObject:diction[@"pro_id"] forKey:pro];
+            [reqdiction setObject:diction[@"qu_id"] forKey:qu];
+        }
+        [reqdiction setObject:name forKey:@"username"];
+        [reqdiction setObject:@"" forKey:@"duty_name"];
+        [reqdiction setObject:@"" forKey:@"mainsuc"];
+        [reqdiction setObject:@"" forKey:@"cname"];
+        
+       
+        [request onSearch:TTModiFyMessageURL withDic:reqdiction];
+    }
+   
+    if ([company isEqualToString:@"head"]) {
+        NSString *name = [TTUserDefaultTool objectForKey:TTusername];
+        
+        for (int i=1; i<=arr.count; i++) {
+            
+            NSDictionary *diction = arr[i-1];
+            NSString *pro = [NSString stringWithFormat:@"dpro_id%d",i];
+            NSString *qu = [NSString stringWithFormat:@"dqu_id%d",i];
+            [reqdiction setObject:diction[@"pro_id"] forKey:pro];
+            [reqdiction setObject:diction[@"qu_id"] forKey:qu];
+        }
+        [reqdiction setObject:name forKey:@"username"];
+        [reqdiction setObject:@"" forKey:@"duty_name"];
+        [reqdiction setObject:@"" forKey:@"mainsuc"];
+        [reqdiction setObject:@"" forKey:@"cname"];
+        
+        [request onSearch:TTModiFyMessageURL withDic:reqdiction];
+        
+    }
+
+
+}
+
+- (void)getMessage {
+    httpRequestViewController *request;
+    if (request == nil) {
+       request = [[httpRequestViewController alloc]init];
+    }
+    request.delegate = self;
+    NSString *userName = [TTUserDefaultTool objectForKey:TTusername];
+    NSDictionary *dic = @{@"username":userName};
+    [request onSearch:TTGetMessageURL withDic:dic];
+
+
+}
+
+
+- (void)didReciveDataWithDic:(NSDictionary *)result andRequestUrl:(NSString *)url {
+
+    if ([url isEqualToString:TTGetMessageURL]) {
+      
+        NSArray *arr = result[@"datas"];
+        NSArray  *arrcomcount = arr[2][@"compro"];
+        NSArray  *arrusercount = arr[4][@"userpro"];
+        NSMutableDictionary *dictionRequet = [[NSMutableDictionary alloc]init];
+        if ([self.isCompany isEqualToString:@"company"]) {
+            
+            for (int i = 1; i <= arrusercount.count; i++) {
+                
+                NSString *pro = [NSString stringWithFormat:@"dpro_id%d",i];
+                NSString  *qu = [NSString stringWithFormat:@"dqu_id%d",i];
+                NSDictionary *arr = arrusercount[i-1];
+                [dictionRequet setObject:arr[@"dpro_id"] forKey:pro];
+                [dictionRequet setObject:arr[@"dqu_id"] forKey:qu];
+            }
+            
+            [self modifyMessageWithChoose:returnArr andIsCompany:self.isCompany withDiction:dictionRequet];
+        }
+        
+        if ([self.isCompany isEqualToString:@"head"]) {
+            
+            for (int i = 1; i <= arrusercount.count; i++) {
+                
+                NSString *pro = [NSString stringWithFormat:@"pro_id%d",i];
+                NSString  *qu = [NSString stringWithFormat:@"qu_id%d",i];
+                NSDictionary *dic = arrcomcount[i-1];
+                [dictionRequet setObject:dic[@"pro_id"] forKey:pro];
+                [dictionRequet setObject:dic[@"qu_id"] forKey:qu];
+            }
+            
+            [self modifyMessageWithChoose:returnArr andIsCompany:self.isCompany withDiction:dictionRequet];
+
+        }
+        
+    }
+    if ([url isEqualToString:TTModiFyMessageURL]) {
+        NSLog(@"dd:%@",result);
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
     
 
 }

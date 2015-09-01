@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681F4E821B93F1C100D75B48 /* PPAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681F4E7F1B93F1C100D75B48 /* PPAboutUsViewController.m */; };
+		681F4E831B93F1C100D75B48 /* TTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681F4E811B93F1C100D75B48 /* TTMineViewController.m */; };
+		681F4E891B93F40D00D75B48 /* perFectMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681F4E881B93F40D00D75B48 /* perFectMessageViewController.m */; };
+		68265C7F1B7C2DE600D2116F /* InputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 68265C7C1B7C2DE600D2116F /* InputText.m */; };
+		68265C801B7C2DE600D2116F /* UIView+XD.m in Sources */ = {isa = PBXBuildFile; fileRef = 68265C7E1B7C2DE600D2116F /* UIView+XD.m */; };
+		68265C841B7C468A00D2116F /* PPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68265C821B7C468A00D2116F /* PPHomeViewController.m */; };
+		68265C851B7C468A00D2116F /* PPHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68265C831B7C468A00D2116F /* PPHomeViewController.xib */; };
 		68634EF91B4F6B21004C1249 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68634EF81B4F6B21004C1249 /* QuartzCore.framework */; };
 		68845FD01B676E08007BA4A7 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FCF1B676E08007BA4A7 /* FDAlertView.m */; };
 		68845FD31B6772D3007BA4A7 /* PPPingYinSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 68845FD21B6772D3007BA4A7 /* PPPingYinSearch.m */; };
@@ -23,8 +30,6 @@
 		AFC61FB31B4500CA00E11040 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC61FB21B4500CA00E11040 /* Launch Screen.xib */; };
 		AFE7627A1B5FD50200F5E9AE /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762751B5FD50200F5E9AE /* PPBaseViewController.m */; };
 		AFE7627B1B5FD50200F5E9AE /* TTBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762771B5FD50200F5E9AE /* TTBaseWebViewController.m */; };
-		AFE762841B5FD51600F5E9AE /* PPAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE7627F1B5FD51600F5E9AE /* PPAboutUsViewController.m */; };
-		AFE762851B5FD51600F5E9AE /* TTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762811B5FD51600F5E9AE /* TTMineViewController.m */; };
 		AFE7628B1B5FD52A00F5E9AE /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762881B5FD52A00F5E9AE /* MyButton.m */; };
 		AFE7628C1B5FD52A00F5E9AE /* TTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE7628A1B5FD52A00F5E9AE /* TTRootViewController.m */; };
 		AFE7629F1B5FD53E00F5E9AE /* BiddingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE762901B5FD53E00F5E9AE /* BiddingListViewController.m */; };
@@ -117,6 +122,19 @@
 		25B86DD9ACF283721F4EB233 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		29829C2FDBBE7C1C5691DCB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		556F51A9F0429DE857E4B8D6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		681F4E7E1B93F1C100D75B48 /* PPAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAboutUsViewController.h; path = "招标/Mine/Controller/PPAboutUsViewController.h"; sourceTree = "<group>"; };
+		681F4E7F1B93F1C100D75B48 /* PPAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAboutUsViewController.m; path = "招标/Mine/Controller/PPAboutUsViewController.m"; sourceTree = "<group>"; };
+		681F4E801B93F1C100D75B48 /* TTMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMineViewController.h; path = "招标/Mine/Controller/TTMineViewController.h"; sourceTree = "<group>"; };
+		681F4E811B93F1C100D75B48 /* TTMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMineViewController.m; path = "招标/Mine/Controller/TTMineViewController.m"; sourceTree = "<group>"; };
+		681F4E871B93F40D00D75B48 /* perFectMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = perFectMessageViewController.h; sourceTree = "<group>"; };
+		681F4E881B93F40D00D75B48 /* perFectMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = perFectMessageViewController.m; sourceTree = "<group>"; };
+		68265C7B1B7C2DE600D2116F /* InputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputText.h; sourceTree = "<group>"; };
+		68265C7C1B7C2DE600D2116F /* InputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputText.m; sourceTree = "<group>"; };
+		68265C7D1B7C2DE600D2116F /* UIView+XD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XD.h"; sourceTree = "<group>"; };
+		68265C7E1B7C2DE600D2116F /* UIView+XD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XD.m"; sourceTree = "<group>"; };
+		68265C811B7C468A00D2116F /* PPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHomeViewController.h; sourceTree = "<group>"; };
+		68265C821B7C468A00D2116F /* PPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHomeViewController.m; sourceTree = "<group>"; };
+		68265C831B7C468A00D2116F /* PPHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPHomeViewController.xib; sourceTree = "<group>"; };
 		68634EF81B4F6B21004C1249 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		68845FCE1B676E08007BA4A7 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FDAlertView.h; path = FDAlertView/FDAlertView.h; sourceTree = "<group>"; };
 		68845FCF1B676E08007BA4A7 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FDAlertView.m; path = FDAlertView/FDAlertView.m; sourceTree = "<group>"; };
@@ -147,10 +165,6 @@
 		AFE762751B5FD50200F5E9AE /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
 		AFE762761B5FD50200F5E9AE /* TTBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBaseWebViewController.h; sourceTree = "<group>"; };
 		AFE762771B5FD50200F5E9AE /* TTBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBaseWebViewController.m; sourceTree = "<group>"; };
-		AFE7627E1B5FD51600F5E9AE /* PPAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAboutUsViewController.h; sourceTree = "<group>"; };
-		AFE7627F1B5FD51600F5E9AE /* PPAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAboutUsViewController.m; sourceTree = "<group>"; };
-		AFE762801B5FD51600F5E9AE /* TTMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMineViewController.h; sourceTree = "<group>"; };
-		AFE762811B5FD51600F5E9AE /* TTMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMineViewController.m; sourceTree = "<group>"; };
 		AFE762871B5FD52A00F5E9AE /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		AFE762881B5FD52A00F5E9AE /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
 		AFE762891B5FD52A00F5E9AE /* TTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRootViewController.h; sourceTree = "<group>"; };
@@ -319,6 +333,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681F4E7A1B93F18A00D75B48 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				681F4E7D1B93F1B200D75B48 /* View */,
+				681F4E7C1B93F1A800D75B48 /* Model */,
+				681F4E7B1B93F19C00D75B48 /* Controller */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		681F4E7B1B93F19C00D75B48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				681F4E871B93F40D00D75B48 /* perFectMessageViewController.h */,
+				681F4E881B93F40D00D75B48 /* perFectMessageViewController.m */,
+				681F4E7E1B93F1C100D75B48 /* PPAboutUsViewController.h */,
+				681F4E7F1B93F1C100D75B48 /* PPAboutUsViewController.m */,
+				681F4E801B93F1C100D75B48 /* TTMineViewController.h */,
+				681F4E811B93F1C100D75B48 /* TTMineViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		681F4E7C1B93F1A800D75B48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		681F4E7D1B93F1B200D75B48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		68845FCD1B676DE7007BA4A7 /* FDAlerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +382,7 @@
 		AFC61F691B44CF9C00E11040 = {
 			isa = PBXGroup;
 			children = (
+				681F4E7A1B93F18A00D75B48 /* Mine */,
 				AFC61F741B44CF9C00E11040 /* 招标 */,
 				AFE7634B1B5FD5A500F5E9AE /* category */,
 				AFE762D41B5FD58A00F5E9AE /* Library */,
@@ -338,7 +390,6 @@
 				AFE762A71B5FD54D00F5E9AE /* LoginAndRegist */,
 				AFE7628D1B5FD53E00F5E9AE /* Main */,
 				AFE762861B5FD52A00F5E9AE /* Common */,
-				AFE7627C1B5FD51600F5E9AE /* Mine */,
 				AFE762721B5FD50200F5E9AE /* Base */,
 				AFC61F8E1B44CF9C00E11040 /* 招标Tests */,
 				AFC61F731B44CF9C00E11040 /* Products */,
@@ -427,41 +478,6 @@
 			sourceTree = "<group>";
 		};
 		AFE762791B5FD50200F5E9AE /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AFE7627C1B5FD51600F5E9AE /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				AFE7627D1B5FD51600F5E9AE /* Controller */,
-				AFE762821B5FD51600F5E9AE /* Model */,
-				AFE762831B5FD51600F5E9AE /* View */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		AFE7627D1B5FD51600F5E9AE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				AFE7627E1B5FD51600F5E9AE /* PPAboutUsViewController.h */,
-				AFE7627F1B5FD51600F5E9AE /* PPAboutUsViewController.m */,
-				AFE762801B5FD51600F5E9AE /* TTMineViewController.h */,
-				AFE762811B5FD51600F5E9AE /* TTMineViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		AFE762821B5FD51600F5E9AE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AFE762831B5FD51600F5E9AE /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -557,6 +573,9 @@
 				AFE762B41B5FD54D00F5E9AE /* PPSelectedViewController.m */,
 				AFE762B51B5FD54D00F5E9AE /* RegistViewController.h */,
 				AFE762B61B5FD54D00F5E9AE /* RegistViewController.m */,
+				68265C811B7C468A00D2116F /* PPHomeViewController.h */,
+				68265C821B7C468A00D2116F /* PPHomeViewController.m */,
+				68265C831B7C468A00D2116F /* PPHomeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -573,6 +592,10 @@
 		AFE762BA1B5FD54D00F5E9AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				68265C7B1B7C2DE600D2116F /* InputText.h */,
+				68265C7C1B7C2DE600D2116F /* InputText.m */,
+				68265C7D1B7C2DE600D2116F /* UIView+XD.h */,
+				68265C7E1B7C2DE600D2116F /* UIView+XD.m */,
 				AFE762BB1B5FD54D00F5E9AE /* HomeViewController.xib */,
 				AFE762BC1B5FD54D00F5E9AE /* PPGuideUserView.h */,
 				AFE762BD1B5FD54D00F5E9AE /* PPGuideUserView.m */,
@@ -954,6 +977,7 @@
 				AFE763391B5FD58A00F5E9AE /* unicode_to_hanyu_pinyin.txt in Resources */,
 				AFF8F6441B5644840075DB60 /* PushConfig.plist in Resources */,
 				AF97F5551B576871003B10D3 /* index.html in Resources */,
+				68265C851B7C468A00D2116F /* PPHomeViewController.xib in Resources */,
 				AFE763431B5FD58A00F5E9AE /* sdRefeshView_arrow@2x.png in Resources */,
 				AFE763401B5FD58A00F5E9AE /* TYGSelectMenuCellTableViewCell.xib in Resources */,
 				AFE7633A1B5FD58A00F5E9AE /* down_dark.png in Resources */,
@@ -1017,14 +1041,15 @@
 				AFE762A01B5FD53E00F5E9AE /* DetialBiddingViewController.m in Sources */,
 				68845FD01B676E08007BA4A7 /* FDAlertView.m in Sources */,
 				AFE763791B5FE5D500F5E9AE /* HomeViewController.m in Sources */,
-				AFE762851B5FD51600F5E9AE /* TTMineViewController.m in Sources */,
 				AFE762C21B5FD54D00F5E9AE /* PPChooseInfoViewController.m in Sources */,
 				688B6CA31B788D8200037314 /* httpRequestViewController.m in Sources */,
 				688B6CAB1B789A0900037314 /* PPRegistTTViewController.m in Sources */,
 				AFE7629F1B5FD53E00F5E9AE /* BiddingListViewController.m in Sources */,
 				AFE7627A1B5FD50200F5E9AE /* PPBaseViewController.m in Sources */,
 				688B6CAE1B79A02C00037314 /* PPPwdViewController.m in Sources */,
+				681F4E891B93F40D00D75B48 /* perFectMessageViewController.m in Sources */,
 				AFE763741B5FD73300F5E9AE /* DHMenuPagerViewController.m in Sources */,
+				68265C7F1B7C2DE600D2116F /* InputText.m in Sources */,
 				AFE762C31B5FD54D00F5E9AE /* PPGadeViewController.m in Sources */,
 				AFE7628C1B5FD52A00F5E9AE /* TTRootViewController.m in Sources */,
 				AFE763351B5FD58A00F5E9AE /* NSString+PinYin4Cocoa.m in Sources */,
@@ -1042,13 +1067,16 @@
 				AFE763471B5FD58A00F5E9AE /* UIView+SDExtension.m in Sources */,
 				AFC61F781B44CF9C00E11040 /* main.m in Sources */,
 				AFE763411B5FD58A00F5E9AE /* TYGSelectMenuEntity.m in Sources */,
+				68265C841B7C468A00D2116F /* PPHomeViewController.m in Sources */,
 				AFE763371B5FD58A00F5E9AE /* PinYinForObjc.m in Sources */,
 				AFE763611B5FD69200F5E9AE /* REFrostedViewController.m in Sources */,
 				AFE763771B5FD73300F5E9AE /* ParentCellViewController.m in Sources */,
+				681F4E821B93F1C100D75B48 /* PPAboutUsViewController.m in Sources */,
 				AFE763381B5FD58A00F5E9AE /* PinyinHelper.m in Sources */,
 				AFE762A11B5FD53E00F5E9AE /* TTBiddingModel.m in Sources */,
-				AFE762841B5FD51600F5E9AE /* PPAboutUsViewController.m in Sources */,
 				AFE762C51B5FD54D00F5E9AE /* PPResultViewController.m in Sources */,
+				68265C801B7C2DE600D2116F /* UIView+XD.m in Sources */,
+				681F4E831B93F1C100D75B48 /* TTMineViewController.m in Sources */,
 				68845FD61B67744B007BA4A7 /* ChineseInclude.m in Sources */,
 				AFE763761B5FD73300F5E9AE /* NavParentController.m in Sources */,
 				AFE762A51B5FD53E00F5E9AE /* DetailBiddingTableViewCell.m in Sources */,
@@ -1188,7 +1216,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "招标/Bidding.pch";
@@ -1215,7 +1243,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: ideas.com11";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "招标/Bidding.pch";

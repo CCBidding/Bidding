@@ -16,6 +16,7 @@
     NSMutableArray  *dataSource;  //获取招标列表
     NSString        *requestUrl;  //请求URL
     NSArray         *colorArr;    //颜色数组
+    NSDictionary    *dict;        //请求参数
     
     
 }
@@ -97,20 +98,24 @@
     UIColor *color6 = TTColor(92 , 173, 125, 1);
     
     colorArr=@[color1,color2,color3,color4,color5,color6];
-    
+    dict = [[NSDictionary alloc]init];
     _originalArray = [NSMutableArray array];
-    
+     NSString *name = [TTUserDefaultTool objectForKey:TTusername];
     if (_bidsType==bidTypeBidding) {
         requestUrl=TTBiddingLsitUrl;
+        dict = @{@"username":name};
     }
     else{
         requestUrl=TTBidWinlistUrl;
+        dict = @{};
     }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    AFHTTPRequestOperation *op = [manager POST:requestUrl parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  
+    
+    AFHTTPRequestOperation *op = [manager GET:requestUrl parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arr;
         arr = responseObject[@"datas"];
         if (_originalArray != 0) {
@@ -314,7 +319,7 @@
 - (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
    
         BiddinglistTableViewCell *biddingcell = (BiddinglistTableViewCell *)cell;
-        biddingcell.backgroundview.backgroundColor = colorArr[indexPath.row%6];
+    biddingcell.backgroundview.backgroundColor = [colorTurn colorTurnWithRed:161 greed:168 blue:190 alpa:1];
     if(_bidsType == bidTypeBidding){
         biddingcell.biddingModel              = dataSource[indexPath.row];
         biddingcell.infoLab.text              = biddingcell.biddingModel.bid_title;
@@ -324,9 +329,9 @@
     else
     {
         biddingcell.winBiddingModel              = dataSource[indexPath.row];
-        biddingcell.infoLab.text              = biddingcell.winBiddingModel.title_name;
-        biddingcell.addressLab.text           = biddingcell.winBiddingModel.caigourenName;
-        biddingcell.timeLab.text              = biddingcell.winBiddingModel.dingbiaoriqi  ;
+        biddingcell.infoLab.text              = biddingcell.winBiddingModel.widTitle;
+        biddingcell.addressLab.text           = biddingcell.winBiddingModel.bidOrg;
+        biddingcell.timeLab.text              = biddingcell.winBiddingModel.oppenDate  ;
     
     }
     

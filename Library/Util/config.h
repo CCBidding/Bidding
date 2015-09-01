@@ -22,13 +22,16 @@
 #import "SDRefresh.h"
 
 #define TTBaseurl    @"http://123.57.48.206:8080/GyBid"
-#define TTLoginUrl   @"http://123.57.48.206:8080/GyBid/appLogin/login.do?type=onlinedo"
-#define TTRegistUrl  @"http://123.57.48.206:8080/GyBid/appReg/regedit.do?type=onlinedo"
-#define TTBiddingLsitUrl @"http://123.57.48.206:8080/GyBid/app/bilist.do?type=bilist"
-#define TTBidWinlistUrl  @"http://123.57.48.206:8080/GyBid/app/wilist.do?type=wilist"
+#define TTLoginUrl   @"http://114.215.97.235/appLogin/login.do?type=onlinedo"
+#define TTRegistUrl  @"http://114.215.97.235/appReg/regedit.do?type=onlinedo"
+#define TTBiddingLsitUrl @"http://114.215.97.235/app/bilist.do?type=bilist"
+#define TTBidWinlistUrl  @"http://114.215.97.235/app/wilist.do?type=wilist"
 #define TTgetCategorylistUrl @"http://123.57.48.206:8080/GyBid/appReg/comtype.do?type=proty"
-#define TTGetComtypeURL  @"http://123.57.48.206:8080/GyBid/appReg/comtype.do?type=quaty" //获取资质接口
-#define TTGetGradeURL     @"http://123.57.48.206:8080/GyBid/appReg/findgrade.do" //获取等级接口
+#define TTGetComtypeURL  @"http://114.215.97.235/app/comtype.do?type=quaty" //获取资质接口
+#define TTGetGradeURL     @"http://114.215.97.235/app/findgrade.do" //获取等级接口
+#define TTGetMessageURL   @"http://114.215.97.235/app/oppinfo.do?type=opp"  //获取用户资料
+
+#define TTModiFyMessageURL @"http://114.215.97.235/app/impinfo.do?type=imp" //修改资料
 #define TTUserid     @"user_id"
 #define TTsessinid   @"session_id"
 #define TTpassword   @"password"
@@ -55,4 +58,7 @@
 #import "PPSelectedViewController.h"
 #import "FDAlertView.h"
 #import "PPPingYinSearch.h"
+#import "UIView+XD.h"
+#import "perFectMessageViewController.h"
+#import "httpRequestViewController.h"
 #endif

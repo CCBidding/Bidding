@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "APService.h"
 #import "HomeViewController.h"
+#import "PPHomeViewController.h"
 #import "TTRootViewController.h"
 #import "REFrostedViewController.h"
 
@@ -48,7 +49,7 @@
                 
             }
             else{
-                HomeViewController *home = [[HomeViewController alloc]init];
+               PPHomeViewController  *home = [[PPHomeViewController alloc]init];
                 home.showNavi = NO;
                 UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
                 self.window.rootViewController = nav;
@@ -63,7 +64,7 @@
     }
     else{
 
-        HomeViewController *home = [[HomeViewController alloc]init];
+        PPHomeViewController *home = [[PPHomeViewController alloc]init];
         home.showNavi = NO;
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController: home];
         self.window.rootViewController = nav;

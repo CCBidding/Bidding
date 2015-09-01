@@ -173,47 +173,47 @@
     else{
         switch (indexPath.row) {
             case 0:
-                biddingcell.infoLab.text = _winBiddingModel.title_name;
+                biddingcell.infoLab.text = _winBiddingModel.widTitle;
         
                 break;
             case 1:
-                biddingcell.infoLab.text = _winBiddingModel.caigourenName;
+                biddingcell.infoLab.text = _winBiddingModel.bidOrg;
              
                 break;
             case 2:
-                biddingcell.infoLab.text = _winBiddingModel.xiangmuName;
+                biddingcell.infoLab.text = _winBiddingModel.bidOrg;
                
                 break;
             case 3:
-                biddingcell.infoLab.text = _winBiddingModel.xiangmuNum;
+                biddingcell.infoLab.text = @"";
        
                 break;
             case 4:
-                biddingcell.infoLab.text = _winBiddingModel.xiangmuxulieNum;
+                biddingcell.infoLab.text = @"";
             
                 break;
             case 5:
-                biddingcell.infoLab.text = _winBiddingModel.caigoufangshi;
+                biddingcell.infoLab.text = @"";
                 
                 break;
             case 6:
-                biddingcell.infoLab.text = _winBiddingModel.caigougonggaoriqijiMeiti;
+                biddingcell.infoLab.text =@"";
            
                 break;
             case 7:
-                biddingcell.infoLab.text = _winBiddingModel.pingshenxinxi;
+                biddingcell.infoLab.text = @"";
            
                 break;
             case 8:
-                biddingcell.infoLab.text = _winBiddingModel.dingbiaoriqi;
+                biddingcell.infoLab.text = _winBiddingModel.oppenDate;
             
                 break;
             case 9:
-                biddingcell.infoLab.text = _winBiddingModel.zhongbiaoxinxi;
+                biddingcell.infoLab.text = _winBiddingModel.widInfo;
 
                 break;
             case 10:
-                biddingcell.infoLab.text = _winBiddingModel.lianxishixiang;
+                biddingcell.infoLab.text = _winBiddingModel.other;
                 break;
             case 11:
                 biddingcell.infoLab.text = _winBiddingModel.url;

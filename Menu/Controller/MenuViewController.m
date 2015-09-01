@@ -39,17 +39,17 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"Icon"];
+        imageView.image = [UIImage imageNamed:@"1"];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        imageView.layer.borderWidth = 3.0f;
+        imageView.layer.borderColor = [UIColor redColor].CGColor;
+        imageView.layer.borderWidth = 1.0f;
         imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         imageView.layer.shouldRasterize = YES;
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = @"Roman Efimov";
+        label.text = @"贵阳招投标协会";
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
@@ -83,7 +83,7 @@
     view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
-    label.text = @"Friends Online";
+    label.text = @"资料修改";
     label.font = [UIFont systemFontOfSize:15];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
@@ -104,17 +104,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    UINavigationController *navigationController = (UINavigationController *)self.frostedViewController.contentViewController;
     
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        DEMOHomeViewController *homeViewController = [[DEMOHomeViewController alloc] init];
-//        navigationController.viewControllers = @[homeViewController];
-//    } else {
-//        DEMOSecondViewController *secondViewController = [[DEMOSecondViewController alloc] init];
-//        navigationController.viewControllers = @[secondViewController];
-//    }
-//    
-//    [self.frostedViewController hideMenuViewController];
+    switch (indexPath.section) {
+        case 0:
+            
+            break;
+        case 1:{
+        
+            if (indexPath.row == 0) {
+                PPChooseInfoViewController *chose = [[PPChooseInfoViewController alloc]init];
+                chose.showNavi = YES;
+                chose.isCompany =@"company";
+                [self.navigationController pushViewController:chose animated:YES];
+            }
+            else if (indexPath.row == 1) {
+                PPChooseInfoViewController *chose = [[PPChooseInfoViewController alloc]init];
+                chose.showNavi = YES;
+                chose.isCompany =@"head";
+                [self.navigationController pushViewController:chose animated:YES];
+
+            
+            }
+        
+        }
+        default:
+            break;
+    }
+
 }
 
 #pragma mark -
@@ -149,12 +165,13 @@
         NSArray *titles = @[@"关注", @"个人设置", @"修改密码"];
         cell.textLabel.text = titles[indexPath.row];
     } else {
-        NSArray *titles = @[@"John Appleseed", @"John Doe", @"Test User"];
+        NSArray *titles = @[@"公司资质修改", @"人员资质修改", @"关于协会"];
         cell.textLabel.text = titles[indexPath.row];
     }
     
     return cell;
 }
+
 
 
 

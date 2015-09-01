@@ -9,7 +9,7 @@
 #import "TTMineViewController.h"
 
 
-@interface TTMineViewController ()<UITableViewDataSource,UITableViewDelegate,FDAlertViewDelegate>
+@interface TTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
 
     UITableView *myTableView;
@@ -95,9 +95,10 @@
             break;
         case 3:
         {
-            FDAlertView *alert = [[FDAlertView alloc] initWithTitle:@"退出登录" icon:[UIImage imageNamed:@"exclamation-icon"] message:@"你确定退出登录吗？" delegate:self buttonTitles:@"确定", @"取消", nil];
-            [alert show];
-           
+            [TTUserDefaultTool removeObjectForKey:TTusername];
+            HomeViewController *home = [[HomeViewController alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
+            self.view.window.rootViewController = nav;
             
         }
             break;
@@ -124,25 +125,6 @@
     return TTScreenWith*60/320;
 
 }
-
-/**
- *  FDAlertView delegate
- */
-
-- (void)alertView:(FDAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"%ld", (long)buttonIndex);
-    if (buttonIndex == 0) {
-        [TTUserDefaultTool removeObjectForKey:TTusername];
-        HomeViewController *home = [[HomeViewController alloc]init];
-        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
-        self.view.window.rootViewController = nav;
-    }else{
-    
-    
-    
-    }
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
