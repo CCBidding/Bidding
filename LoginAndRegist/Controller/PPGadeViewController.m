@@ -126,7 +126,10 @@
         
         [myTableView setEditing:NO animated:YES];
       
+        if (isSelectGradeArr.count > 0){
         [self dismissVCWith:returnArr];
+        }
+        
        [item setTitle:@"选择"];
         
 
@@ -147,8 +150,6 @@
   
     NSDictionary *dic = @{@"arr":arr,@"isCompany":self.isCompany,@"string":_stringArr};
     [noti postNotificationName:@"isSelectArr" object:self userInfo:dic];
-    
-    NSLog(@"stringarr:%@,arr:%@",_stringArr,arr);
     [self getMessage];
     //[self modifyMessageWithChoose:arr andIsCompany:self.isCompany];
   
@@ -257,7 +258,7 @@
         
     }
     if ([url isEqualToString:TTModiFyMessageURL]) {
-        NSLog(@"dd:%@",result);
+        
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
